@@ -1,26 +1,31 @@
-// //SERVER
 const express = require('express');
-require('dotenv').config();
 const app = express();
 const cors = require('cors');
-app.use(cors());
+require('dotenv').config();
+
+app.use(cors({
+    origin: "*",
+    credentials: true,
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
-app.listen(process.env.PORT, () => {
-    console.log(`server lsitening at port ${process.env.PORT}`)
+const PORT = process.env.PORT || 5678
+app.listen(PORT, () => {
+    console.log(`server lsitening at port ${PORT}...`)
 });
 
-app.use(express.static('public'));
+
+
 //DATABASE
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/sensors', {
+mongoose.connect(process.env.DATABASE_CONFIG_PRODUCTION, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
-});
+}, (err) => {err && console.log(err.message) });
 mongoose.connection.on('error', () => {
     console.error('error connecting to database')
 });

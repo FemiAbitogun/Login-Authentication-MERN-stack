@@ -1,11 +1,10 @@
-import './index.css'
+import './App.css'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './components/authorizationPages/Login';
 import Register from './components/authorizationPages/Register';
 import Home from './components/Home';
 import ContextGlobal from './context/ContextGlobal';
 import Navbar from './components/authorizationPages/Navbar';
-
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
     </div>
   );
 }
-
 export default App;
 
 
