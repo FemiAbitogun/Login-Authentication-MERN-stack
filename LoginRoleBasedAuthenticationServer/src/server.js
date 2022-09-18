@@ -20,7 +20,6 @@ mongoose.connect('mongodb://localhost/sensors', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
-
 });
 mongoose.connection.on('error', () => {
     console.error('error connecting to database')
