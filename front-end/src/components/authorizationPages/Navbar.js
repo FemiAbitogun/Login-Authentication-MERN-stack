@@ -1,35 +1,42 @@
-import React, { useContext } from 'react';
-
+import React, { } from 'react';
 import { useHistory } from 'react-router-dom';
-import { globalContext } from '../../context/ContextGlobal';
 
 
 function Navbar() {
-    const { user, setUser } = useContext(globalContext);
+
     const history = useHistory();
-    const logOut = (ev) => {
-        ev.preventDefault();
-        setUser('');
-        localStorage.setItem('auth-token', "");
-        history.push('/login')
+    const logOut = () => {
+
+
     };
-    const _Register = (ev) => {
-        ev.preventDefault();
-        history.push('/register')
+    const Register = () => {
+
+        history.push('/register');
     };
-    const _Login = (ev) => {
-        ev.preventDefault();
-        history.push('/login')
+    const Login = () => {
+
+        history.push('/login');
     };
+
+    const HomPage = () => { history.push('/'); }
+
     return (
-        <div>
+        <div className='Navber'>
             {
-                user.id ?
-                    <button onClick={logOut}>logout</button>
+                (2 > 3) ? <div>
+                    <button className='Button3' onClick={logOut}><b>Log out</b></button>
+                </div>
+
                     :
                     <>
-                        <button onClick={_Register}>Register</button>
-                        <button onClick={_Login}>Login</button>
+                        <div className='NavberInnerHomeBtn'>
+                            <button className='Button3' onClick={HomPage}><b>Home</b></button>
+                        </div>
+                        <div className="NavberInner">
+                            <button className='Button3' style={{ "color": "white" }} onClick={Register}><b>Register</b></button>
+                            <button className='Button3' onClick={Login}><b>Login</b></button>
+                        </div>
+
                     </>
             }
         </div>

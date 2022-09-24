@@ -1,0 +1,117 @@
+.Button1 {
+    width: 80px;
+    height: 30px;
+    background-color: rgba(197, 190, 190, 0.172);
+    /* color: blue; */
+    outline: none;
+    border: none;
+    margin-right: 1px;
+    font: bold;
+    cursor: pointer;
+}
+
+.Button2 {
+    width: 80px;
+    height: 30px;
+    background-color: blue;
+    color: white;
+    outline: none;
+    border: none;
+    margin-left: 1px;
+    font: bold;
+    cursor: pointer;
+}
+
+.Button3 {
+    width: 120px;
+    height: 40px;
+    background-color: rgba(204, 190, 190, 0.116);
+    color: white;
+    outline: none;
+    border: none;
+    margin-left: 1px;
+    font: bolder;
+    cursor: pointer;
+    border: 1px solid white;
+    letter-spacing: .5em;
+}
+
+/*Input placeholder displacement */
+.user-input-wrp {
+    position: relative;
+    width: 50%;
+}
+
+.user-input-wrp .inputText {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #777;
+    box-shadow: none !important;
+}
+
+.user-input-wrp .inputText:focus {
+    border-color: blue;
+    border-width: medium medium 2px;
+}
+
+.user-input-wrp .floating-label {
+    position: absolute;
+    pointer-events: none;
+
+    top: 35px;
+    /* top:18px; */
+    left: 10px;
+    transition: 0.2s ease all;
+}
+
+.user-input-wrp input:focus~.floating-label,
+.user-input-wrp input:not(:focus):valid~.floating-label {
+    /* top:0px */
+    top: 15px;
+    /* left:10px */
+    left: 2px;
+    font-size: 13px;
+    opacity: 1;
+}
+
+.SelectTag {
+    min-width: 12em;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.671);
+    color: white;
+    font-size: 1em;
+}
+
+@media screen and (max-width: 500px) {
+
+    .Login {
+        height: 6vh;
+    }
+
+    .ImageDiv {
+        max-width: 100px;
+        margin-top: 110px;
+    }
+
+    .SbcLogo {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 3px;
+    }
+}
+
+@media screen and (max-height: 550px) {
+    .Navber {
+        min-height: 20vh;
+
+    }
+
+    .ImageDiv {
+        margin-top: 30px;
+        /* max-width: 100px; */
+    }
+
+
+}

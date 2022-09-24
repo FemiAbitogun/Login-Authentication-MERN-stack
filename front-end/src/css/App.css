@@ -1,0 +1,64 @@
+body {
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../images/kettenraeder-taperlock-spannbuchsen-iwis.webp');
+    padding: 0px;
+    margin: 0px;
+}
+
+.App {
+    min-width: 100%;
+    background-color: transparent;
+    min-height: 100vh;
+}
+
+
+
+.AppContainer {
+    margin: auto;
+    width: 90%;
+    height: 100vh;
+}
+
+.Navber {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: rgba(11, 11, 11, 0.556);
+}
+
+
+.NavberInnerHomeBtn {
+    min-width: 20%;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+.NavberInnerHomeBtn {
+    background-color: transparent;
+}
+.NavberInner {
+    min-width: 60%;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.NavberInner button {
+    margin-right: 5px;
+}
+
+
+
+@media screen and (max-width: 500px) {
+    .AppContainer {
+        min-height: 100%;
+    }
+
+}
