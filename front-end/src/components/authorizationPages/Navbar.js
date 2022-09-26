@@ -30,18 +30,27 @@ function Navbar() {
         <div className='Navber'>
             {
                 <>
-
-                    <>
-                        <div className='NavberInnerHomeBtn'>
-                            <button className='Button3' onClick={HomPageBtn}><b>Home</b></button>
+                    <div className="NavberInner">
+                        {/* <button className='Button3 NavberHomeBtn' onClick={HomPageBtn}><b>Home</b></button> */}
+                        <div className='LoginProfilePic'>
+                            <img src={require('../../images/pepsi.jpg')} alt="" />
                         </div>
-                        <div className="NavberInner">
+
+                        <div className="NavberInnerNavs">
                             {signedIn && <button className='Button3' style={{ "color": "white" }} onClick={RegisterBtn}><b>Register</b></button>}
-                            {!signedIn && <button className='Button3' onClick={LoginBtn}><b>Login</b></button>}
-                        </div>
-                    </>
 
-                    {signedIn && <button className='Button3' onClick={LogOutBtn}><b>Log out</b></button>}
+
+                            <div className='LoginMessage'>
+                                <h2><b className='BigFont'>W</b>elcome {"Femi!"}</h2>
+                            </div>
+
+
+
+                            {signedIn && <button className='Button3'
+                                onClick={LoginBtn}><b>Login</b></button>}
+                            {!signedIn && <button className='Button3 LogOut' onClick={LogOutBtn}><b>Log out</b></button>}
+                        </div>
+                    </div>
                 </>
             }
         </div>

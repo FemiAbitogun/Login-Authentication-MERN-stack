@@ -1,0 +1,79 @@
+
+.Navber {
+    margin: auto;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color:rgba(0, 0, 0, 0.305);
+    padding: 1px;
+    position: relative;
+}
+
+
+
+.NavberInner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* background-color: yellow; */
+}
+
+
+.NavberInnerNavs{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: yellowgreen; */
+}
+.LoginMessage{
+    color: white;
+}
+.LoginMessage .BigFont{
+    font-size: 1.5em;
+    color: crimson;
+}
+
+
+.LoginProfilePic img{
+
+    width: 80px;
+    height: 70px;
+
+}
+.LogOut{
+    background-color: rgba(255, 0, 0, 0.548);
+    
+}
+
+
+@media screen and (max-width: 500px) {
+.Navber{
+    height: 20vh;
+}
+.NavberHomeBtn{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.LogOut{
+    background-color: rgba(255, 0, 0, 0.243);
+   margin-left: auto;
+}
+    .NavberInnerNavs{
+        height: 30px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background-color: green; */
+    }
+
+}

@@ -1,5 +1,128 @@
-.Dashboard{
+.Dashboard {
     width: 100%;
-    height: 90vh;
-    background-color: blue;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.279);
+    position: relative;
+}
+
+.Dashboard::after {
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.219);
+    z-index: -6;
+}
+
+.SearchBar {
+    margin-top: 2px;
+    background-color: rgba(0, 0, 0, 0.346);
+    padding: 5px;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+
+
+.SearchBarRegion,
+.SearchBarFault {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.SearchBarFault input {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    outline: none;
+    border: none;
+    width: 195px;
+    height: 40px;
+    font-size: 1.5em;
+}
+
+.SearchBarRegion .SelectTagDashboard {
+    background-color: rgba(0, 0, 0, 0.6);
+
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    /* background-color: black; */
+}
+
+.Fault {
+    background-color: rgba(0, 0, 0, 0.6);
+    
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 3px solid red;
+}
+
+.FaultMessage {
+    height: 50px;
+    background-color: rgba(0, 0, 255, 0.302);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 3px solid white;
+/* display: none; */
+}
+
+.ErrorCode,
+.Description,
+.ErrorDetail {
+    padding: 5px;
+}
+.BtnSolution{
+    width: 90px;
+    height: 30px;
+    color:white;
+    background-color: rgba(0, 0, 0, 0.617);
+    border-radius: 2em;
+    border: 2px solid white;
+    cursor: pointer;
+}
+@media screen and (max-width: 500px) {
+
+    .Dashboard {
+        min-height: 100%;
+    }
+
+    .SearchBar {
+        margin-top: 2px;
+        background-color: rgba(0, 0, 0, 0.346);
+        padding: 5px;
+        height: 90px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .SearchBarRegion,
+    .SearchBarFault {
+        min-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+
 }

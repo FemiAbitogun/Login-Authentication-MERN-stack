@@ -2,7 +2,6 @@
     width: 80px;
     height: 30px;
     background-color: rgba(197, 190, 190, 0.172);
-    /* color: blue; */
     outline: none;
     border: none;
     margin-right: 1px;
@@ -84,34 +83,7 @@
 }
 
 @media screen and (max-width: 500px) {
-
     .Login {
         height: 6vh;
     }
-
-    .ImageDiv {
-        max-width: 100px;
-        margin-top: 110px;
-    }
-
-    .SbcLogo {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        margin-top: 3px;
-    }
-}
-
-@media screen and (max-height: 550px) {
-    .Navber {
-        min-height: 20vh;
-
-    }
-
-    .ImageDiv {
-        margin-top: 30px;
-        /* max-width: 100px; */
-    }
-
-
 }

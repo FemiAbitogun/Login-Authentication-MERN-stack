@@ -8,7 +8,7 @@ export default function Register() {
     const { CheckSignedAsync, signedIn } = useContext(globalContext);
     const AwaitableInitialRun = async () => {
         await CheckSignedAsync();
-     return !signedIn && history.push('/');
+    //  return !signedIn && history.push('/');
     }
     useEffect(() => { AwaitableInitialRun(); }, []);
 
@@ -129,7 +129,7 @@ export default function Register() {
     }
     return (
         <>
-            {signedIn && display()}
+            {!signedIn && display()}
         </>
     )
 }
