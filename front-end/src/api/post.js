@@ -27,7 +27,7 @@ export const PostLoginFormAsync = async (body) => {
 export const CheckIfSignedIn = async () => {
     try {
         const { data } = await axios.post(`${url}checkSignedIn/check`);
-        console.log(data);
+        // console.log(data);
         if (data) return true;
         else return false;
     } catch (error) {

@@ -11,9 +11,15 @@ function Navbar() {
     const [userData, setUserData] = useState("");
 
     const AwaitableInitialRun = async () => {
-        await CheckSignedAsync();
-        const { data } = await getLoggedInUserAsync();
-        setUserData(data);
+        try {
+            await CheckSignedAsync();
+            const { data } = await getLoggedInUserAsync();
+            // console.log(data)
+            setUserData(data);
+        } catch (error) {
+
+        }
+
     }
     useEffect(() => { AwaitableInitialRun(); }, []);
 
@@ -30,34 +36,43 @@ function Navbar() {
     const LoginBtn = () => history.push('/login');
     const DashBoard = () => history.push('/dashboard');
 
-    return (
-        <div className='Navber'>
-            {
-                <>
-                    <div className="NavberInner">
-                        {/* <button className='Button3 NavberHomeBtn' onClick={DashBoard}><b>Profile</b></button> */}
-                        {signedIn && <div className='LoginProfilePic'>
-                            <img src={userData.imagePath} alt="" />
-                            
-                        </div>}
 
-                        <div className="NavberInnerNavs">
-                            {!signedIn && <button className='Button3' style={{ "color": "white" }} onClick={RegisterBtn}><b>Register</b></button>}
+    function display() {
+        return (
+            <div className='Navber'>
+                {
+                    <>
+                        <div className="NavberInner">
+                            {/* <button className='Button3 NavberHomeBtn' onClick={DashBoard}><b>Profile</b></button> */}
+                            {signedIn && <div className='LoginProfilePic'>
+                                <img src={userData.imagePath} alt="" />
+                            </div>}
+
+                            <div className="NavberInnerNavs">
+                                {!signedIn && <button className='Button3' style={{ "color": "white" }} onClick={RegisterBtn}><b>Register</b></button>}
 
 
-                            {signedIn && <div className='LoginMessage'>
-                                <h2><b className='BigFont'>W</b>elcome {userData.firstName}</h2>
+                                {signedIn && <div className='LoginMessage'>
+                                    <h2><b className='BigFont'>W</b>elcome {userData.firstName}</h2>
+                                </div>
+                                }
+
+                                {!signedIn && <button className='Button3'
+                                    onClick={LoginBtn}><b>Login</b></button>}
+                                {signedIn && <button className='Button3 LogOut' onClick={LogOutBtn}><b>Log out</b></button>}
                             </div>
-                            }
-
-                            {!signedIn && <button className='Button3'
-                                onClick={LoginBtn}><b>Login</b></button>}
-                            {signedIn && <button className='Button3 LogOut' onClick={LogOutBtn}><b>Log out</b></button>}
                         </div>
-                    </div>
-                </>
-            }
-        </div>
+                    </>
+                }
+            </div>
+        )
+    }
+
+
+    return (
+        <>
+            {display()}
+        </>
     )
 }
 export default Navbar

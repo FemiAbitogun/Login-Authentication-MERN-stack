@@ -5,7 +5,7 @@ import { PostLoginFormAsync } from '../../api/post'
 
 export default function Login() {
     const history = useHistory();
-    const { error, setError } = useContext(globalContext);
+    const { error, setError, CheckSignedAsync, setSignedIn } = useContext(globalContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -17,8 +17,12 @@ export default function Login() {
         try {
             event.preventDefault();
             if (await PostLoginFormAsync(body)) {
-                //attempt to push to dashboard....
-                return history.push('/dashboard');
+                //attempt to push to dashboard....    
+                if (await CheckSignedAsync()) {
+                    setSignedIn(true);
+                    history.push('/dashboard');
+                }
+
             }
         } catch (error) {
             setError(error);

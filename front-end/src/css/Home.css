@@ -153,6 +153,14 @@
 
 @media screen and (max-width: 500px) { 
     
+    .Home {
+        height: 90vh;
+    }
+  
+
+
+
+
     .Photo1 {
 
         transform: rotateY(calc(30deg * 1)) translateZ(200px);
@@ -222,7 +230,6 @@
         margin-top: 85px;
     }
 
-    
   
    
 }
