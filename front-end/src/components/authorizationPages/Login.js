@@ -1,13 +1,14 @@
-import React, { useContext, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { globalContext } from '../../context/ContextGlobal';
+import { PostLoginFormAsync } from '../../api/post'
 
 export default function Login() {
     const history = useHistory();
-    const { error, setError, LoginActionAsync } = useContext(globalContext);
+    const { error, setError } = useContext(globalContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    
+
     const body = {
         email, password
     }
@@ -15,14 +16,13 @@ export default function Login() {
     const LoginBtn = async (event) => {
         try {
             event.preventDefault();
-            if (await LoginActionAsync(body)) {
+            if (await PostLoginFormAsync(body)) {
                 //attempt to push to dashboard....
-                history.push('/dashboard');
+                return history.push('/dashboard');
             }
         } catch (error) {
             setError(error);
         }
-
     }
 
     return (
@@ -35,7 +35,7 @@ export default function Login() {
 
                     <div className='user-input-wrp LoginFormDiv'>
                         <br></br>
-                        <input onChange={(e) => { setEmail(e.target.value.trim())}} type="text" className="inputText" required />
+                        <input onChange={(e) => { setEmail(e.target.value.trim()) }} type="text" className="inputText" required />
                         <span className="floating-label">Email</span>
                     </div>
 

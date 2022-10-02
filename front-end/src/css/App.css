@@ -15,11 +15,8 @@ body {
 .AppContainer {
     margin: auto;
     width: 90%;
-    /* min-height: 100vh; */
 }
 
 @media screen and (max-width: 500px) {
-    .AppContainer {
-        min-height: 100%;
-    }
+  
 }

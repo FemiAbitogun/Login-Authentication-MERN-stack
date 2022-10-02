@@ -1,17 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { globalContext } from '../../context/ContextGlobal';
-
+import { registerNewUserAsync } from '../../api/post'
 export default function Register() {
-
-    const history = useHistory();
+    
     const { CheckSignedAsync, signedIn } = useContext(globalContext);
-    const AwaitableInitialRun = async () => {
-        await CheckSignedAsync();
-    //  return !signedIn && history.push('/');
-    }
-    useEffect(() => { AwaitableInitialRun(); }, []);
-
+    // const AwaitableInitialRun = async () => {
+    //     console.log(await CheckSignedAsync());
+    // }
+   // useEffect(() => { AwaitableInitialRun(); }, []);
     // datas from form................
     const [userImage, setUserImage] = useState("");
     const [firstName, setFirstName] = useState("");
@@ -19,16 +16,34 @@ export default function Register() {
     const [email, setEmail] = useState("");
     const [region, setRegion] = useState("Lagos");
     const [password, setPassword] = useState("");
-
+    const [department, setDepartment] = useState("Engineering");
     const [comfirmPassword, setComfirmPassword] = useState("");
-    const [department, setDepartment] = useState("");
-
 
     const OnFileChange = (e) => {
         setUserImage(e.target.files[0]);
-        // console.log(e.target.files)
     }
-    const Submit = (e) => { e.preventDefault() }
+    const Submit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("userImage", userImage);
+        formData.append("password", password);
+        formData.append("firstName", firstName);
+        formData.append("lastName", lastName);
+        formData.append("email", email);
+        formData.append("region", region);
+        formData.append("department", department);
+        await registerNewUserAsync(formData);
+    }
+    const _setRegion = (region) => {
+        setRegion(region);
+        // console.log(region);
+    }
+    const _setDepartment = (department) => {
+        setDepartment(department);
+        // console.log(department);
+
+    }
+
     const display = () => {
         return (
             <div className='Register' >
@@ -60,20 +75,12 @@ export default function Register() {
                         {/* department */}
                         <div className='user-input-wrp'>
                             <br />
-                            <label htmlFor="region">Select Department:</label>
-                            <select name='department' id='department' className='SelectTag' >
-                                <option
-                                    onClick={(e) => { setDepartment("Engineering") }}
-                                >Engineering</option>
-
-                                <option onClick={(e) => { setDepartment("Production") }}
-                                >Production|Optechs</option>
-
-                                <option onClick={(e) => { setDepartment("Utility") }}
-                                >Utility</option>
-
-                                <option onClick={(e) => { setDepartment("Management") }}>Management</option>
-
+                            <label htmlFor="department">Select Department:</label>
+                            <select onChange={(event) => { _setDepartment(event.target.value) }} className='SelectTag'>
+                                <option value="Engineering" >Engineering</option>
+                                <option value="Production" >Production|Optechs</option>
+                                <option value="Utility" >Utility</option>
+                                <option value="Management" >Management</option>
                             </select>
                         </div>
 
@@ -81,29 +88,16 @@ export default function Register() {
                         <div className='user-input-wrp'>
                             <br />
                             <label htmlFor="region">Select Region:</label>
-                            <select name='region' id='region' className='SelectTag' >
-
-                                <option
-                                    onClick={(e) => { setRegion("Lagos") }}
-                                >Lagos</option>
-
-                                <option onClick={(e) => { setRegion("kano") }}
-                                >kano</option>
-
-                                <option onClick={(e) => { setRegion("Abuja") }}>Abuja</option>
-
-                                <option onClick={(e) => { setRegion("Kaduna") }}>Kaduna</option>
-
-                                <option onClick={(e) => { setRegion("Ibadan") }}>Ibadan</option>
-
-                                <option onClick={(e) => { setRegion("Ilorin") }}>Ilorin</option>
-
-                                <option onClick={(e) => { setRegion("Enugu") }}>Enugu</option>
-
-                                <option onClick={(e) => { setRegion("Aba") }}>Aba</option>
-
-                                <option onClick={(e) => { setRegion("Benin") }}>Benin</option>
-
+                            <select onChange={(event) => { _setRegion(event.target.value) }} className='SelectTag' >
+                                <option value="Lagos">Lagos</option>
+                                <option value="kano" >kano</option>
+                                <option value="Abuja" >Abuja</option>
+                                <option value="Kaduna" >Kaduna</option>
+                                <option value="Ibadan" >Ibadan</option>
+                                <option value="Ilorin" >Ilorin</option>
+                                <option value="Enugu" >Enugu</option>
+                                <option value="Aba" >Aba</option>
+                                <option value="Benin" >Benin</option>
                             </select>
                         </div>
 
@@ -122,6 +116,7 @@ export default function Register() {
                         <div>
                             <button className='Button1' style={{ "color": "white" }} onClick={e => { Submit(e) }} ><b>Submit</b></button>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -129,7 +124,7 @@ export default function Register() {
     }
     return (
         <>
-            {!signedIn && display()}
+            {display()}
         </>
     )
 }

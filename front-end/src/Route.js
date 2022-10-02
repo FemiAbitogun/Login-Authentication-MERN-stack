@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { useContext } from 'react';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './components/authorizationPages/Login';
@@ -9,10 +9,7 @@ import Navbar from './components/authorizationPages/Navbar';
 import Dashboard from './components/Dashboard';
 
 function Router() {
-
-
     return (
-
         <div className='AppContainer'>
             <BrowserRouter>
                 <ContextGlobal>
@@ -26,8 +23,6 @@ function Router() {
                 </ContextGlobal>
             </BrowserRouter>
         </div>
-
-
     )
 }
 

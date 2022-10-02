@@ -1,35 +1,33 @@
 
 import React, { createContext, useState } from 'react';
-import {PostLoginForm,PostSignedIn,LogOutUser} from '../api/post'
+import { CheckIfSignedIn, LogOutUserAsync } from '../api/post'
 
 export const globalContext = createContext();
 
 export default function ContextGlobal(props) {
     const [error, setError] = useState("");
-    const [signedIn,setSignedIn]=useState(false);
+    const [signedIn, setSignedIn] = useState(false);
 
-    const LoginActionAsync = async (body) => {
-        try {
-            await PostLoginForm(body);
-            return true;
-        } catch (error) {
-            return false;
-        }
-    }
 
     const CheckSignedAsync = async () => {
         try {
-            await PostSignedIn()&&setSignedIn(true);
-            return true;
+            if (await CheckIfSignedIn()) {
+                setSignedIn(true);
+                return true;
+            }
+            else {
+                return false
+            }
         } catch (error) {
-            setError(error.response.data.errorMessage);
-            return false;
+            setSignedIn(false);
+            // setError(error.response.data.errorMessage);
+            return;
         }
     }
 
     const LogOut = async () => {
         try {
-            await LogOutUser();
+            await LogOutUserAsync();
             setSignedIn(false);
             return true;
         } catch (error) {
@@ -40,7 +38,7 @@ export default function ContextGlobal(props) {
 
     return (
         <div>
-            <globalContext.Provider value={{ CheckSignedAsync, LoginActionAsync, error, setError,signedIn,setSignedIn, LogOut }}>
+            <globalContext.Provider value={{ CheckSignedAsync, error, setError, signedIn, setSignedIn, LogOut }}>
                 {props.children}
             </globalContext.Provider>
         </div>

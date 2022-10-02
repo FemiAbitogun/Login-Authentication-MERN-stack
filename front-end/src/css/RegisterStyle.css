@@ -9,6 +9,7 @@
     position: relative;
     z-index: 2;
     overflow: hidden;
+    color: white;
 }
 .Register::after{
     width: 100%;
@@ -41,6 +42,7 @@
 }
 
 .RegistrationForm div input {
+    color: white;
     min-width: 10em;
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.259)
@@ -56,7 +58,7 @@
 /* login styles.................... */
 .Login {
     width: 100%;
-    height: 90vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;

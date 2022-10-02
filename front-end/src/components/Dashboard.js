@@ -6,21 +6,19 @@ function Dashboard() {
     const history = useHistory();
     const { CheckSignedAsync, signedIn } = useContext(globalContext);
     const AwaitableInitialRun = async () => {
-        await CheckSignedAsync();
-        //    return !signedIn&&history.push('/');
+        if (!await CheckSignedAsync()) {
+            history.push('/');
+        }
     }
     useEffect(() => { AwaitableInitialRun(); }, []);
 
     const [region, setRegion] = useState("");
-    const [searchValue,setSearchValue]=useState("");
-
-
-
-
+    const [searchValue, setSearchValue] = useState("");
     function display() {
         return (
             <div className='Dashboard'>
                 <div className='SearchBar' >
+
                     <div className='SearchBarFault'>
                         <label htmlFor='Search' ><b>Fault | Code</b></label>
                         <input onChange={(e) => setSearchValue(e.target.value.toLowerCase())} type="text" id='Search' placeholder='Search'></input>
@@ -52,6 +50,10 @@ function Dashboard() {
                             <option onClick={(e) => { setRegion("Benin") }}>Benin</option>
 
                         </select>
+                    </div>
+
+                    <div className=''>
+                        <button className='Button3'>Post</button>
                     </div>
                 </div>
 
@@ -162,10 +164,10 @@ function Dashboard() {
             </div>)
     }
 
-
     return (
         <>
-            {!signedIn && display()}
+            {signedIn && display()}
+            {/* {display()} */}
         </>
     )
 }
