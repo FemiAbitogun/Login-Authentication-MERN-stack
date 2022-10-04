@@ -81,6 +81,12 @@
     border-bottom: 3px solid white;
 /* display: none; */
 }
+.PostBtn{
+    border: 3px solid rgb(244, 243, 243);
+    background-color: rgba(0, 0, 0, 0.346);
+    font-size: .9em;
+    font-weight: bold;
+}
 
 .ErrorCode,
 .Description,

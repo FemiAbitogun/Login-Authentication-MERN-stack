@@ -2,10 +2,11 @@ import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { globalContext } from '../../context/ContextGlobal';
 import { PostLoginFormAsync } from '../../api/post'
+import { getLoggedInUserAsync } from '../../api/fetch'
 
 export default function Login() {
     const history = useHistory();
-    const { error, setError, CheckSignedAsync, setSignedIn } = useContext(globalContext);
+    const { error, setError, CheckSignedAsync, setSignedIn, userData, setUserData } = useContext(globalContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -19,6 +20,8 @@ export default function Login() {
             if (await PostLoginFormAsync(body)) {
                 //attempt to push to dashboard....    
                 if (await CheckSignedAsync()) {
+                    const { data } = await getLoggedInUserAsync();
+                    setUserData(data);
                     setSignedIn(true);
                     history.push('/dashboard');
                 }

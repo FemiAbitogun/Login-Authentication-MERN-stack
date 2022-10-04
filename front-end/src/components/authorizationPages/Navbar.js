@@ -3,25 +3,26 @@ import { useHistory } from 'react-router-dom';
 import { globalContext } from '../../context/ContextGlobal';
 import { getLoggedInUserAsync } from '../../api/fetch'
 
-
 function Navbar() {
-
     const history = useHistory();
-    const { CheckSignedAsync, signedIn, LogOut } = useContext(globalContext);
-    const [userData, setUserData] = useState("");
+    const { CheckSignedAsync, signedIn, setSignedIn, LogOut, userData, setUserData } = useContext(globalContext);
 
+    //  const img = [img, setImg] = useState("");
     const AwaitableInitialRun = async () => {
         try {
-            await CheckSignedAsync();
-            const { data } = await getLoggedInUserAsync();
-            // console.log(data)
-            setUserData(data);
+            const result = await CheckSignedAsync();
+            if (result) {
+                const { data } = await getLoggedInUserAsync();
+                setUserData(data);
+                setSignedIn(true);
+            }
+
         } catch (error) {
 
         }
 
     }
-    useEffect(() => { AwaitableInitialRun(); }, []);
+    useEffect(() => { AwaitableInitialRun() }, [setUserData]);
 
     const LogOutBtn = async () => {
         try {
@@ -59,7 +60,7 @@ function Navbar() {
 
                                 {!signedIn && <button className='Button3'
                                     onClick={LoginBtn}><b>Login</b></button>}
-                                {signedIn && <button className='Button3 LogOut' onClick={LogOutBtn}><b>Log out</b></button>}
+                                {signedIn && <button className='Button3 LogOut' onClick={LogOutBtn}><b>Sign out</b></button>}
                             </div>
                         </div>
                     </>

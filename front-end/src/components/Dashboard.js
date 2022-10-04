@@ -5,10 +5,16 @@ import { globalContext } from '../context/ContextGlobal';
 function Dashboard() {
     const history = useHistory();
     const { CheckSignedAsync, signedIn } = useContext(globalContext);
+
     const AwaitableInitialRun = async () => {
-        if (!await CheckSignedAsync()) {
-            history.push('/');
+        if (await CheckSignedAsync() === false) {
+            return history.push('/');
         }
+
+
+
+
+        
     }
     useEffect(() => { AwaitableInitialRun(); }, []);
 
@@ -53,7 +59,7 @@ function Dashboard() {
                     </div>
 
                     <div className=''>
-                        <button className='Button3'>Post</button>
+                        <button className='Button3 PostBtn'>Post</button>
                     </div>
                 </div>
 
