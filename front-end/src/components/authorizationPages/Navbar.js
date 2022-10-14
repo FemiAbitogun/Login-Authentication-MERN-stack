@@ -44,7 +44,8 @@ function Navbar() {
                 {
                     <>
                         <div className="NavberInner">
-                            {/* <button className='Button3 NavberHomeBtn' onClick={DashBoard}><b>Profile</b></button> */}
+                            {signedIn && <button className='Button3 NavberHomeBtn' onClick={DashBoard}><b>HomePage</b></button>}
+
                             {signedIn && <div className='LoginProfilePic'>
                                 <img src={userData.imagePath} alt="" />
                             </div>}

@@ -10,13 +10,11 @@ function Dashboard() {
         if (await CheckSignedAsync() === false) {
             return history.push('/');
         }
-
-
-
-
-        
     }
+    const NewPost=()=>{history.push('/newPost')}
     useEffect(() => { AwaitableInitialRun(); }, []);
+
+
 
     const [region, setRegion] = useState("");
     const [searchValue, setSearchValue] = useState("");
@@ -58,8 +56,9 @@ function Dashboard() {
                         </select>
                     </div>
 
+
                     <div className=''>
-                        <button className='Button3 PostBtn'>Post</button>
+                        <button onClick={()=>NewPost()} className='Button3 PostBtn'>Post</button>
                     </div>
                 </div>
 

@@ -4,6 +4,7 @@ import './css/RegisterStyle.css'
 import './css/Home.css'
 import './css/Dashboard.css'
 import './css/Navber.css'
+import './css/NewPost.css'
 import axios from "axios";
 import Router from './Route';
 
