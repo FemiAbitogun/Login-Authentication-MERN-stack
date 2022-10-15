@@ -37,4 +37,4 @@ const partSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-module.exports = mongoose.model('Part', partSchema);
+module.exports = mongoose.model('BreakDownReport', partSchema);

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { postNewReportAsync } from '../../api/postReport';
 
 function NewPost() {
@@ -18,15 +18,15 @@ function NewPost() {
 
   const Post = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("machineType", setMachineType);
-    formData.append("machineSection", setMachineSection);
-    formData.append("errorCode", setErrorCode);
-    formData.append("description", setDescription);
-    formData.append("solutionSummary", setSolutionSummary);
-    formData.append("solutionImages1", setSolutionImages1);
-    formData.append("solutionImages2", setSolutionImages2);
-    await postNewReportAsync(formData);
+    const formData2 = new FormData();
+    formData2.append("machineType", machineType);
+    formData2.append("machineSection", machineSection);
+    formData2.append("errorCode", errorCode);
+    formData2.append("description", description);
+    formData2.append("solutionSummary", solutionSummary);
+    formData2.append("solutionImages1", solutionImages1);
+    formData2.append("solutionImages2", solutionImages2);
+    await postNewReportAsync(formData2);
   }
 
 
@@ -35,7 +35,7 @@ function NewPost() {
 
       <div className='PostContainerInner'>
         <div className='ErrorCode'>
-          <input type='text' onChange={(e) => setErrorCode(e.target.value)} placeholder='Error|Code'></input>
+          <input type='text' onChange={(e) => setErrorCode(e.target.value)} placeholder='Error|Code'/>
         </div>
 
         <div className='SearchBarRegion machineTypeDiv' >
@@ -94,12 +94,12 @@ function NewPost() {
         </div>
 
         <div className='SolutionAttachedImages'>
-          <input type="file" accept="image/png, image/jpeg" onChange={(e) => { OnFileChange1(e); }} multiple />
+          <input type="file" accept="image/png, image/jpeg" onChange={(e) => { OnFileChange1(e); }} />
 
         </div>
 
         <div className='SolutionAttachedImages'>
-          <input type="file" accept="image/png, image/jpeg" onChange={(e) => { OnFileChange2(e); }} multiple />
+          <input type="file" accept="image/png, image/jpeg" onChange={(e) => { OnFileChange2(e); }} />
 
         </div>
 

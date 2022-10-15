@@ -1,14 +1,15 @@
-const cloudinary = require('../../cloudinary');
+const cloudinary = require('../../util/cloudinary');
 const jwt= require('jsonwebtoken');
 const PostBreakDown = require('../../model/breakDownReport/report');
-const AuthorizedUsers=require('../../model/user')
+
 
 const createNewReportAsync = async (req, res) => {
     try {
         const verified = jwt.verify(req.cookies.ticket, process.env.JWT_SECRET);
         const userId = verified.user;
-        const data = await AuthorizedUsers.findOne({ _id: userId });
-        let poster_id=data;
+        //const data = await AuthorizedUsers.findOne({ _id: userId });
+        let poster_id=userId;
+        // console.log(userId);
 
         let solutionImages1_secure_url = ""; let solutionImages1_Id = "";
         let solutionImages2_secure_url = ""; let solutionImages2_Id = "";
@@ -35,12 +36,15 @@ const createNewReportAsync = async (req, res) => {
             solutionImages2_Id,
             poster_id
         });
-        await savedReport.save();
-        res.status(201).json({ "message": "saved successfully...." });
+        let _result= await savedReport.save();
+  
+      
+        // res.status(201).json({ "message": "saved successfully...." });
+        res.status(201).json(_result);
     } catch (error) {
+        console.log(error.message);
         res.status(500).send();
     }
-
 
 }
 
