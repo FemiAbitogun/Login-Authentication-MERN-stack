@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { postNewReportAsync } from '../../api/postReport';
+import { useHistory } from 'react-router-dom'
 
 function NewPost() {
+
+  const history = useHistory();
+
   const [machineType, setMachineType] = useState("Sidel");
   const [machineSection, setMachineSection] = useState("BlowMould");
   const [errorCode, setErrorCode] = useState("");
@@ -26,7 +30,10 @@ function NewPost() {
     formData2.append("solutionSummary", solutionSummary);
     formData2.append("solutionImages1", solutionImages1);
     formData2.append("solutionImages2", solutionImages2);
-    await postNewReportAsync(formData2);
+    let result = await postNewReportAsync(formData2);
+    if (result) {
+      history.push('/dashboard')
+    }
   }
 
 
@@ -35,7 +42,7 @@ function NewPost() {
 
       <div className='PostContainerInner'>
         <div className='ErrorCode'>
-          <input type='text' onChange={(e) => setErrorCode(e.target.value)} placeholder='Error|Code'/>
+          <input type='text' onChange={(e) => setErrorCode(e.target.value)} placeholder='Error|Code' />
         </div>
 
         <div className='SearchBarRegion machineTypeDiv' >

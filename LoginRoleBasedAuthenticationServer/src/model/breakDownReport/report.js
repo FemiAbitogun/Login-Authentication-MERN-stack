@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 const partSchema = new mongoose.Schema({
+    
+    region: {
+        type: String,
+        unique: false
+    },
     machineType: {
         type: String,
         unique: false

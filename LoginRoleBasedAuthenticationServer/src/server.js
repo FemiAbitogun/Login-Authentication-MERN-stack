@@ -56,8 +56,9 @@ app.use('/logOut',require('./api/user/post'));
 app.use('/getLoggedInUser',require('./api/user/fetch'));
 
 app.use('/newReport',require('./api/reportBreakDown/post'));
+app.use('/getBreakDown',require('./api/reportBreakDown/fetch'));
 
-
+// getBreakDown/getReport`)
 
 
 

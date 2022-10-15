@@ -1,16 +1,17 @@
 const cloudinary = require('../../util/cloudinary');
 const jwt= require('jsonwebtoken');
 const PostBreakDown = require('../../model/breakDownReport/report');
+const AuthorizedUsers = require('../../model/user');
 
 
 const createNewReportAsync = async (req, res) => {
     try {
         const verified = jwt.verify(req.cookies.ticket, process.env.JWT_SECRET);
         const userId = verified.user;
-        //const data = await AuthorizedUsers.findOne({ _id: userId });
-        let poster_id=userId;
-        // console.log(userId);
+        const data = await AuthorizedUsers.findOne({ _id: userId });
 
+        let region=data.region;
+        let poster_id=userId;
         let solutionImages1_secure_url = ""; let solutionImages1_Id = "";
         let solutionImages2_secure_url = ""; let solutionImages2_Id = "";
         const { machineType, machineSection, errorCode, description, solutionSummary //solutionImages1//solutionImages2  
@@ -28,6 +29,7 @@ const createNewReportAsync = async (req, res) => {
         }
 
         const savedReport = new PostBreakDown({
+            region,
             machineType, machineSection,
             errorCode, description, solutionSummary,
             solutionImages1_secure_url,

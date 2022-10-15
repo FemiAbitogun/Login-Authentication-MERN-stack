@@ -1,5 +1,5 @@
 
-const express = require('express');const { createNewReportAsync } = require('../../controller/reportBreackDown/post');
+const express = require('express');const { createNewReportAsync } = require('../../controller/reportBreakDown/post');
  const router = express.Router();
 const { upload } = require('../../util/fileHelper');
 
