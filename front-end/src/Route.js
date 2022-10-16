@@ -8,6 +8,7 @@ import ContextGlobal, { globalContext } from './context/ContextGlobal';
 import Navbar from './components/authorizationPages/Navbar';
 import Dashboard from './components/Dashboard';
 import NewPost from './components/forms/NewPost';
+import ReportDetails from './components/breakDownReport/ReportDetails';
 
 function Router() {
     return (
@@ -21,6 +22,10 @@ function Router() {
                         <Route path='/dashboard' component={Dashboard} />
                         <Route path='/register' component={Register} />
                         <Route path='/login' component={Login} />
+
+                        <Route path="/breakDownSolutionByIDAsync/:id">
+                            <ReportDetails/>
+                        </Route>
                     </Switch>
                 </ContextGlobal>
             </BrowserRouter>

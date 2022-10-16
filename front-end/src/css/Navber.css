@@ -7,7 +7,6 @@
     justify-content: center;
     flex-wrap: wrap;
     background-color: rgba(0, 0, 0, 0.305);
-    /* padding: 1px; */
     position: relative;
 }
 
@@ -24,6 +23,7 @@
 }
 .NavberHomeBtn {
     letter-spacing:2px;
+    border-bottom: 3px solid rgb(244, 243, 243);
 }
 
 .NavberInnerNavs {
@@ -53,28 +53,27 @@
 }
 
 .LogOut {
-    background-color: rgba(255, 0, 0, 0.033);
+    background-color: red;
+    /* background-color: rgba(255, 0, 0, 0.033); */
     margin-left: auto;
-    border: 2px solid rgb(244, 243, 243);
+    border:     1px solid rgb(244, 243, 243);
     letter-spacing: .2em;
-
+   
+}
+.LogOut:hover{
+    background-color: transparent;
 }
 
 
 @media screen and (max-width: 500px) {
     .Navber {
         height: 20vh;
+        /* width: 100px; */
     }
 
-    .NavberHomeBtn {
-        position: absolute;
-        top: 10px;
-        left: 214px;
-        letter-spacing:2px;
-    }
-
+    
     .LogOut {
-        background-color: rgba(255, 0, 0, 0.033);
+        background-color: red;
         margin-left: auto;
     }
 

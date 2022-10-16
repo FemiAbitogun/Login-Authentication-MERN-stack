@@ -6,9 +6,10 @@ body {
     background-image: url('../images/kettenraeder-taperlock-spannbuchsen-iwis.webp');
     padding: 0px;
     margin: 0px;
+    /* width: 60%; */
 }
 .App {
-    min-width: 100%;
+    /* width: 100px; */
     background-color: transparent;
     min-height: 100vh;
 }

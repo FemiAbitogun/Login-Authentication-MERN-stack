@@ -14,25 +14,20 @@ function Dashboard() {
     const [searchValue, setSearchValue] = useState("");
     const [breakDownReports, setBreakDownReports] = useState([]);
 
-
-
     const AwaitableInitialRun = async () => {
         if (await CheckSignedAsync() === false) {
             return history.push('/');
         }
         let _data = await getBreakDownAsync();
         setBreakDownReports(_data);
-        console.log(region)
+        // console.log(region)
     }
-
-
-
 
     const NewPost = () => { history.push('/newPost') }
     useEffect(() => { AwaitableInitialRun(); }, []);
-
-
-
+    const solutionBtn = (id) => {
+        history.push(`/breakDownSolutionByIDAsync/${id}`);
+    }
     function display() {
         return (
             <div className='Dashboard'>
@@ -92,7 +87,7 @@ function Dashboard() {
                         <div key={data._id} className='FaultMessage'>
                             <div className='ErrorCode'>{data.errorCode}</div>
                             <div className='Description'>{data.description} </div>
-                            <button className='ErrorDetail BtnSolution'>Solution</button>
+                            <button onClick={() => { solutionBtn(data._id) }} className='ErrorDetail BtnSolution'>Solution</button>
                         </div>
 
                     ))
