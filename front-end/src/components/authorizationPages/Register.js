@@ -3,12 +3,12 @@ import { useHistory } from 'react-router-dom';
 import { globalContext } from '../../context/ContextGlobal';
 import { registerNewUserAsync } from '../../api/post'
 export default function Register() {
-    
+
     const { CheckSignedAsync, signedIn } = useContext(globalContext);
     // const AwaitableInitialRun = async () => {
     //     console.log(await CheckSignedAsync());
     // }
-   // useEffect(() => { AwaitableInitialRun(); }, []);
+    // useEffect(() => { AwaitableInitialRun(); }, []);
     // datas from form................
     const [userImage, setUserImage] = useState("");
     const [firstName, setFirstName] = useState("");
@@ -78,9 +78,10 @@ export default function Register() {
                             <label htmlFor="department">Select Department:</label>
                             <select onChange={(event) => { _setDepartment(event.target.value) }} className='SelectTag'>
                                 <option value="Engineering" >Engineering</option>
-                                <option value="Production" >Production|Optechs</option>
+                                <option value="STLs" >STLs</option>
                                 <option value="Utility" >Utility</option>
-                                <option value="Management" >Management</option>
+                                <option value="Quality" >Quality</option>
+                                <option value="Store" >Store</option>
                             </select>
                         </div>
 
@@ -90,7 +91,7 @@ export default function Register() {
                             <label htmlFor="region">Select Region:</label>
                             <select onChange={(event) => { _setRegion(event.target.value) }} className='SelectTag' >
                                 <option value="Lagos">Lagos</option>
-                                <option value="kano" >kano</option>
+                                <option value="Kano" >Kano</option>
                                 <option value="Abuja" >Abuja</option>
                                 <option value="Kaduna" >Kaduna</option>
                                 <option value="Ibadan" >Ibadan</option>

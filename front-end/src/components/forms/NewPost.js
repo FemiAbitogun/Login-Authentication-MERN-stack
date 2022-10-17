@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
+import React, { useContext,useState, useEffect } from 'react';
 import { postNewReportAsync } from '../../api/postReport';
 import { useHistory } from 'react-router-dom'
+import { globalContext } from '../../context/ContextGlobal';
 
 function NewPost() {
 
+  const { CheckSignedAsync } = useContext(globalContext);
   const history = useHistory();
+  const AwaitableInitialRun = async () => {
+    if (await CheckSignedAsync() === false) {
+      return history.push('/');
+    }
+
+  }
+  useEffect(() => {
+    AwaitableInitialRun();
+    // getBreakDownSolutionByID();
+  }, []);
+
+
 
   const [machineType, setMachineType] = useState("Sidel");
   const [machineSection, setMachineSection] = useState("BlowMould");
@@ -19,6 +33,9 @@ function NewPost() {
   const OnFileChange2 = (e) => {
     setSolutionImages2(e.target.files[0]);
   }
+  const _setMachineType = (value) => { setMachineType(value); }
+  const _setMachineSection = (value) => { setMachineSection(value); }
+
 
   const Post = async (e) => {
     e.preventDefault();
@@ -47,25 +64,26 @@ function NewPost() {
 
         <div className='SearchBarRegion machineTypeDiv' >
           <label htmlFor='machineType' ><b>Machine Type</b></label>
-          <select name='machineType' id='machineType' className='SelectTagDashboard' >
+          <select
+            onChange={(event) => { _setMachineType(event.target.value) }}
+            name='machineType' id='machineType' className='SelectTagDashboard' >
 
             <option
-              onClick={(e) => { setMachineType("Sidel") }}
+              value="Sidel"
             >Sidel</option>
 
-            <option onClick={(e) => { setMachineType("SACHMI") }}
+            <option value="SACHMI"
             >SACHMI</option>
 
-            <option onClick={(e) => { setMachineType("Krones") }}>Krones</option>
+            <option value="Krones">Krones</option>
 
-            <option onClick={(e) => { setMachineType("Khs") }}>KHS</option>
+            <option value="KHS">KHS</option>
 
-            <option onClick={(e) => { setMachineType("Hilden") }}>Hilden</option>
+            <option value="Hilden">Hilden</option>
 
-            <option onClick={(e) => { setMachineType("Tula") }}>Tula</option>
+            <option value="Tula">Tula</option>
 
-
-            <option onClick={(e) => { setMachineType("Other") }}>Other</option>
+            <option value="Other">Other</option>
 
           </select>
         </div>
@@ -73,20 +91,22 @@ function NewPost() {
         {/* machine section */}
         <div className='SearchBarRegion machineTypeDiv' >
           <label htmlFor='machineSection' ><b>Machine Section</b></label>
-          <select name='machineSection' id='machineSection' className='SelectTagDashboard' >
+          <select
+            onChange={(event) => { _setMachineSection(event.target.value) }}
+            name='machineSection' id='machineSection' className='SelectTagDashboard' >
 
             <option
-              onClick={(e) => { setMachineSection("Blow Mould") }}
+              value="Blow Mould"
             >BlowMould</option>
-            <option onClick={(e) => { setMachineSection("Filler") }}
+            <option value="Filler"
             >Filler</option>
-            <option onClick={(e) => { setMachineSection("Mixer") }}>Mixer</option>
-            <option onClick={(e) => { setMachineSection("Capper") }}>Capper</option>
-            <option onClick={(e) => { setMachineSection("Conveyor") }}>Conveyor</option>
-            <option onClick={(e) => { setMachineSection("Labeller") }}>Labeller</option>
-            <option onClick={(e) => { setMachineSection("Shrinkwrapper") }}>Shrinkwrapper</option>
-            <option onClick={(e) => { setMachineSection("CaseParker") }}>Case Packer</option>
-            <option onClick={(e) => { setMachineSection("Other") }}>Other</option>
+            <option value="Mixer">Mixer</option>
+            <option value="Capper">Capper</option>
+            <option value="Conveyor">Conveyor</option>
+            <option value="Labeller">Labeller</option>
+            <option value="Shrinkwrapper">Shrinkwrapper</option>
+            <option value="Case Parker">Case Packer</option>
+            <option value="Other">Other</option>
           </select>
         </div>
 

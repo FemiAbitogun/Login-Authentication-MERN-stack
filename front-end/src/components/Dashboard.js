@@ -1,33 +1,50 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { globalContext } from '../context/ContextGlobal';
-import { getBreakDownAsync } from '../api/fetchBreakDownReport'
+import { getBreakDownRegionAsync, getBreakDownBySelectedRegionAsync } from '../api/fetchBreakDownReport'
 
 
 function Dashboard() {
     const history = useHistory();
     const { CheckSignedAsync, signedIn, userData } = useContext(globalContext);
 
-    const [region, setRegion] = useState(() => {
-        return (userData.region);
-    });
-    const [searchValue, setSearchValue] = useState("");
+    // const [searchValue, setSearchValue] = useState("");
     const [breakDownReports, setBreakDownReports] = useState([]);
-
     const AwaitableInitialRun = async () => {
         if (await CheckSignedAsync() === false) {
             return history.push('/');
         }
-        let _data = await getBreakDownAsync();
+        let _data = await getBreakDownRegionAsync();
         setBreakDownReports(_data);
-        // console.log(region)
     }
-
-    const NewPost = () => { history.push('/newPost') }
     useEffect(() => { AwaitableInitialRun(); }, []);
     const solutionBtn = (id) => {
         history.push(`/breakDownSolutionByIDAsync/${id}`);
     }
+    const _setRegion = async (region) => {
+        //console.log(region)
+        const data = await getBreakDownBySelectedRegionAsync(region);
+        setBreakDownReports(data);
+
+    }
+
+    const NewPost = () => { history.push('/newPost') }
+
+    const onSearchValueChange = async (searchValue1) => {
+        
+        let filteredValue = breakDownReports.filter((value) => value.errorCode.toLowerCase().includes(searchValue1))
+        setBreakDownReports(filteredValue);
+        if(searchValue1==""||searchValue1==null){
+            let _data = await getBreakDownRegionAsync();
+            setBreakDownReports(_data);
+        }
+      
+        
+   
+      
+    }
+
+
     function display() {
         return (
             <div className='Dashboard'>
@@ -35,37 +52,32 @@ function Dashboard() {
 
                     <div className='SearchBarFault'>
                         <label htmlFor='Search' ><b>Fault | Code</b></label>
-                        <input onChange={(e) => setSearchValue(e.target.value.toLowerCase())} type="text" id='Search' placeholder='Search'></input>
+                        <input onChange={(e) => onSearchValueChange(e.target.value.toLowerCase())} type="text" id='Search' placeholder='Search'></input>
                     </div>
 
                     <div className='SearchBarRegion' >
                         <label htmlFor='region' ><b>Select Region</b></label>
-                        <select name='region' id='region' className='SelectTagDashboard' >
+                        <select onChange={(event) => { _setRegion(event.target.value) }} name='region' id='region' className='SelectTagDashboard' >
 
-                            <option
-                                onClick={(e) => { setRegion(userData.region) }}
-                            >{userData.region}</option>
+                            <option value={userData.region}>{userData.region}</option>
 
-                            <option
-                                onClick={(e) => { setRegion("Lagos") }}
-                            >Lagos</option>
+                            <option value="Lagos">Lagos </option>
 
-                            <option onClick={(e) => { setRegion("kano") }}
-                            >kano</option>
+                            <option value="Kano">kano</option>
 
-                            <option onClick={(e) => { setRegion("Abuja") }}>Abuja</option>
+                            <option value="Abuja">Abuja</option>
 
-                            <option onClick={(e) => { setRegion("Kaduna") }}>Kaduna</option>
+                            <option value="Kaduna">Kaduna</option>
 
-                            <option onClick={(e) => { setRegion("Ibadan") }}>Ibadan</option>
+                            <option value="Ibadan">Ibadan</option>
 
-                            <option onClick={(e) => { setRegion("Ilorin") }}>Ilorin</option>
+                            <option value="Ilorin">Ilorin</option>
 
-                            <option onClick={(e) => { setRegion("Enugu") }}>Enugu</option>
+                            <option value="Enugu">Enugu</option>
 
-                            <option onClick={(e) => { setRegion("Aba") }}>Aba</option>
+                            <option value="Aba">Aba</option>
 
-                            <option onClick={(e) => { setRegion("Benin") }}>Benin</option>
+                            <option value="Benin">Benin</option>
 
                         </select>
                     </div>
