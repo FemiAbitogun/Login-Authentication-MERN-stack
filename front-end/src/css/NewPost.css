@@ -9,15 +9,16 @@
     background-color: rgba(28, 28, 25, 0.639);
 }
 
-.ErrorCode input {
+.PostErrorCode input {
     height: 30px;
     padding: 2px;
     color: rgb(255, 0, 0);
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     outline: none;
-    border-bottom: 5px solid white;
+    border-bottom: 3px solid white;
     background-color:rgba(0, 0, 0, 0.671);
+    margin-bottom: 3px;
 }
 
 .ErrorCode,

@@ -7,8 +7,6 @@ import { getBreakDownRegionAsync, getBreakDownBySelectedRegionAsync } from '../a
 function Dashboard() {
     const history = useHistory();
     const { CheckSignedAsync, signedIn, userData } = useContext(globalContext);
-
-    // const [searchValue, setSearchValue] = useState("");
     const [breakDownReports, setBreakDownReports] = useState([]);
     const AwaitableInitialRun = async () => {
         if (await CheckSignedAsync() === false) {
@@ -22,26 +20,21 @@ function Dashboard() {
         history.push(`/breakDownSolutionByIDAsync/${id}`);
     }
     const _setRegion = async (region) => {
-        //console.log(region)
         const data = await getBreakDownBySelectedRegionAsync(region);
         setBreakDownReports(data);
-
     }
-
     const NewPost = () => { history.push('/newPost') }
-
     const onSearchValueChange = async (searchValue1) => {
-        
         let filteredValue = breakDownReports.filter((value) => value.errorCode.toLowerCase().includes(searchValue1))
         setBreakDownReports(filteredValue);
-        if(searchValue1==""||searchValue1==null){
+        if (searchValue1 == "" || searchValue1 == null) {
             let _data = await getBreakDownRegionAsync();
             setBreakDownReports(_data);
         }
-      
-        
-   
-      
+
+
+
+
     }
 
 
@@ -87,20 +80,22 @@ function Dashboard() {
                         <button onClick={() => NewPost()} className='Button3 PostBtn'>Post</button>
                     </div>
                 </div>
-                <div className='Fault'>
-                    <div className='ErrorCode'><h3>Error</h3></div>
-                    <div className='Description'><h3>Description</h3></div>
-                    <div className='ErrorDetail'><h3>Details</h3></div>
+                <div className='FaultHeaders'>
+                    <h2>Error</h2>
+                    <h2>Description</h2>
+                    <h2>Details</h2>
                 </div>
 
                 {
                     breakDownReports && breakDownReports.map((data, index) => (
 
                         <div key={data._id} className='FaultMessage'>
-                            <div className='ErrorCode'>{data.errorCode}</div>
-                            <div className='Description'>{data.description} </div>
-                            <button onClick={() => { solutionBtn(data._id) }} className='ErrorDetail BtnSolution'>Solution</button>
+                            <div className='ErrorCode'><mark>{data.errorCode}</mark> </div>
+                            <div className='Description_'>{data.description}  </div>
+                            <div onClick={() => { solutionBtn(data._id) }} className='SolutionDetail'>&#10009;</div>
+
                         </div>
+
 
                     ))
                 }

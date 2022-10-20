@@ -1,4 +1,4 @@
-import React, { useContext,useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { postNewReportAsync } from '../../api/postReport';
 import { useHistory } from 'react-router-dom'
 import { globalContext } from '../../context/ContextGlobal';
@@ -21,7 +21,7 @@ function NewPost() {
 
 
   const [machineType, setMachineType] = useState("Sidel");
-  const [machineSection, setMachineSection] = useState("BlowMould");
+  const [machineSection, setMachineSection] = useState("Blow Mould");
   const [errorCode, setErrorCode] = useState("");
   const [description, setDescription] = useState("");
   const [solutionSummary, setSolutionSummary] = useState("");
@@ -38,7 +38,13 @@ function NewPost() {
 
 
   const Post = async (e) => {
+    console.log("..button clicked")
     e.preventDefault();
+
+    const getPostTag = document.getElementsByClassName("ReportBtn");
+    getPostTag[0].disable=true;
+    getPostTag[0].textContent = "Sending.."
+
     const formData2 = new FormData();
     formData2.append("machineType", machineType);
     formData2.append("machineSection", machineSection);
@@ -47,18 +53,19 @@ function NewPost() {
     formData2.append("solutionSummary", solutionSummary);
     formData2.append("solutionImages1", solutionImages1);
     formData2.append("solutionImages2", solutionImages2);
-    let result = await postNewReportAsync(formData2);
-    if (result) {
-      history.push('/dashboard')
-    }
+    // let result = await postNewReportAsync(formData2);
+    // if (result) {
+    //   history.push('/dashboard')
+    // }
   }
+
 
 
   return (
     <div className='PostContainer'>
 
       <div className='PostContainerInner'>
-        <div className='ErrorCode'>
+        <div className='PostErrorCode'>
           <input type='text' onChange={(e) => setErrorCode(e.target.value)} placeholder='Error|Code' />
         </div>
 
@@ -95,11 +102,8 @@ function NewPost() {
             onChange={(event) => { _setMachineSection(event.target.value) }}
             name='machineSection' id='machineSection' className='SelectTagDashboard' >
 
-            <option
-              value="Blow Mould"
-            >BlowMould</option>
-            <option value="Filler"
-            >Filler</option>
+            <option value="Blow Mould">BlowMould</option>
+            <option value="Filler">Filler</option>
             <option value="Mixer">Mixer</option>
             <option value="Capper">Capper</option>
             <option value="Conveyor">Conveyor</option>
@@ -131,7 +135,7 @@ function NewPost() {
         </div>
 
         <div className='PostReport'>
-          <button className='Button3 ReportBtn' onClick={(e) => Post(e)}><b>Report</b></button>
+          <button className='Button3 ReportBtn' onClick={(e) => Post(e)}><b>Send</b></button>
         </div>
 
       </div>

@@ -1,13 +1,58 @@
-import React, { } from 'react';
-
-
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 export default function Home() {
+    const _info = () => {
+        const valueResult = document.getElementsByClassName('AboutProject');
+        // console.log(valueResult[0]);
+        valueResult[0].style.display = "block";
+    }
+    const _infoClose = () => {
+        const valueResult = document.getElementsByClassName('AboutProject');
 
+        valueResult[0].style.display = "none";
+    }
 
     return (
         <div className='Home'>
+            <div className='AboutProject' style={{ display: "none" }}>
+                <span onClick={() => { _infoClose() }} className='CloseInfo'>&#10008;</span>
+                  {/* &#10009 + bold; */}
+                {/* &#10005 x; */}
+                {/* &#10007 style x */}
+                {/* &#10006 x mark_b */}
+                {/* &#10000 pencil */}
+                {/* &#10001 spanner */}
+                {/* &#10002 plier */}
+                {/* &#10003 pass mark */}
+                {/* &#10004 pass mark bold */}
+                {/* &#10003 pass mark */}
 
+                <div className='WriteUp'>
+
+                    <div className='WriteUpInner'>
+                        <p>This application is designed to ease your troubleshooting proccess
+                            and of immense importance for departments such as <mark>Engineering</mark>,<mark>production</mark> , <mark>Quality</mark> and  <mark>Store</mark> .
+                        </p>
+                        <p>You can search for issues that might have occured in your region and also modify your search Criteria by Quering other region of <b> <mark> 7up plant Nationwide</mark></b></p>
+                        <p>Should you encounter any breakdown or technical challenges ,which is eventually overcome, you can report this events with attached pictures,if any.This will ensure any employee in other region will have access to this resource and make job easier!</p>
+                        <p><mark>Project Supervisor</mark> : Ali Nassereddine . Factory Manager, 7up Bottling Company  Ltd., Kano plant.
+                        </p>
+                        <p> <mark>Software Developer</mark>: Femi Tope Abitogun . Automation Engineer, 7up Bottling Company Ltd., Kano plant.
+                        </p>
+                        <p><mark>Contributors </mark>:Engineering Department and entire 7up Kano plant team.
+                        </p>
+                        <Link to={{ pathname: "https://femi-abitogun.netlify.app/" }}
+                            target="_blank" >Visit my Website</Link>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div className='Info'>
+                <button onClick={() => { _info() }}><h1>!</h1></button>
+            </div>
 
             <div className='SbcLogo'>
                 <img src={require('../images/SBC_Identity_New.webp')} />
@@ -60,12 +105,13 @@ export default function Home() {
 
             <div className='HomeQuotes'>
                 <blockquote>
-                    <h2><b style={{ "color": "red" }}>W</b>elcome!!!</h2>
+                    <h1><b style={{ "color": "red", "fontSize": "1.5em" }}>W</b>elcome!!!</h1>
                     <p></p>
-                    <h3>Automate your troubleshooting process </h3>
+                    <h2>Seamless & Efficient {<b style={{ color: "red" }}>"go"</b>} in your  <p>troubleshooting process </p>
+                    </h2>
                 </blockquote>
             </div>
 
-        </div>
+        </div >
     )
 }

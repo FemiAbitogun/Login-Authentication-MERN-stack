@@ -9,14 +9,11 @@ import { globalContext } from '../../context/ContextGlobal';
 function ReportDetails() {
     const history = useHistory();
     const { CheckSignedAsync } = useContext(globalContext);
-
-
     const AwaitableInitialRun = async () => {
         if (await CheckSignedAsync() === false) {
             return history.push('/');
         }
     }
-
     const [solutionData, setSolutionData] = useState();
     const { id } = useParams();
     const getBreakDownSolutionByID = async () => {
@@ -56,8 +53,6 @@ function ReportDetails() {
                     <img src={solutionData.solutionImages2_secure_url
                     } alt="" />
                 </div>
-
-
                 <div className='SolutionCreated'>
                     <h3>createdAt:{solutionData.createdAt
                     }</h3>

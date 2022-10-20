@@ -8,12 +8,15 @@
     position: relative;
     z-index: 2;
     margin: 0px;
-    /* background-color:green ; */
-}
 
+}
+a{
+    color: white;
+    margin-bottom: 4px;
+}
 .Home::after {
     width: 100%;
-    /* height: 100%; */
+
     content: "";
     position: absolute;
     top: 0;
@@ -23,6 +26,46 @@
     background-color: rgba(0, 0, 0, 0.602);
     z-index: -6;
 }
+
+.AboutProject span {
+  color: red;
+  font-size: 1.5em;
+  font-weight: bolder;
+  position:absolute;
+  right: 0px;
+  top: 0px;
+  cursor: pointer;
+}
+.AboutProject {
+    width: 100%;
+    /* height: 100%; */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.887);
+    z-index: 6;
+    color: white;
+
+
+}
+
+.WriteUp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.WriteUpInner {
+    font-size: 1.5rem;
+    padding: 5px;
+
+}
+
+
 
 .HomeQuotes {
     min-width: 40%;
@@ -34,15 +77,41 @@
 }
 
 .SbcLogo {
-    width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
-  
     position: absolute;
-    top: 7px;
-   /* background-color: yellow; */
+    top: 0px;
+    right: 0px;
+
 }
+
+
+.Info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Info button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 55px;
+    height: 70px;
+    color: white;
+    background-color: rgba(9, 9, 9, 0.386);
+    font-size: 1.2em;
+    border-radius: 9%;
+    outline: none;
+    border: 2px solid rgba(249, 251, 249, 0.364);
+    margin: 5px;
+    cursor: pointer;
+}
+
 
 .SbcLogo img {
     width: 120px;
@@ -57,7 +126,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    }
+}
 
 /* skills slider */
 
@@ -151,12 +220,12 @@
 }
 
 
-@media screen and (max-width: 500px) { 
-    
+@media screen and (max-width: 500px) {
+
     .Home {
-        height: 90vh;
+        min-height: 85vh;
     }
-  
+
 
 
 
@@ -165,39 +234,39 @@
 
         transform: rotateY(calc(30deg * 1)) translateZ(200px);
     }
-    
+
     .Photo2 {
         transform: rotateY(calc(30deg * 2)) translateZ(200px);
     }
-    
+
     .Photo3 {
         transform: rotateY(calc(30deg * 3)) translateZ(200px);
     }
-    
+
     .Photo4 {
         transform: rotateY(calc(30deg * 4)) translateZ(200px);
     }
-    
+
     .Photo5 {
         transform: rotateY(calc(30deg * 5)) translateZ(200px);
     }
-    
+
     .Photo6 {
         transform: rotateY(calc(30deg * 6)) translateZ(200px);
     }
-    
+
     .Photo7 {
         transform: rotateY(calc(30deg * 7)) translateZ(200px);
     }
-    
+
     .Photo8 {
         transform: rotateY(calc(30deg * 8)) translateZ(200px);
     }
-    
+
     .Photo9 {
         transform: rotateY(calc(30deg * 9)) translateZ(200px);
     }
-    
+
     .Photo10 {
         transform: rotateY(calc(30deg * 10)) translateZ(200px);
     }
@@ -224,25 +293,42 @@
         top: 120px;
         margin: auto;
     }
+
     .ImageDiv {
         /* max-width: 92px; */
         width: 110px;
-        margin-top: 85px;
+        margin-top: 130px;
     }
 
-  
-   
+
+    .WriteUpInner {
+        font-size: 1.2rem;
+        padding: 5px;
+
+    }
+
 }
 
 
 
 @media screen and (max-height: 550px) {
+    .Home {
+        height: 100%;
+    }
+
+
     .Navber {
         min-height: 20vh;
     }
+
+    .HomeQuotes {
+        margin-top: 130px;
+    }
+
     .ImageDiv {
-        margin-top: 30px;
-        /* max-width: 100px; */    }
+        margin-top: 80px;
+        /* max-width: 100px; */
+    }
 
 
 }
