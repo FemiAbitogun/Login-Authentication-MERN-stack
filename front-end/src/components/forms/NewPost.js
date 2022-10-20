@@ -38,13 +38,11 @@ function NewPost() {
 
 
   const Post = async (e) => {
-    console.log("..button clicked")
     e.preventDefault();
-
     const getPostTag = document.getElementsByClassName("ReportBtn");
-    getPostTag[0].disable=true;
+    getPostTag[0].disabled = true;
     getPostTag[0].textContent = "Sending.."
-
+    getPostTag[0].style.backgroundColor ="red"
     const formData2 = new FormData();
     formData2.append("machineType", machineType);
     formData2.append("machineSection", machineSection);
@@ -53,10 +51,10 @@ function NewPost() {
     formData2.append("solutionSummary", solutionSummary);
     formData2.append("solutionImages1", solutionImages1);
     formData2.append("solutionImages2", solutionImages2);
-    // let result = await postNewReportAsync(formData2);
-    // if (result) {
-    //   history.push('/dashboard')
-    // }
+    let result = await postNewReportAsync(formData2);
+    if (result) {
+      history.push('/dashboard')
+    }
   }
 
 
