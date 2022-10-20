@@ -5,7 +5,6 @@ import { CheckIfSignedIn, LogOutUserAsync } from '../api/post'
 export const globalContext = createContext();
 
 export default function ContextGlobal(props) {
-    const [error, setError] = useState("");
     const [signedIn, setSignedIn] = useState(false);
     const [userData, setUserData] = useState("");
 
@@ -38,7 +37,7 @@ export default function ContextGlobal(props) {
 
     return (
         <div>
-            <globalContext.Provider value={{userData, setUserData, CheckSignedAsync, error, setError, signedIn, setSignedIn, LogOut }}>
+            <globalContext.Provider value={{userData, setUserData, CheckSignedAsync, signedIn, setSignedIn, LogOut }}>
                 {props.children}
             </globalContext.Provider>
         </div>

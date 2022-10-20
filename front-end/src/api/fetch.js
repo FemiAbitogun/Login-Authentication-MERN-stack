@@ -7,10 +7,11 @@ export const getLoggedInUserAsync = async () => {
         //  console.log(data)
         if (data) {
             return data;
-        }
+        } 
         else{return null;}
 
     } catch (error) {
-        return null;
+       
+        return error;
     }
 }

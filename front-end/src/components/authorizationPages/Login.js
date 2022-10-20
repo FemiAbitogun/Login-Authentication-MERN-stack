@@ -6,7 +6,8 @@ import { getLoggedInUserAsync } from '../../api/fetch'
 
 export default function Login() {
     const history = useHistory();
-    const { error, setError, CheckSignedAsync, setSignedIn, userData, setUserData } = useContext(globalContext);
+    const {CheckSignedAsync, setSignedIn, userData, setUserData } = useContext(globalContext);
+    const[error,setError]=useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -17,18 +18,22 @@ export default function Login() {
     const LoginBtn = async (event) => {
         try {
             event.preventDefault();
-            if (await PostLoginFormAsync(body)) {
-                //attempt to push to dashboard....    
+            const loginResult = await PostLoginFormAsync(body);
+            //attempt to push to dashboard....   
+            if (loginResult) {
                 if (await CheckSignedAsync()) {
                     const { data } = await getLoggedInUserAsync();
                     setUserData(data);
                     setSignedIn(true);
                     history.push('/dashboard');
                 }
-
             }
-        } catch (error) {
-            setError(error);
+            setError(loginResult);
+            return null;
+
+        }
+        catch (error) {
+            return null;
         }
     }
 
@@ -36,8 +41,9 @@ export default function Login() {
         <div className='Login'>
             <div className='LoginForm'>
                 <div>
-                    <div style={{ "backgroundColor": "red" }}>
-                        <h3>{error}</h3>
+                    <div >
+                    {error&&<h3 className='LoginErrorMessage'>{error} !!</h3>}
+                        
                     </div>
 
                     <div className='user-input-wrp LoginFormDiv'>

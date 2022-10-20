@@ -14,10 +14,14 @@ export const registerNewUserAsync = async (body) => {
 }
 export const PostLoginFormAsync = async (body) => {
     try {
-        await axios.post(`${url}login/loginUser`, body);
-        return true;
+        if (await axios.post(`${url}login/loginUser`, body)) {
+            return true;
+        }
+        else return false;
+
     } catch (error) {
-        return false;
+        return (error.response.data.errorMessage);
+
     }
 }
 
