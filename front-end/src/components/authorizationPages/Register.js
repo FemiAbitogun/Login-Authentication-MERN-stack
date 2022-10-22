@@ -18,22 +18,42 @@ export default function Register() {
     const [password, setPassword] = useState("");
     const [department, setDepartment] = useState("Engineering");
     const [comfirmPassword, setComfirmPassword] = useState("");
-
+    const [registerError, setRegisterError] = useState(undefined);
     const OnFileChange = (e) => {
         setUserImage(e.target.files[0]);
     }
-    const Submit = async (e) => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append("userImage", userImage);
-        formData.append("password", password);
-        formData.append("firstName", firstName);
-        formData.append("lastName", lastName);
-        formData.append("email", email);
-        formData.append("region", region);
-        formData.append("department", department);
-        await registerNewUserAsync(formData);
+    const Submit = async(e) => {
+
+        const getPostTag = document.getElementsByClassName("RegNewUserBtn");
+       
+
+        if (firstName !== "" && lastName !== "" && userImage !== "" && email !== "" && comfirmPassword !== "" && password !== "") {
+            // console.log('ok?')
+            e.preventDefault();
+            getPostTag[0].disabled = true;
+            getPostTag[0].textContent = "Sending.."
+            getPostTag[0].style.backgroundColor = "red"
+            const formData = new FormData();
+            formData.append("userImage", userImage);
+            formData.append("password", password);
+            formData.append("firstName", firstName);
+            formData.append("lastName", lastName);
+            formData.append("email", email);
+            formData.append("region", region);
+            formData.append("department", department);
+            await registerNewUserAsync(formData);
+        }
+        else {
+            setRegisterError("All entries must be filled");
+            setTimeout(() => {
+                setRegisterError("");
+            }, 2000);
+            // console.log(registerError)
+            return
+        }
     }
+
+
     const _setRegion = (region) => {
         setRegion(region);
         // console.log(region);
@@ -47,6 +67,7 @@ export default function Register() {
     const display = () => {
         return (
             <div className='Register' >
+                {registerError && <h3 className='LoginErrorMessage'>{registerError} !!</h3>}
                 <div className='RegistrationForm'>
                     <div className='RegistrationFormInner'>
                         <div>
@@ -115,7 +136,7 @@ export default function Register() {
                         </div>
 
                         <div>
-                            <button className='Button1' style={{ "color": "white" }} onClick={e => { Submit(e) }} ><b>Submit</b></button>
+                            <button className='Button1 RegNewUserBtn' style={{ "color": "white" }} onClick={e => { Submit(e) }} ><b>Submit</b></button>
                         </div>
 
                     </div>

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { globalContext } from '../../context/ContextGlobal';
 
 function NewPost() {
-
+  const [newPostError, setNewPostError] = useState(undefined);
   const { CheckSignedAsync } = useContext(globalContext);
   const history = useHistory();
   const AwaitableInitialRun = async () => {
@@ -35,34 +35,48 @@ function NewPost() {
   }
   const _setMachineType = (value) => { setMachineType(value); }
   const _setMachineSection = (value) => { setMachineSection(value); }
-
-
   const Post = async (e) => {
-    e.preventDefault();
-    const getPostTag = document.getElementsByClassName("ReportBtn");
-    getPostTag[0].disabled = true;
-    getPostTag[0].textContent = "Sending.."
-    getPostTag[0].style.backgroundColor ="red"
-    const formData2 = new FormData();
-    formData2.append("machineType", machineType);
-    formData2.append("machineSection", machineSection);
-    formData2.append("errorCode", errorCode);
-    formData2.append("description", description);
-    formData2.append("solutionSummary", solutionSummary);
-    formData2.append("solutionImages1", solutionImages1);
-    formData2.append("solutionImages2", solutionImages2);
-    let result = await postNewReportAsync(formData2);
-    if (result) {
-      history.push('/dashboard')
+    if (errorCode !== "" && description !== "" && solutionSummary !== "") {
+      // console.log('ok?')
+      e.preventDefault();
+      const getPostTag = document.getElementsByClassName("ReportBtn");
+      getPostTag[0].disabled = true;
+      getPostTag[0].textContent = "Sending.."
+      getPostTag[0].style.backgroundColor = "red"
+      const formData2 = new FormData();
+      formData2.append("machineType", machineType);
+      formData2.append("machineSection", machineSection);
+      formData2.append("errorCode", errorCode);
+      formData2.append("description", description);
+      formData2.append("solutionSummary", solutionSummary);
+      formData2.append("solutionImages1", solutionImages1);
+      formData2.append("solutionImages2", solutionImages2);
+      let result = await postNewReportAsync(formData2);
+      if (result) {
+        history.push('/dashboard')
+      }
     }
+    else {
+      setNewPostError("All entries must be filled");
+      setTimeout(() => {
+        setNewPostError("");
+      }, 2000);
+      // console.log(registerError)
+      return
+    }
+
+
+
+
   }
 
 
 
   return (
     <div className='PostContainer'>
-
+    
       <div className='PostContainerInner'>
+      {newPostError && <h3 style={{"color":"white"}} className='LoginErrorMessage'>{newPostError} !!</h3>}
         <div className='PostErrorCode'>
           <input type='text' onChange={(e) => setErrorCode(e.target.value)} placeholder='Error|Code' />
         </div>

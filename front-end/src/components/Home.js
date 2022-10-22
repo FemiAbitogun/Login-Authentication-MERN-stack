@@ -15,7 +15,8 @@ export default function Home() {
     return (
         <div className='Home'>
             <div className='AboutProject' style={{ display: "none" }}>
-                <span onClick={() => { _infoClose() }} className='CloseInfo'>&#10008;</span>
+                {/* <span onClick={() => { _infoClose() }} className='CloseInfo'>&#10008;</span> */}
+                 <span onClick={() => { _infoClose() }} className='CloseInfo'>&#10008;</span>
                   {/* &#10009 + bold; */}
                 {/* &#10005 x; */}
                 {/* &#10007 style x */}
@@ -31,15 +32,15 @@ export default function Home() {
 
                     <div className='WriteUpInner'>
                         <p>This application is designed to ease your troubleshooting proccess
-                            and of immense importance for departments such as <mark>Engineering</mark>,<mark>production</mark> , <mark>Quality</mark> and  <mark>Store</mark> .
+                            and of immense importance for departments such as <mark><b>Engineering</b></mark> ,<mark><b>Production</b> </mark> , <mark><b>Quality</b></mark> and  <mark><b>Store Management</b></mark> .
                         </p>
                         <p>You can search for issues that might have occured in your region and also modify your search Criteria by Quering other region of <b> <mark> 7up plant Nationwide</mark></b></p>
                         <p>Should you encounter any breakdown or technical challenges ,which is eventually overcome, you can report this events with attached pictures,if any.This will ensure any employee in other region will have access to this resource and make job easier!</p>
-                        <p><mark>Project Supervisor</mark> : Ali Nassereddine . Factory Manager, 7up Bottling Company  Ltd., Kano plant.
+                        <p><mark><b>Project Supervisor</b></mark> : Ali Nassereddine . Factory Manager, 7up Bottling Company  Ltd., Kano plant.
                         </p>
-                        <p> <mark>Software Developer</mark>: Femi Tope Abitogun . Automation Engineer, 7up Bottling Company Ltd., Kano plant.
+                        <p> <mark><b>Software Developer</b></mark> : Femi Tope Abitogun . Automation Engineer, 7up Bottling Company Ltd., Kano plant.
                         </p>
-                        <p><mark>Contributors </mark>:Engineering Department and entire 7up Kano plant team.
+                        <p><mark><b>Contributors </b> </mark>    : Engineering Team. 7up Bottling Company Ltd., Kano plant.
                         </p>
                         <Link to={{ pathname: "https://femi-abitogun.netlify.app/" }}
                             target="_blank" >Visit my Website</Link>
@@ -51,7 +52,7 @@ export default function Home() {
             </div>
 
             <div className='Info'>
-                <button onClick={() => { _info() }}><h1>!</h1></button>
+                <button onClick={() => { _info() }}><h2>&#10000;</h2></button>
             </div>
 
             <div className='SbcLogo'>

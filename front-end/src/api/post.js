@@ -11,7 +11,7 @@ export const registerNewUserAsync = async (body) => {
     } catch (error) {
         return false;
     }
-}
+} 
 export const PostLoginFormAsync = async (body) => {
     try {
         if (await axios.post(`${url}login/loginUser`, body)) {
