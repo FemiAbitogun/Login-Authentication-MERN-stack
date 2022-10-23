@@ -1,5 +1,5 @@
 const cloudinary = require('../../util/cloudinary');
-const jwt= require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const PostBreakDown = require('../../model/breakDownReport/report');
 const AuthorizedUsers = require('../../model/user');
 
@@ -10,20 +10,24 @@ const createNewReportAsync = async (req, res) => {
         const userId = verified.user;
         const data = await AuthorizedUsers.findOne({ _id: userId });
 
-        let region=data.region;
-        let poster_id=userId;
+        let region = data.region;
+        let poster_id = userId;
         let solutionImages1_secure_url = ""; let solutionImages1_Id = "";
         let solutionImages2_secure_url = ""; let solutionImages2_Id = "";
         const { machineType, machineSection, errorCode, description, solutionSummary //solutionImages1//solutionImages2  
         } = req.body;
 
         if (req.files.solutionImages1) {
-            let result = await cloudinary.uploader.upload(req.files.solutionImages1[0].path);
+            let result = await cloudinary.uploader.upload(req.files.solutionImages1[0].path, {
+                folder: "7upDb/BreakdownImges"
+            });
             solutionImages1_secure_url = result.secure_url;
             solutionImages1_Id = result.public_id;
         }
         if (req.files.solutionImages2) {
-            let result = await cloudinary.uploader.upload(req.files.solutionImages2[0].path);
+            let result = await cloudinary.uploader.upload(req.files.solutionImages2[0].path, {
+                folder: "7upDb/breakdownImg"
+            });
             solutionImages2_secure_url = result.secure_url;
             solutionImages2_Id = result.public_id;
         }
@@ -38,9 +42,9 @@ const createNewReportAsync = async (req, res) => {
             solutionImages2_Id,
             poster_id
         });
-        let _result= await savedReport.save();
-  
-      
+        let _result = await savedReport.save();
+
+
         // res.status(201).json({ "message": "saved successfully...." });
         res.status(201).json(_result);
     } catch (error) {

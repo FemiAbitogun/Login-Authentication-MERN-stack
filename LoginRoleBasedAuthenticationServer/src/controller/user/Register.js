@@ -11,7 +11,9 @@ const registerNewUser = async (req, res) => {
         const harshedPassword = await Bcrypt.hash(password, 10);
         if (req.file) {
             // console.log(req.file.userImage.path)
-            const result = await cloudinary.uploader.upload(req.file.path);
+            const result = await cloudinary.uploader.upload(req.file.path, {
+                folder: "7upDb/UserImages"
+            });
             imagePublicId = result.public_id;
             imagePath = result.secure_url;
         }

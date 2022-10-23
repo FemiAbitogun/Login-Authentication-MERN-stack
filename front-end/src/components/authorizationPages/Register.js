@@ -22,26 +22,39 @@ export default function Register() {
     const OnFileChange = (e) => {
         setUserImage(e.target.files[0]);
     }
-    const Submit = async(e) => {
+    const Submit = async (e) => {
 
         const getPostTag = document.getElementsByClassName("RegNewUserBtn");
-       
+
 
         if (firstName !== "" && lastName !== "" && userImage !== "" && email !== "" && comfirmPassword !== "" && password !== "") {
-            // console.log('ok?')
-            e.preventDefault();
-            getPostTag[0].disabled = true;
-            getPostTag[0].textContent = "Sending.."
-            getPostTag[0].style.backgroundColor = "red"
-            const formData = new FormData();
-            formData.append("userImage", userImage);
-            formData.append("password", password);
-            formData.append("firstName", firstName);
-            formData.append("lastName", lastName);
-            formData.append("email", email);
-            formData.append("region", region);
-            formData.append("department", department);
-            await registerNewUserAsync(formData);
+
+            if (password === comfirmPassword) {
+                // console.log('ok?')
+                e.preventDefault();
+                getPostTag[0].disabled = true;
+                getPostTag[0].textContent = "Sending.."
+                getPostTag[0].style.backgroundColor = "red"
+                const formData = new FormData();
+                formData.append("userImage", userImage);
+                formData.append("password", password);
+                formData.append("firstName", firstName);
+                formData.append("lastName", lastName);
+                formData.append("email", email);
+                formData.append("region", region);
+                formData.append("department", department);
+                await registerNewUserAsync(formData);
+
+            }
+            else {
+                setRegisterError("Password and Confirm password does not match");
+                setTimeout(() => {
+                    setRegisterError("");
+                }, 2000);
+                // console.log(registerError)
+                return;
+            }
+
         }
         else {
             setRegisterError("All entries must be filled");

@@ -5,7 +5,7 @@ import { globalContext } from '../../context/ContextGlobal';
 
 function NewPost() {
   const [newPostError, setNewPostError] = useState(undefined);
-  const { CheckSignedAsync } = useContext(globalContext);
+  const { CheckSignedAsync,signedIn } = useContext(globalContext);
   const history = useHistory();
   const AwaitableInitialRun = async () => {
     if (await CheckSignedAsync() === false) {
@@ -37,7 +37,6 @@ function NewPost() {
   const _setMachineSection = (value) => { setMachineSection(value); }
   const Post = async (e) => {
     if (errorCode !== "" && description !== "" && solutionSummary !== "") {
-      // console.log('ok?')
       e.preventDefault();
       const getPostTag = document.getElementsByClassName("ReportBtn");
       getPostTag[0].disabled = true;
@@ -70,89 +69,91 @@ function NewPost() {
 
   }
 
-
-
   return (
-    <div className='PostContainer'>
-    
-      <div className='PostContainerInner'>
-      {newPostError && <h3 style={{"color":"white"}} className='LoginErrorMessage'>{newPostError} !!</h3>}
-        <div className='PostErrorCode'>
-          <input type='text' onChange={(e) => setErrorCode(e.target.value)} placeholder='Error|Code' />
-        </div>
+  
 
-        <div className='SearchBarRegion machineTypeDiv' >
-          <label htmlFor='machineType' ><b>Machine Type</b></label>
-          <select
-            onChange={(event) => { _setMachineType(event.target.value) }}
-            name='machineType' id='machineType' className='SelectTagDashboard' >
+  <>{signedIn&&<div className='PostContainer'>
+  
+  <div className='PostContainerInner'>
+  {newPostError && <h3 style={{"color":"white"}} className='LoginErrorMessage'>{newPostError} !!</h3>}
+    <div className='PostErrorCode'>
+      <input type='text' onChange={(e) => setErrorCode(e.target.value)} placeholder='Error|Code' />
+    </div>
 
-            <option
-              value="Sidel"
-            >Sidel</option>
+    <div className='SearchBarRegion machineTypeDiv' >
+      <label htmlFor='machineType' ><b>Machine Type</b></label>
+      <select
+        onChange={(event) => { _setMachineType(event.target.value) }}
+        name='machineType' id='machineType' className='SelectTagDashboard' >
 
-            <option value="SACHMI"
-            >SACHMI</option>
+        <option
+          value="Sidel"
+        >Sidel</option>
 
-            <option value="Krones">Krones</option>
+        <option value="SACHMI"
+        >SACHMI</option>
 
-            <option value="KHS">KHS</option>
+        <option value="Krones">Krones</option>
 
-            <option value="Hilden">Hilden</option>
+        <option value="KHS">KHS</option>
 
-            <option value="Tula">Tula</option>
+        <option value="Hilden">Hilden</option>
 
-            <option value="Other">Other</option>
+        <option value="Tula">Tula</option>
 
-          </select>
-        </div>
+        <option value="Other">Other</option>
 
-        {/* machine section */}
-        <div className='SearchBarRegion machineTypeDiv' >
-          <label htmlFor='machineSection' ><b>Machine Section</b></label>
-          <select
-            onChange={(event) => { _setMachineSection(event.target.value) }}
-            name='machineSection' id='machineSection' className='SelectTagDashboard' >
+      </select>
+    </div>
 
-            <option value="Blow Mould">BlowMould</option>
-            <option value="Filler">Filler</option>
-            <option value="Mixer">Mixer</option>
-            <option value="Capper">Capper</option>
-            <option value="Conveyor">Conveyor</option>
-            <option value="Labeller">Labeller</option>
-            <option value="Shrinkwrapper">Shrinkwrapper</option>
-            <option value="Case Parker">Case Packer</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
+    {/* machine section */}
+    <div className='SearchBarRegion machineTypeDiv' >
+      <label htmlFor='machineSection' ><b>Machine Section</b></label>
+      <select
+        onChange={(event) => { _setMachineSection(event.target.value) }}
+        name='machineSection' id='machineSection' className='SelectTagDashboard' >
 
-
-        <div className='DescriptionDiv'>
-          <textarea onChange={(e) => setDescription(e.target.value)} className='ErrorDescription' placeholder='Error Description'></textarea>
-        </div>
+        <option value="Blow Mould">BlowMould</option>
+        <option value="Filler">Filler</option>
+        <option value="Mixer">Mixer</option>
+        <option value="Capper">Capper</option>
+        <option value="Conveyor">Conveyor</option>
+        <option value="Labeller">Labeller</option>
+        <option value="Shrinkwrapper">Shrinkwrapper</option>
+        <option value="Case Parker">Case Packer</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
 
 
-        <div className='SummaryDiv'>
-          <textarea onChange={(e) => setSolutionSummary(e.target.value)} className='SolutionSummary' placeholder='Solution Summary'></textarea>
-        </div>
+    <div className='DescriptionDiv'>
+      <textarea onChange={(e) => setDescription(e.target.value)} className='ErrorDescription' placeholder='Error Description'></textarea>
+    </div>
 
-        <div className='SolutionAttachedImages'>
-          <input type="file" accept="image/png, image/jpeg" onChange={(e) => { OnFileChange1(e); }} />
 
-        </div>
+    <div className='SummaryDiv'>
+      <textarea onChange={(e) => setSolutionSummary(e.target.value)} className='SolutionSummary' placeholder='Solution Summary'></textarea>
+    </div>
 
-        <div className='SolutionAttachedImages'>
-          <input type="file" accept="image/png, image/jpeg" onChange={(e) => { OnFileChange2(e); }} />
-
-        </div>
-
-        <div className='PostReport'>
-          <button className='Button3 ReportBtn' onClick={(e) => Post(e)}><b>Send</b></button>
-        </div>
-
-      </div>
+    <div className='SolutionAttachedImages'>
+      <input type="file" accept="image/png, image/jpeg" onChange={(e) => { OnFileChange1(e); }} />
 
     </div>
+
+    <div className='SolutionAttachedImages'>
+      <input type="file" accept="image/png, image/jpeg" onChange={(e) => { OnFileChange2(e); }} />
+
+    </div>
+
+    <div className='PostReport'>
+      <button className='Button3 ReportBtn' onClick={(e) => Post(e)}><b>Send</b></button>
+    </div>
+
+  </div>
+
+</div>
+  
+  }</>
   )
 }
 

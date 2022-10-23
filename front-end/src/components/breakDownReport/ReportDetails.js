@@ -8,7 +8,7 @@ import { globalContext } from '../../context/ContextGlobal';
 
 function ReportDetails() {
     const history = useHistory();
-    const { CheckSignedAsync } = useContext(globalContext);
+    const { CheckSignedAsync,signedIn } = useContext(globalContext);
     const AwaitableInitialRun = async () => {
         if (await CheckSignedAsync() === false) {
             return history.push('/');
