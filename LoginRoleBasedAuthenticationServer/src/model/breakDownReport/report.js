@@ -37,7 +37,9 @@ const partSchema = new mongoose.Schema({
     poster_id: {
         type: String
     },
-
+    poster_department: {
+        type: String
+    },
 
 }, { timestamps: true });
 

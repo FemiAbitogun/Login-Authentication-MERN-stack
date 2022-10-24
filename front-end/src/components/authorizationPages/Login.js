@@ -6,7 +6,7 @@ import { getLoggedInUserAsync } from '../../api/fetch'
 
 export default function Login() {
     const history = useHistory();
-    const {CheckSignedAsync, setSignedIn, userData, setUserData } = useContext(globalContext);
+    const {CheckSignedAsync, setSignedIn,setUserData } = useContext(globalContext);
     const[error,setError]=useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

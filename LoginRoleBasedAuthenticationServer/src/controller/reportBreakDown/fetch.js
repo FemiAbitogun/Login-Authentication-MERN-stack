@@ -42,4 +42,9 @@ const getBreakDownBySelectedRegionAsync = async (req, res) => {
     }
 
 }
-module.exports = { getReportByRegionAsync, getBreakDownBySelectedRegionAsync, getReportDetailByIDAsync }
+
+module.exports = {
+    getReportByRegionAsync,
+    getBreakDownBySelectedRegionAsync, 
+    getReportDetailByIDAsync
+}

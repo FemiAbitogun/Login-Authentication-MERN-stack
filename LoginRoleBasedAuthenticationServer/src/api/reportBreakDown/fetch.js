@@ -1,6 +1,6 @@
 
 const express = require('express'); const router = express.Router();
-const { getReportByRegionAsync, getReportDetailByIDAsync,getBreakDownBySelectedRegionAsync } = require('../../controller/reportBreakDown/fetch');
+const { getReportByRegionAsync, getReportDetailByIDAsync, getBreakDownBySelectedRegionAsync } = require('../../controller/reportBreakDown/fetch');
 
 
 router.get("/getReport", getReportByRegionAsync);

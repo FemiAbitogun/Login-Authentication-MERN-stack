@@ -38,3 +38,17 @@ export const getBreakDownBySelectedRegionAsync = async (region) => {
         return null;
     }
 } 
+
+
+export const getBreakDownBySelectedDepartmentAsync = async (department) => {
+    try {
+        const { data } = await axios.get(`${url}getBreakDown/getSelectedDepartment?department=${department}`)
+        if (data) {
+            return data;
+        }
+        else { return []; }
+
+    } catch (error) {
+        return null;
+    }
+} 

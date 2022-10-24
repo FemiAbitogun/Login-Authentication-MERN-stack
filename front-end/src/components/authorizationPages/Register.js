@@ -112,7 +112,7 @@ export default function Register() {
                             <label htmlFor="department">Select Department:</label>
                             <select onChange={(event) => { _setDepartment(event.target.value) }} className='SelectTag'>
                                 <option value="Engineering" >Engineering</option>
-                                <option value="STLs" >STLs</option>
+                                <option value="Production" >Production(STLs)</option>
                                 <option value="Utility" >Utility</option>
                                 <option value="Quality" >Quality</option>
                                 <option value="Store" >Store</option>

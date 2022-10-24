@@ -12,6 +12,7 @@ const createNewReportAsync = async (req, res) => {
 
         let region = data.region;
         let poster_id = userId;
+        let poster_department=data.department;
         let solutionImages1_secure_url = ""; let solutionImages1_Id = "";
         let solutionImages2_secure_url = ""; let solutionImages2_Id = "";
         const { machineType, machineSection, errorCode, description, solutionSummary //solutionImages1//solutionImages2  
@@ -40,7 +41,7 @@ const createNewReportAsync = async (req, res) => {
             solutionImages1_Id,
             solutionImages2_secure_url,
             solutionImages2_Id,
-            poster_id
+            poster_id,poster_department
         });
         let _result = await savedReport.save();
 

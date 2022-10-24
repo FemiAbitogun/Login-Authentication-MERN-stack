@@ -23,7 +23,7 @@
     margin-top: 2px;
     background-color: rgba(0, 0, 0, 0.346);
     padding: 3px;
-    height: 100px;
+    min-height: 100px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -138,6 +138,7 @@
     background-color: rgba(0, 0, 0, 0.346);
     font-size: .9em;
     font-weight: bold;
+   
 }
 
 
@@ -155,12 +156,15 @@
         margin-top: 2px;
         background-color: rgba(0, 0, 0, 0.346);
         padding: 5px;
-        height: 120px;
+        height: 200px;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
+    .FaultHeaders {
+       margin-top: .5em;
+    }
 
     .SearchBarRegion,
     .SearchBarFault {

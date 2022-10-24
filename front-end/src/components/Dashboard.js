@@ -1,21 +1,29 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { globalContext } from '../context/ContextGlobal';
-import { getBreakDownRegionAsync, getBreakDownBySelectedRegionAsync } from '../api/fetchBreakDownReport'
-
+import { getBreakDownRegionAsync, getBreakDownBySelectedRegionAsync, getBreakDownBySelectedDepartmentAsync } from '../api/fetchBreakDownReport';
 
 function Dashboard() {
     const history = useHistory();
     const { CheckSignedAsync, signedIn, userData } = useContext(globalContext);
     const [breakDownReports, setBreakDownReports] = useState([]);
+
+
     const AwaitableInitialRun = async () => {
         if (await CheckSignedAsync() === false) {
             return history.push('/');
         }
         let _data = await getBreakDownRegionAsync();
-        setBreakDownReports(_data);
+
+        let userDepartment = "";
+        if (userData.department === "Engineering" || userData.department === "Production") {
+            userDepartment = "Engineering";
+        }
+
+        let filteredValue = _data.filter((value) => value.poster_department === userDepartment);
+        userData.department && setBreakDownReports(filteredValue);
     }
-    useEffect(() => { AwaitableInitialRun(); }, []);
+
     const solutionBtn = (id) => {
         history.push(`/breakDownSolutionByIDAsync/${id}`);
     }
@@ -23,7 +31,7 @@ function Dashboard() {
         const data = await getBreakDownBySelectedRegionAsync(region);
         setBreakDownReports(data);
     }
-    const NewPost = () => { history.push('/newPost') }
+
     const onSearchValueChange = async (searchValue1) => {
         let filteredValue = breakDownReports.filter((value) => value.errorCode.toLowerCase().includes(searchValue1))
         setBreakDownReports(filteredValue);
@@ -31,12 +39,23 @@ function Dashboard() {
             let _data = await getBreakDownRegionAsync();
             setBreakDownReports(_data);
         }
-
-
-
-
+    }
+    const onDepartmentValueChange = async (searchValue1) => {
+        let userDepartment = "";
+        if (searchValue1 === "Production") {
+            userDepartment = "Engineering";
+        }
+        const data = await getBreakDownRegionAsync();
+        if (data) {
+            let filteredValue = data.filter((value) => {
+                return (value.poster_department == userDepartment);
+            })
+            setBreakDownReports(filteredValue);
+        }
     }
 
+    const NewPost = () => { history.push('/newPost') }
+    useEffect(() => { AwaitableInitialRun(); }, [userData.department]);
 
     function display() {
         return (
@@ -76,8 +95,23 @@ function Dashboard() {
                     </div>
 
 
+                    <div className='SearchBarRegion' >
+                        <label htmlFor='department' ><b>Select Department</b></label>
+                        <select onChange={(event) => { onDepartmentValueChange(event.target.value) }} name='department' id='department' className='SelectTagDashboard' >
+
+                            <option value={userData.department}>{userData.department}</option>
+
+                            <option value="Engineering">Engineering </option>
+                            <option value="Quality">Quality </option>
+                            <option value="Utility">Utility</option>
+                            <option value="Production">Production</option>
+                            <option value="Store">Store</option>
+                        </select>
+                    </div>
+
+
                     <div className=''>
-                        <button onClick={() => NewPost()} className='Button3 PostBtn'>Post</button>
+                        <button onClick={() => NewPost()} className='Button3 PostBtn'>Report</button>
                     </div>
                 </div>
                 <div className='FaultHeaders'>
