@@ -32,9 +32,11 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    
 }
 
 .ErrorPics img {
+   
     width: 400px;
     height: 400px;
 }

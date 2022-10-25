@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: rgba(0, 0, 0, 0.305);
+    background-color: rgba(0, 0, 0, 0.544);
     position: relative;
 }
 
@@ -23,7 +23,7 @@
 }
 .NavberHomeBtn {
     letter-spacing:2px;
-    border-bottom: 3px solid rgb(244, 243, 243);
+    border-bottom: 5px solid rgb(244, 243, 243);
 }
 
 .NavberInnerNavs {
@@ -85,5 +85,16 @@
         justify-content: center;
         /* background-color: green; */
     }
+
+}
+
+@media screen and (max-height: 400px) {
+    .Navber {
+        height: 30vh;
+        /* width: 100px; */
+    }
+
+    
+   
 
 }

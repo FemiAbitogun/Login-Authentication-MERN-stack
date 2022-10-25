@@ -56,6 +56,8 @@
 .SolutionAttachedImages{
     margin-top: 10px;
     margin-bottom: 10px;
+    color:white;
+    background-color: rgba(0, 0, 0, 0.469);
 }
 .ReportBtn {
     background-color: black;

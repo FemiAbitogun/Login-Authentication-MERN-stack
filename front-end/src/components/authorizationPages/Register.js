@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { globalContext } from '../../context/ContextGlobal';
 import { registerNewUserAsync } from '../../api/post'
 export default function Register() {
-
+    const history = useHistory();
     const { CheckSignedAsync, signedIn } = useContext(globalContext);
     // const AwaitableInitialRun = async () => {
     //     console.log(await CheckSignedAsync());
@@ -28,7 +28,6 @@ export default function Register() {
 
 
         if (firstName !== "" && lastName !== "" && userImage !== "" && email !== "" && comfirmPassword !== "" && password !== "") {
-
             if (password === comfirmPassword) {
                 // console.log('ok?')
                 e.preventDefault();
@@ -43,7 +42,11 @@ export default function Register() {
                 formData.append("email", email);
                 formData.append("region", region);
                 formData.append("department", department);
-                await registerNewUserAsync(formData);
+                if (await registerNewUserAsync(formData)) {
+                    getPostTag[0].textContent = "Done!!"
+                    history.push('/login');
+                };
+
 
             }
             else {
@@ -76,7 +79,9 @@ export default function Register() {
         // console.log(department);
 
     }
-
+    const Cancel = (e) => {
+        history.push('/');
+    }
     const display = () => {
         return (
             <div className='Register' >
@@ -148,9 +153,12 @@ export default function Register() {
                             <span className="floating-label">Comfirm Password</span>
                         </div>
 
-                        <div>
+                        <div className='RegistrationButtons'>
                             <button className='Button1 RegNewUserBtn' style={{ "color": "white" }} onClick={e => { Submit(e) }} ><b>Submit</b></button>
+                            <button className='Button1 CancelRegBtn' style={{ "color": "white" }} onClick={e => { Cancel(e) }} ><b>Cancel</b></button>
                         </div>
+
+
 
                     </div>
                 </div>

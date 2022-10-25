@@ -5,13 +5,14 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-   
+
     position: relative;
     z-index: 2;
     overflow: hidden;
     color: white;
 }
-.Register::after{
+
+.Register::after {
     width: 100%;
     height: 100%;
     content: "";
@@ -22,7 +23,7 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.468);
-    z-index: -2;   
+    z-index: -2;
 }
 
 .Register .RegistrationForm {
@@ -33,11 +34,9 @@
     justify-content: center;
     align-items: center;
 }
-/* .RegistrationFormInner{
-    display: flex;
-} */
+
 .RegistrationForm div {
-    margin: 1px;
+    /* margin: .5px; */
     color: white;
 }
 
@@ -48,10 +47,26 @@
     background-color: rgba(0, 0, 0, 0.259)
 }
 
-.RegistrationForm button {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 2.6em;
+.RegistrationButtons {
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.429);
+    width: 190px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+}
+
+.RegNewUserBtn {
+    margin-top: .5em;
+    margin-bottom: .5em;
+    background-color: red;
+}
+
+.CancelRegBtn {
+    margin-top: .5em;
+    margin-bottom: .5em;
+    /* margin-left: 2.6em; */
     background-color: rgba(255, 255, 255, 0.355);
 }
 
@@ -86,7 +101,7 @@
 
 
 .Login .LoginForm {
-    width: 100%;  
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,7 +125,8 @@
     margin-top: 1em;
     margin-left: 3.5em;
 }
-.LoginErrorMessage{
+
+.LoginErrorMessage {
     padding: 5px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -122,11 +138,12 @@
 
 
 
-@media screen and (max-width: 500px) { 
+@media screen and (max-width: 500px) {
     .Login {
         height: 80vh;
     }
-    .Register{
+
+    .Register {
         height: 80vh;
     }
 }

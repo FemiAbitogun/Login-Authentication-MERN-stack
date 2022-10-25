@@ -108,16 +108,16 @@ function Dashboard() {
                             <option value="Store">Store</option>
                         </select>
                     </div>
-
+ 
 
                     <div className=''>
-                        <button onClick={() => NewPost()} className='Button3 PostBtn'>Report</button>
+                        <button onClick={() => NewPost()} className='Button3 PostBtn'><span className='Pen'>&#9998;</span>Compose</button>
                     </div>
                 </div>
                 <div className='FaultHeaders'>
-                    <h2>Error</h2>
-                    <h2>Description</h2>
-                    <h2>Details</h2>
+                    <h3>Error</h3>
+                    <h3>Description</h3>
+                    <h3>Details</h3>
                 </div>
 
                 {

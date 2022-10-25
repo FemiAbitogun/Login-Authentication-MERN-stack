@@ -14,7 +14,7 @@ export default function Login() {
     const body = {
         email, password
     }
-
+const CancelBtn=()=>{history.push('/');}
     const LoginBtn = async (event) => {
         try {
             event.preventDefault();
@@ -60,6 +60,10 @@ export default function Login() {
 
                     <div className='LoginFormDiv'>
                         <button className='Button3' onClick={(event) => { LoginBtn(event) }} ><b>Login</b></button>
+                    </div>
+
+                    <div className='LoginFormDiv'>
+                        <button className='Button3' onClick={(event) => { CancelBtn(event) }} ><b>Cancel</b></button>
                     </div>
                 </div>
 
