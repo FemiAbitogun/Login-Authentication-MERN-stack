@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const url = "http://localhost:5678/";
+// const url = "http://localhost:5678/";
+const url = "https://sevenupngintranetwork.herokuapp.com/";
 export const postNewReportAsync = async (body) => {
     try {
         // console.log('sent to server')

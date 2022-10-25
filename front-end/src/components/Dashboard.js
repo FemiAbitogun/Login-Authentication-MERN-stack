@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { globalContext } from '../context/ContextGlobal';
-import { getBreakDownRegionAsync, getBreakDownBySelectedRegionAsync, getBreakDownBySelectedDepartmentAsync } from '../api/fetchBreakDownReport';
+import { getBreakDownRegionAsync, getBreakDownBySelectedRegionAsync } from '../api/fetchBreakDownReport';
 
 function Dashboard() {
     const history = useHistory();

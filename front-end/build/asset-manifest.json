@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2430bbc2.css",
+    "main.js": "/static/js/main.ed5b0300.js",
+    "static/media/SUPA.webp": "/static/media/SUPA.ce4fa2f9db2c416e9b79.webp",
+    "static/media/lipton2.png": "/static/media/lipton2.1bbd9e2b96c49622152b.png",
+    "static/media/mirindaOrange.png": "/static/media/mirindaOrange.eb7320147f4d5f5460ec.png",
+    "static/media/mirindaRed.jpg": "/static/media/mirindaRed.8be98917928a0902eee0.jpg",
+    "static/media/pepsi.jpg": "/static/media/pepsi.c92852861692b7e10191.jpg",
+    "static/media/dew.jpg": "/static/media/dew.839b24291e91975ba2d4.jpg",
+    "static/media/teem.jpg": "/static/media/teem.588040a7050c7d1ed3bc.jpg",
+    "static/media/kettenraeder-taperlock-spannbuchsen-iwis.webp": "/static/media/kettenraeder-taperlock-spannbuchsen-iwis.462643dd06dd7ca05cbe.webp",
+    "static/media/SBC_Identity_New.webp": "/static/media/SBC_Identity_New.072ddbb7514c87d5c22a.webp",
+    "static/media/mirindaApple.jpg": "/static/media/mirindaApple.127d242a18ab5cf265d7.jpg",
+    "static/media/7up.webp": "/static/media/7up.a8e243146e5263a31f30.webp",
+    "static/media/Aquafina.jfif": "/static/media/Aquafina.e303588dfe7475630c19.jfif",
+    "index.html": "/index.html",
+    "main.2430bbc2.css.map": "/static/css/main.2430bbc2.css.map",
+    "main.ed5b0300.js.map": "/static/js/main.ed5b0300.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2430bbc2.css",
+    "static/js/main.ed5b0300.js"
+  ]
+}

@@ -1,5 +1,6 @@
 import axios from 'axios' 
-const url = "http://localhost:5678/";
+// const url = "http://localhost:5678/";
+const url = "https://sevenupngintranetwork.herokuapp.com/";
 export const getBreakDownRegionAsync = async () => {
     try {
         const { data } = await axios.get(`${url}getBreakDown/getReport`)
@@ -40,15 +41,3 @@ export const getBreakDownBySelectedRegionAsync = async (region) => {
 } 
 
 
-export const getBreakDownBySelectedDepartmentAsync = async (department) => {
-    try {
-        const { data } = await axios.get(`${url}getBreakDown/getSelectedDepartment?department=${department}`)
-        if (data) {
-            return data;
-        }
-        else { return []; }
-
-    } catch (error) {
-        return null;
-    }
-} 

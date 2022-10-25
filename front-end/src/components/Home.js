@@ -27,7 +27,7 @@ export default function Home() {
                 {/* &#10003 pass mark */}
                 {/* &#10004 pass mark bold */}
                 {/* &#10003 pass mark */}
-
+ 
                 <div className='WriteUp'>
 
                     <div className='WriteUpInner'>

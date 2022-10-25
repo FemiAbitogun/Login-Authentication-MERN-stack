@@ -1,6 +1,6 @@
 .Home {
     min-width: 100%;
-    height: 80vh;
+    height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,13 +10,14 @@
     margin: 0px;
 
 }
-a{
+
+a {
     color: white;
     margin-bottom: 4px;
 }
+
 .Home::after {
     width: 100%;
-
     content: "";
     position: absolute;
     top: 0;
@@ -28,14 +29,15 @@ a{
 }
 
 .AboutProject span {
-  color: red;
-  font-size: 1.5em;
-  font-weight: bolder;
-  position:absolute;
-  right: 0px;
-  top: 0px;
-  cursor: pointer;
+    color: red;
+    font-size: 1.5em;
+    font-weight: bolder;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
 }
+
 .AboutProject {
     width: 100%;
     /* height: 100%; */
@@ -69,7 +71,8 @@ a{
 
 .HomeQuotes {
     min-width: 40%;
-    /* height: auto; */
+    position: absolute;
+    top: 30px;
     color: white;
     display: flex;
     justify-content: center;
@@ -120,8 +123,10 @@ a{
 
 
 .HomeHero {
+
     min-width: 60%;
-    /* height: 70%; */
+    position: absolute;
+    top: 0px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -220,12 +225,61 @@ a{
 }
 
 
-@media screen and (max-width: 500px) {
-
+@media screen and (max-width: 700px) {
     .Home {
-        min-height: 85vh;
+        min-height: 80vh;
+        /* margin: auto; */
     }
 
+    .WriteUpInner {
+        height: 100%;
+        width: 100%;
+    }
+
+    .WriteUpInner p {
+        font-size: .8em;
+    }
+
+    .HomeQuotes {
+        width: 40px;
+        position: absolute;
+        top: 130px;
+        left: 60px;
+        font-size: 2px;
+
+    }
+
+    .HomeQuotes h2 {
+        font-size: 1.2em;
+    }
+
+    .ImageDiv {
+        position: absolute;
+        top: 100px;
+    }
+
+
+    .WriteUpInner {
+        font-size: 1.2rem;
+        padding: 5px;
+
+    }
+
+    .ImageDiv {
+        width: 100px;
+        /* display: none; */
+    }
+
+    .Navber {
+        height: 20vh;
+    }
+
+    .SbcLogo {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 3px;
+    }
 
 
 
@@ -271,63 +325,64 @@ a{
         transform: rotateY(calc(30deg * 10)) translateZ(200px);
     }
 
-    .ImageDiv {
-        width: 150px;
-        /* display: none; */
+
+}
+
+@media screen and (max-width: 340px) {
+
+    .Home {
+        height: 80vh;
+        position: relative;
+    }
+  
+    .HomeQuotes h1 {
+        font-size: .8em;
+    }
+
+}
+
+@media screen and (max-width: 2000px) {
+    .Home {
+        min-height: 90vh;
     }
 
     .Navber {
-        height: 20vh;
-    }
-
-    .SbcLogo {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        margin-top: 3px;
+        height: 10vh;
     }
 
     .HomeQuotes {
-        max-width: 40px;
         position: absolute;
-        top: 120px;
-        margin: auto;
+        top: 90px;
+        font-size: .7em;
     }
 
     .ImageDiv {
-        /* max-width: 92px; */
-        width: 110px;
-        margin-top: 130px;
-    }
-
-
-    .WriteUpInner {
-        font-size: 1.2rem;
-        padding: 5px;
+        position: absolute;
+        top: 50px;
 
     }
 
 }
 
-
-
-@media screen and (max-height: 550px) {
+@media screen and (max-height: 700px) {
     .Home {
-        height: 100%;
+        min-height: 80vh;
     }
 
-
     .Navber {
-        min-height: 20vh;
+        height: 10vh;
     }
 
     .HomeQuotes {
-        margin-top: 130px;
+        position: absolute;
+        top: 10px;
+        font-size: .7em;
     }
 
     .ImageDiv {
-        margin-top: 80px;
-        /* max-width: 100px; */
+        position: absolute;
+        top: 50px;
+
     }
 
 

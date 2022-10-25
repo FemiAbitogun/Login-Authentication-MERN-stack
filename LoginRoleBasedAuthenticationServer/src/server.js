@@ -5,9 +5,11 @@ const cors = require('cors');
 require('dotenv').config();
 
 app.use(cors({
-    origin:"http://localhost:3000",
+    // origin:"http://localhost:3000",
+    origin:["http://localhost:3000","https://7upreports-databasemanagement-system.netlify.app"],
     credentials: true,
     optionSuccessStatus:200,
+    methods:["GET","HEAD","PUT","PATCH","POST","DELETE"]
 }));
 
 
@@ -59,7 +61,6 @@ app.use('/getLoggedInUser',require('./api/user/fetch'));
 app.use('/newReport',require('./api/reportBreakDown/post'));
 app.use('/getBreakDown',require('./api/reportBreakDown/fetch'));
 
-// getBreakDown/getReport`)
 
 
 
