@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.2430bbc2.css",
-    "main.js": "/static/js/main.ed5b0300.js",
+    "main.css": "/static/css/main.1d299760.css",
+    "main.js": "/static/js/main.c19435ce.js",
     "static/media/SUPA.webp": "/static/media/SUPA.ce4fa2f9db2c416e9b79.webp",
     "static/media/lipton2.png": "/static/media/lipton2.1bbd9e2b96c49622152b.png",
     "static/media/mirindaOrange.png": "/static/media/mirindaOrange.eb7320147f4d5f5460ec.png",
@@ -15,11 +15,11 @@
     "static/media/7up.webp": "/static/media/7up.a8e243146e5263a31f30.webp",
     "static/media/Aquafina.jfif": "/static/media/Aquafina.e303588dfe7475630c19.jfif",
     "index.html": "/index.html",
-    "main.2430bbc2.css.map": "/static/css/main.2430bbc2.css.map",
-    "main.ed5b0300.js.map": "/static/js/main.ed5b0300.js.map"
+    "main.1d299760.css.map": "/static/css/main.1d299760.css.map",
+    "main.c19435ce.js.map": "/static/js/main.c19435ce.js.map"
   },
   "entrypoints": [
-    "static/css/main.2430bbc2.css",
-    "static/js/main.ed5b0300.js"
+    "static/css/main.1d299760.css",
+    "static/js/main.c19435ce.js"
   ]
 }

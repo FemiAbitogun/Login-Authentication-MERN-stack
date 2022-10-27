@@ -48,7 +48,7 @@ const CancelBtn=()=>{history.push('/');}
 
                     <div className='user-input-wrp LoginFormDiv'>
                         <br></br>
-                        <input onChange={(e) => { setEmail(e.target.value.trim()) }} type="text" className="inputText" required />
+                        <input  onChange={(e) => { setEmail(e.target.value.trim()) }} type="text" className="inputText" required />
                         <span className="floating-label">Email</span>
                     </div>
 
@@ -59,7 +59,7 @@ const CancelBtn=()=>{history.push('/');}
                     </div>
 
                     <div className='LoginFormDiv'>
-                        <button className='Button3' onClick={(event) => { LoginBtn(event) }} ><b>Login</b></button>
+                        <button className='Button3 LoginBtn' onClick={(event) => { LoginBtn(event) }} ><b>Login</b></button>
                     </div>
 
                     <div className='LoginFormDiv'>

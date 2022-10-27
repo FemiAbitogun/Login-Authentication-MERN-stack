@@ -65,36 +65,38 @@
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
     .Navber {
-        height: 20vh;
-        /* width: 100px; */
+        height: 30vh;
     }
-
+    .NavberInner {
+        height: 100%;
+        width: 100%;
+       
+    }
     
     .LogOut {
         background-color: red;
         margin-left: auto;
+        width: 80px;
+    }
+    .NavberHomeBtn{
+        font-size: .7em;
+        width: 100px;
     }
 
     .NavberInnerNavs {
-        height: 30px;
+        font-size: .7em;
+        height: 70px;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        /* background-color: green; */
+        flex-wrap: wrap;
     }
 
 }
-
-@media screen and (max-height: 400px) {
-    .Navber {
-        height: 30vh;
-        /* width: 100px; */
-    }
-
-    
+/* 
+@media screen and (max-height: 500px) {
    
-
-}
+} */

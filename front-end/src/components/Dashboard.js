@@ -64,7 +64,7 @@ function Dashboard() {
 
                     <div className='SearchBarFault'>
                         <label htmlFor='Search' ><b>Fault | Code</b></label>
-                        <input onChange={(e) => onSearchValueChange(e.target.value.toLowerCase())} type="text" id='Search' placeholder='Search'></input>
+                        <input onChange={(e) => onSearchValueChange(e.target.value.toLowerCase())} type="text" id='Search' placeholder='Search' autoComplete='off'></input>
                     </div>
 
                     <div className='SearchBarRegion' >

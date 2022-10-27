@@ -1,5 +1,5 @@
 .Register {
-    min-width: 100%;
+    width: 100%;
     min-height: 80vh;
     display: flex;
     justify-content: center;
@@ -10,6 +10,7 @@
     z-index: 2;
     overflow: hidden;
     color: white;
+    /* overflow: auto; */
 }
 
 .Register::after {
@@ -29,10 +30,14 @@
 .Register .RegistrationForm {
     width: 100%;
     height: 100%;
-    /* background-color: rgb(6, 6, 6); */
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.Register .RegistrationForm .RegistrationFormInner {
+    height: 100%;
+    overflow: auto;
 }
 
 .RegistrationForm div {
@@ -44,7 +49,9 @@
     color: white;
     min-width: 10em;
     padding: 15px;
-    background-color: rgba(0, 0, 0, 0.259)
+    background-color: rgba(0, 0, 0, 0.259);
+    /* user-select: none; */
+    
 }
 
 .RegistrationButtons {
@@ -119,11 +126,16 @@
     background-color: rgba(0, 0, 0, 0.279);
     color: white;
     font-size: 1em;
+    user-select: none;
 }
-
+ 
 .LoginFormDiv button {
     margin-top: 1em;
     margin-left: 3.5em;
+    
+}
+.LoginBtn{
+    background-color: rgba(255, 0, 0, 0.597);
 }
 
 .LoginErrorMessage {
@@ -146,4 +158,14 @@
     .Register {
         height: 80vh;
     }
+}
+
+@media screen and (max-height: 650px) {
+    .Login {
+        height: 80vh;
+    }
+    
+    /* .Register {
+        height: 100vh;
+    } */
 }
