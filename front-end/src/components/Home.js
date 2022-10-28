@@ -16,8 +16,8 @@ export default function Home() {
         <div className='Home'>
             <div className='AboutProject' style={{ display: "none" }}>
                 {/* <span onClick={() => { _infoClose() }} className='CloseInfo'>&#10008;</span> */}
-                 <span onClick={() => { _infoClose() }} className='CloseInfo'>&#10008;</span>
-                  {/* &#10009 + bold; */}
+                <span onClick={() => { _infoClose() }} className='CloseInfo'>&#10008;</span>
+                {/* &#10009 + bold; */}
                 {/* &#10005 x; */}
                 {/* &#10007 style x */}
                 {/* &#10006 x mark_b */}
@@ -27,24 +27,27 @@ export default function Home() {
                 {/* &#10003 pass mark */}
                 {/* &#10004 pass mark bold */}
                 {/* &#10003 pass mark */}
- 
+
                 <div className='WriteUp'>
 
-                    <div className='WriteUpInner'>
-                        <p>This application is designed to ease your troubleshooting proccess
-                            and of immense importance for departments such as <mark><b>Engineering</b></mark> ,<mark><b>Production</b> </mark> , <mark><b>Quality</b></mark> and  <mark><b>Store Management</b></mark> .
-                        </p>
-                        <p>You can search for issues that might have occured in your region and also modify your search Criteria by Quering other region of <b> <mark> 7up plant Nationwide</mark></b></p>
-                        <p>Should you encounter any breakdown or technical challenges ,which is eventually overcome, you can report this events with attached pictures,if any.This will ensure any employee in other region will have access to this resource and make job easier!</p>
-                        <p><mark><b>Project Supervisor</b></mark> : Ali Nassereddine . Factory Manager, 7up Bottling Company  Ltd., Kano plant.
-                        </p>
-                        <p> <mark><b>Software Developer</b></mark> : Femi Tope Abitogun . Automation Engineer, 7up Bottling Company Ltd., Kano plant.
-                        </p>
-                        <p><mark><b>Contributors </b> </mark>    : Engineering Team. 7up Bottling Company Ltd., Kano plant.
-                        </p>
-                        <Link to={{ pathname: "https://femi-abitogun.netlify.app/" }}
-                            target="_blank" >Visit my Website</Link>
-                    </div>
+                    
+                        <div className='WriteUpInner'>
+                            <p>This application is designed to ease your troubleshooting proccess
+                                and of immense importance for departments such as <mark><b>Engineering</b></mark> ,<mark><b>Production</b> </mark> , <mark><b>Quality</b></mark> and  <mark><b>Store Management</b></mark> .
+                            </p>
+                            <p>You can search for issues that might have occured in your region and also modify your search Criteria by Quering other region of <b> <mark> 7up plant Nationwide</mark></b></p>
+                            <p>Should you encounter any breakdown or technical challenges ,which is eventually overcome, you can report this events with attached pictures,if any.This will ensure any employee in other region will have access to this resource and make job easier!</p>
+                            <p><mark><b>Project Supervisor</b></mark> : Ali Nassereddine . Factory Manager, 7up Bottling Company  Ltd., Kano plant.
+                            </p>
+                            <p> <mark><b>Software Developer</b></mark> : Femi Tope Abitogun . Automation Engineer, 7up Bottling Company Ltd., Kano plant.
+                            </p>
+                            <p><mark><b>Contributors </b> </mark>    : Engineering Team. 7up Bottling Company Ltd., Kano plant.
+                            </p>
+                            <Link to={{ pathname: "https://femi-abitogun.netlify.app/" }}
+                                target="_blank" >Visit my Website</Link>
+                        </div>
+                    
+
 
                 </div>
 

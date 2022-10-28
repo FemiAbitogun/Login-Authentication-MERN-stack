@@ -67,7 +67,7 @@
 .user-input-wrp input:focus~.floating-label,
 .user-input-wrp input:not(:focus):valid~.floating-label {
     /* top:0px */
-    top: 15px;
+    top: 20px;
     /* left:10px */
     left: 2px;
     font-size: 13px;
@@ -80,10 +80,4 @@
     background-color: rgba(0, 0, 0, 0.671);
     color: white;
     font-size: 1em;
-}
-
-@media screen and (max-width: 500px) {
-    .Login {
-        height: 6vh;
-    }
 }

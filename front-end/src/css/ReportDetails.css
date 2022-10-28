@@ -1,7 +1,8 @@
 .ReportDetails {
     color: white;
     background-color: rgba(0, 0, 0, 0.612);
-   
+    position: absolute;
+    top: 20vh;
 }
 
 .ReportTitle {
@@ -19,7 +20,7 @@
     display: block;
     justify-content: center;
     align-items: center;
-    background-color:rgba(0, 0, 255, 0.098);
+    background-color: rgba(0, 0, 255, 0.098);
 }
 
 
@@ -33,11 +34,11 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    
+
 }
 
 .ErrorPics img {
-   
+
     width: 400px;
     height: 400px;
 }
@@ -45,4 +46,13 @@
 .SolutionCreated {
     /* color: red; */
     background-color: rgba(0, 0, 0, 0.465);
+}
+
+@media screen and (max-width: 600px) {
+    .ReportDetails{
+        height: 70vh;
+        width: 100%;
+        top:30vh;
+        overflow: auto;
+    }
 }

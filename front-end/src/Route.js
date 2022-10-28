@@ -11,10 +11,11 @@ import NewPost from './components/forms/NewPost';
 import ReportDetails from './components/breakDownReport/ReportDetails';
 
 function Router() {
-    return (
+    return (  
         <div className='AppContainer'>
             <BrowserRouter>
                 <ContextGlobal>
+                    
                     <Navbar />
                     <Switch>
                         <Route exact path='/' component={Home} />

@@ -110,7 +110,7 @@ function Dashboard() {
                     </div>
  
 
-                    <div className=''>
+                    <div className='BtnDiv'>
                         <button onClick={() => NewPost()} className='Button3 PostBtn'><span className='Pen'>&#9998;</span>Compose</button>
                     </div>
                 </div>

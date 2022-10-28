@@ -6,8 +6,9 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: rgba(0, 0, 0, 0.544);
-    position: relative;
+    background-color: rgba(19, 17, 17, 0.195);
+    position:absolute;
+    top: 0vh;
 }
 
 
@@ -23,7 +24,8 @@
 }
 .NavberHomeBtn {
     letter-spacing:2px;
-    border-bottom: 5px solid rgb(244, 243, 243);
+    border-bottom: 3px solid rgb(244, 243, 243);
+    /* align-self:flex-start; */
 }
 
 .NavberInnerNavs {
@@ -67,25 +69,33 @@
 
 @media screen and (max-width: 800px) {
     .Navber {
+        top: 0;
         height: 30vh;
     }
     .NavberInner {
         height: 100%;
         width: 100%;
-       
     }
+   
     
     .LogOut {
         background-color: red;
         margin-left: auto;
-        width: 80px;
+        width: 90px;
+    }
+    .LoginProfilePic{
+        margin-top: 2px;
+        align-self: flex-start;
     }
     .NavberHomeBtn{
+        margin-top: 2px;
+        align-self: flex-start;
         font-size: .7em;
         width: 100px;
     }
 
     .NavberInnerNavs {
+        align-self:stretch;
         font-size: .7em;
         height: 70px;
         width: 100%;
@@ -96,7 +106,3 @@
     }
 
 }
-/* 
-@media screen and (max-height: 500px) {
-   
-} */

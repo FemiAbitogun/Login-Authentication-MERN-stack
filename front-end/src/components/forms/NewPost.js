@@ -77,7 +77,7 @@ function NewPost() {
   <div className='PostContainerInner'>
   {newPostError && <h3 style={{"color":"white"}} className='LoginErrorMessage'>{newPostError} !!</h3>}
     <div className='PostErrorCode'>
-      <input type='text' onChange={(e) => setErrorCode(e.target.value)} placeholder='Error|Code' />
+      <input type='text' onChange={(e) => setErrorCode(e.target.value)} placeholder='Error | Code' />
     </div>
 
     <div className='SearchBarRegion machineTypeDiv' >

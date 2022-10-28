@@ -1,47 +1,35 @@
 .Register {
     width: 100%;
-    min-height: 80vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
     position: relative;
     z-index: 2;
-    overflow: hidden;
     color: white;
-    /* overflow: auto; */
+    position: absolute;
+    top: 20vh;
+    overflow: auto;
+
 }
 
-.Register::after {
-    width: 100%;
-    height: 100%;
-    content: "";
-    /* display: block; */
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.468);
-    z-index: -2;
-}
+
 
 .Register .RegistrationForm {
     width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+
 }
 
-.Register .RegistrationForm .RegistrationFormInner {
-    height: 100%;
-    overflow: auto;
-}
+
+
+
+
+
 
 .RegistrationForm div {
-    /* margin: .5px; */
     color: white;
 }
 
@@ -51,7 +39,7 @@
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.259);
     /* user-select: none; */
-    
+
 }
 
 .RegistrationButtons {
@@ -87,22 +75,10 @@
     flex-wrap: wrap;
     position: relative;
     z-index: 2;
-}
-
-.Login::after {
-    width: 100%;
-    height: 100%;
-    content: "";
-    /* display: block; */
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.468);
-    z-index: -2;
-}
+    top: 20vh;
 
+}
 
 
 
@@ -128,13 +104,14 @@
     font-size: 1em;
     user-select: none;
 }
- 
+
 .LoginFormDiv button {
     margin-top: 1em;
     margin-left: 3.5em;
-    
+
 }
-.LoginBtn{
+
+.LoginBtn {
     background-color: rgba(255, 0, 0, 0.597);
 }
 
@@ -148,24 +125,23 @@
     align-items: center;
 }
 
-
-
-@media screen and (max-width: 500px) {
-    .Login {
-        height: 80vh;
-    }
+@media screen and (max-width: 600px) {
 
     .Register {
-        height: 80vh;
+        top: 30vh;
+        height: 70vh;
+        padding-bottom: 10px;
+        box-sizing: border-box;
     }
-}
 
-@media screen and (max-height: 650px) {
-    .Login {
-        height: 80vh;
+    .RegistrationFormInner {
+        
+        overflow: auto;
     }
-    
-    /* .Register {
-        height: 100vh;
-    } */
+
+    .Login {
+        top: 30vh;
+        height: 70vh;
+        
+    }
 }

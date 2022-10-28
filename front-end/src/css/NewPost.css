@@ -1,40 +1,53 @@
 .PostContainer {
-    min-height: 80vh;
+    height: 80vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
     padding: 5px;
-    margin: auto;
+    /* margin: auto; */
     background-color: rgba(28, 28, 25, 0.639);
-    /* overflow: auto; */
+    position: absolute;
+    top: 20vh;
+    box-sizing: border-box;
+}
+
+.PostContainerInner{
+    padding: 20px;
+    box-sizing: border-box;
+    
+}
+
+.PostErrorCode {
+    margin-top: 20px;
+    margin-bottom: 8px;
+   
 }
 
 .PostErrorCode input {
-    /* min-height: 30px; */
-    padding: 2px;
+    height: 40px;
+    padding: 1px;
     color: rgb(255, 0, 0);
     font-size: 1em;
-    font-weight: bold;
-    outline: none;
-    border-bottom: 3px solid white;
-    background-color:rgba(0, 0, 0, 0.671);
-    margin-bottom: 3px;
+    background-color: rgba(0, 0, 0, 0.671);
+
 }
 
 .ErrorCode,
 .DescriptionDiv,
 .SummaryDiv,
 .PostReport {
-    margin-top: 4px;
+    margin-top: 10px;
 
     display: flex;
     justify-content: center;
 }
-.machineTypeDiv{
-    color:white;
+
+.machineTypeDiv {
+    color: white;
     margin-bottom: 5px;
 }
+
 .ErrorDescription {
     width: 300px;
     height: 40px;
@@ -54,14 +67,32 @@
     font-size: 1.2em;
     border-bottom: 3px solid rgb(244, 243, 243);
 }
-.SolutionAttachedImages{
+
+.SolutionAttachedImages {
     margin-top: 10px;
     margin-bottom: 10px;
-    color:white;
+    color: white;
     background-color: rgba(0, 0, 0, 0.469);
 }
+
 .ReportBtn {
     background-color: black;
     outline: none;
     border: none;
+}
+
+
+
+
+@media screen and (max-width: 800px) {
+    .PostContainer {
+        top: 30vh;
+        height: 70vh;
+        width: 100%;
+    }
+
+    .PostContainerInner {
+        height: 100%;
+        overflow: auto;
+    }
 }

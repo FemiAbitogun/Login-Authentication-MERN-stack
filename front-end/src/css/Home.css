@@ -1,15 +1,14 @@
 .Home {
     width: 100%;
-    min-height: 80vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     position: relative;
     z-index: 2;
-    margin: 0px;
-    overflow: auto;
-
+    position: absolute;
+    top: 20vh;
 }
 
 a {
@@ -17,18 +16,7 @@ a {
     margin-bottom: 4px;
 }
 
-.Home::after {
-    width: 100%;
-    height: 100%;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.602);
-    z-index: -6;
-}
+
 
 .AboutProject span {
     color: red;
@@ -126,7 +114,7 @@ a {
 .HomeHero {
     min-width: 60%;
     position: absolute;
-    bottom: 280px;
+    bottom: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,6 +163,17 @@ a {
     height: 100%;
 }
 
+
+@keyframes roter {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
 .Photo1 {
 
     transform: rotateY(calc(30deg * 1)) translateZ(300px);
@@ -216,129 +215,115 @@ a {
     transform: rotateY(calc(30deg * 10)) translateZ(300px);
 }
 
-@keyframes roter {
-    from {
-        transform: rotateY(0deg);
-    }
-
-    to {
-        transform: rotateY(360deg);
-    }
-}
 
 
-@media screen and (max-width: 700px) {
+
+
+
+
+
+@media screen and (max-width: 600px) {
     .Home {
-        height: 80vh;
-        /* overflow: auto; */
+        top: 30vh;
+        height: 70vh;
+        overflow: auto;
     }
 
-    .WriteUpInner {
-        height: 100%;
-        width: 100%;
+    .AboutProject {
+        height: 70vh;
+        padding-bottom: 50vh;
+        /* box-sizing: border-box; */
+      
     }
-
-    .WriteUpInner p {
-        font-size: .8em;
-    }
-
-    .HomeQuotes {
-        width: 40px;
-        position: absolute;
-        top: 130px;
-        left: 60px;
-        font-size: 2px;
-
-    }
-
-    .HomeQuotes h2 {
-        font-size: 1.2em;
-    }
-
-    .ImageDiv {
-        position: absolute;
-        top: 100px;
-    }
-
 
     .WriteUpInner {
         font-size: 1.2rem;
         padding: 5px;
-
+        /* overflow: auto; */
     }
 
-    .ImageDiv {
-        width: 100px;
-        /* display: none; */
-    }
-
-    .Navber {
-        height: 20vh;
-    }
-
-    .SbcLogo {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        margin-top: 3px;
-    }
-
-
-
-
-    .Photo1 {
-
-        transform: rotateY(calc(30deg * 1)) translateZ(200px);
-    }
-
-    .Photo2 {
-        transform: rotateY(calc(30deg * 2)) translateZ(200px);
-    }
-
-    .Photo3 {
-        transform: rotateY(calc(30deg * 3)) translateZ(200px);
-    }
-
-    .Photo4 {
-        transform: rotateY(calc(30deg * 4)) translateZ(200px);
-    }
-
-    .Photo5 {
-        transform: rotateY(calc(30deg * 5)) translateZ(200px);
-    }
-
-    .Photo6 {
-        transform: rotateY(calc(30deg * 6)) translateZ(200px);
-    }
-
-    .Photo7 {
-        transform: rotateY(calc(30deg * 7)) translateZ(200px);
-    }
-
-    .Photo8 {
-        transform: rotateY(calc(30deg * 8)) translateZ(200px);
-    }
-
-    .Photo9 {
-        transform: rotateY(calc(30deg * 9)) translateZ(200px);
-    }
-
-    .Photo10 {
-        transform: rotateY(calc(30deg * 10)) translateZ(200px);
-    }
-
-
-}
-
-@media screen and (max-width: 900px) {
-    .Home {
-        height: 70vh;
-    } 
     .HomeQuotes {
         position: absolute;
         top: 90px;
         font-size: .7em;
     }
 
+    .HomeHero {
+        width: 100%;
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 250px;
+
+    }
+
+
+    .ImageDiv {
+        height: 115px;
+        width: 92px;
+        border: 2px solid greenyellow;
+        transition: all 3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+
+    .Photo1 {
+
+        transform: rotateY(calc(30deg * 1)) translateZ(180px);
+    }
+
+    .Photo2 {
+        transform: rotateY(calc(30deg * 2)) translateZ(180px);
+    }
+
+    .Photo3 {
+        transform: rotateY(calc(30deg * 3)) translateZ(180px);
+    }
+
+    .Photo4 {
+        transform: rotateY(calc(30deg * 4)) translateZ(180px);
+    }
+
+    .Photo5 {
+        transform: rotateY(calc(30deg * 5)) translateZ(180px);
+    }
+
+    .Photo6 {
+        transform: rotateY(calc(30deg * 6)) translateZ(180px);
+    }
+
+    .Photo7 {
+        transform: rotateY(calc(30deg * 7)) translateZ(180px);
+    }
+
+    .Photo8 {
+        transform: rotateY(calc(30deg * 8)) translateZ(180px);
+    }
+
+    .Photo9 {
+        transform: rotateY(calc(30deg * 9)) translateZ(180px);
+    }
+
+    .Photo10 {
+        transform: rotateY(calc(30deg * 10)) translateZ(180px);
+    }
 }
 
+
+
+
+
+
+/* @media screen and (max-height: 670px) {
+
+    .AboutProject {
+        height: 150vh;
+
+    }
+} */
