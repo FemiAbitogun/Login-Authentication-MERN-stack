@@ -13,8 +13,9 @@ function Dashboard() {
         if (await CheckSignedAsync() === false) {
             return history.push('/');
         }
-        let _data = await getBreakDownRegionAsync();
+     
 
+        let _data = await getBreakDownRegionAsync();
         let userDepartment = "";
         if (userData.department === "Engineering" || userData.department === "Production") {
             userDepartment = "Engineering";
@@ -108,7 +109,7 @@ function Dashboard() {
                             <option value="Store">Store</option>
                         </select>
                     </div>
- 
+
 
                     <div className='BtnDiv'>
                         <button onClick={() => NewPost()} className='Button3 PostBtn'><span className='Pen'>&#9998;</span>Compose</button>

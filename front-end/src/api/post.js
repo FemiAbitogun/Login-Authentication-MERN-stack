@@ -12,15 +12,20 @@ export const registerNewUserAsync = async (body) => {
     } catch (error) {
         return false;
     }
-} 
+}
 export const PostLoginFormAsync = async (body) => {
     try {
-        if (await axios.post(`${url}login/loginUser`, body)) {
+        // if (await axios.post(`${url}login/loginUser`, body)) {
+        //     return true;
+        // }
+        const { data } = await axios.post(`${url}login/loginUser`, body);
+        if (data) {
+            localStorage.setItem("ticket", data.ticket);
             return true;
         }
-        else return false;
-
+        else { return false; }
     } catch (error) {
+        // console.log(error.response.data.errorMessage)
         return (error.response.data.errorMessage);
 
     }
@@ -28,20 +33,45 @@ export const PostLoginFormAsync = async (body) => {
 
 
 
-// data ,true of false is expected.....
+// data ,true of false is expected.....HttpCookieOnly
 export const CheckIfSignedIn = async () => {
+    /* try {
+         const { data } = await axios.post(`${url}checkSignedIn/check`);
+         // console.log(data);
+         if (data) return true;
+         else return false;
+     } catch (error) {
+         return false;
+     }
+     */
+}
+
+
+//local storage
+export const CheckIfSignedIn_NoHttpCookie = async () => {
     try {
-        const { data } = await axios.post(`${url}checkSignedIn/check`);
-        // console.log(data);
-        if (data) return true;
-        else return false;
+        const ticketValue = localStorage.getItem("ticket");
+        if (!ticketValue) {
+            // localStorage.setItem("ticket", "");
+            return false;
+        }
+        const { data } = await axios.post(`${url}checkSignedIn/check/checkLST/?ticket=${ticketValue}`);
+        if (data) { return true; }
+        else { 
+            localStorage.clear();
+            return false;
+         }
     } catch (error) {
         return false;
     }
 }
+
+
 export const LogOutUserAsync = async () => {
     try {
-        await axios.post(`${url}logOut/logOutUser`);
+        //httOnly clearing method
+        // await axios.post(`${url}logOut/logOutUser`);
+        localStorage.clear();
         return true;
     } catch (error) {
         return false;

@@ -1,28 +1,19 @@
 .Dashboard {
     width: 100%;
+    height: 80vh;
     color: white;
-    background-color: rgba(255, 255, 255, 0.279);
+    
+    background-color:rgba(247, 248, 245, 0);
     position: absolute;
-    top:20vh;
-/* display: none; */
+    top: 20vh;
+  
 }
 
-.Dashboard::after {
-    width: 100%;
-    height: 100%;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.219);
-    z-index: -6;
-}
 
 .SearchBar {
-    /* margin-top: 2px; */
-    background-color: rgba(0, 0, 0, 0.649);
+    margin-top: 2px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.124);
     padding: 3px;
     min-height: 200px;
     display: flex;
@@ -68,14 +59,16 @@
 }
 
 .FaultHeaders {
-    background-color: rgba(0, 0, 0, 0.731);
+    color: white;
+    background-color: rgba(255, 255, 255, 0.096);
     width: 100%;
     height: 40px;
     /* height: 50vh; */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 3px solid red;
+    border-top: .5px solid red;
+    border-bottom: .5px solid red;
     padding: 5px;
     box-sizing: border-box;
     font-weight: bolder;
@@ -86,8 +79,8 @@
 .FaultMessage {
     height: 60px;
     /* height: 50vh; */
-
-    background-color: rgba(0, 0, 255, 0.302);
+    color: white;
+    background-color: rgba(0, 0, 255, 0.624);
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -115,14 +108,15 @@
     align-items: center;
     flex-wrap: wrap;
     font-weight: bolder;
+    color: white;
     /* background-color: purple;s */
-    /* padding: 2px; */
+    padding: 1px;
 }
 
 .SolutionDetail {
     width: 10%;
     /* color: crimson; */
-    background-color: rgba(255, 255, 255, 0.073);
+    background-color: rgb(64, 64, 62);
     font-size: 2em;
     cursor: pointer;
     display: flex;
@@ -167,7 +161,11 @@
 @media screen and (max-width: 800px) {
 
     .Dashboard {
-       top:30vh
+        top: 20vh;
+        height: 80vh;
+        overflow: auto;
+      
+        
     }
 
 
@@ -179,7 +177,7 @@
         justify-content: space-between;
         align-items: center;
         position: absolute;
-        top:0px;
+        top: 0px;
     }
 
     .SearchBar .BtnDiv {
@@ -192,6 +190,7 @@
         position: absolute;
         top: 205px;
     }
+
     .FaultMessage {
         /* min-height: 40vh; */
         position: relative;
@@ -212,7 +211,7 @@
         font-size: .9em;
     }
 
-    
+
 
     .FaultMessage .Description_ {
         font-size: .9em;
@@ -228,5 +227,3 @@
 
 
 }
-
- 

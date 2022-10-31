@@ -26,14 +26,13 @@ export default function Register() {
 
         const getPostTag = document.getElementsByClassName("RegNewUserBtn");
 
-
         if (firstName !== "" && lastName !== "" && userImage !== "" && email !== "" && comfirmPassword !== "" && password !== "") {
             if (password === comfirmPassword) {
-                // console.log('ok?')
+                // console.log("clicked..."+ getPostTag[0])
                 e.preventDefault();
                 getPostTag[0].disabled = true;
-                getPostTag[0].textContent = "Sending.."
-                getPostTag[0].style.backgroundColor = "red"
+                getPostTag[0].textContent = "Sending..";
+                getPostTag[0].style.backgroundColor = "yellow";
                 const formData = new FormData();
                 formData.append("userImage", userImage);
                 formData.append("password", password);
@@ -85,12 +84,12 @@ export default function Register() {
     const display = () => {
         return (
             <div className='Register' >
-                {registerError && <h3 className='LoginErrorMessage'>{registerError} !!</h3>}
+                {registerError && <div className='RegisterErrorMessage'>{registerError} !!</div>}
                 <div className='RegistrationForm'>
                     <div className='RegistrationFormInner'>
                         <div>
                             <label>Photo</label>
-                            <input type="file" accept="image/png, image/jpeg" onChange={(e) => { OnFileChange(e); }} />
+                            <input type="file" accept="image/png, image/jpeg" required onChange={(e) => { OnFileChange(e); }} />
                         </div>
 
                         <div className='user-input-wrp'>

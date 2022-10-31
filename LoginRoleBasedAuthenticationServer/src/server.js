@@ -1,47 +1,45 @@
 const express = require('express');
-const cookieParser=require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const app = express();
 const cors = require('cors');
 require('dotenv').config();
 
 app.use(cors({
-    // origin:"http://localhost:3000",
-    origin:["http://localhost:3000","https://7upreports-databasemanagement-system.netlify.app"],
-    credentials: true,
-    optionSuccessStatus:200,
-    methods:["GET","HEAD","PUT","PATCH","POST","DELETE"]
+  
+    origin: ["http://localhost:3000", "https://7upreports-databasemanagement-system.netlify.app"],
+    credentials: false,
+    optionSuccessStatus: 200,
+    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"]
 }));
-
-
 // app.use(cors({
-//     origin:"https://femi-abitogun-coop-project.netlify.app", 
-//     credentials:true,            
+//     // origin:"http://localhost:3000",
+//     origin:["http://localhost:3000","https://7upreports-databasemanagement-system.netlify.app"],
+//     credentials: true,
 //     optionSuccessStatus:200,
 //     methods:["GET","HEAD","PUT","PATCH","POST","DELETE"]
 // }));
+
+
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static("uploads"));
 
 
 
-// app.use(express.json());
-// app.use(express.urlencoded({
-//     extended: true
-// }));
+
 const PORT = process.env.PORT || 5678;
 app.listen(PORT, () => {
     console.log(`server lsitening at port ${PORT}...`)
 });
-
+ 
 
 //DATABASE
 const mongoose = require('mongoose');
 mongoose.connect(process.env.DATABASE_CONFIG_PRODUCTION, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  
-}, (err) => {err && console.log(err.message) });
+
+}, (err) => { err && console.log(err.message) });
 mongoose.connection.on('error', () => {
     console.error('error connecting to database')
 });
@@ -50,19 +48,19 @@ mongoose.connection.once('open', () => {
 });
 
 
-app.use('/registerNewUser',require('./api/user/post'));
-app.use('/logIn',require('./api/user/post'));
-app.use('/checkSignedIn',require('./api/user/post'));
-app.use('/logOut',require('./api/user/post'));
+app.use('/registerNewUser', require('./api/user/post'));
+app.use('/logIn', require('./api/user/post'));
+app.use('/checkSignedIn', require('./api/user/post'));
+app.use('/logOut', require('./api/user/post'));
 
-app.use('/getLoggedInUser',require('./api/user/fetch'));
+app.use('/getLoggedInUser', require('./api/user/fetch'));
+
+
+app.use('/newReport', require('./api/reportBreakDown/post'));
+app.use('/getBreakDown', require('./api/reportBreakDown/fetch'));
+
+
  
-
-app.use('/newReport',require('./api/reportBreakDown/post'));
-app.use('/getBreakDown',require('./api/reportBreakDown/fetch'));
-
-
-
 
 
 

@@ -1,15 +1,16 @@
 .ReportDetails {
     color: white;
-    background-color: rgba(0, 0, 0, 0.612);
     position: absolute;
     top: 20vh;
+    height: 80vh;
+    overflow: auto;
 }
 
 .ReportTitle {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    background-color: rgba(0, 0, 0, 0.556);
+    background-color: transparent;
 }
 
 
@@ -27,7 +28,7 @@
 
 .MachineSolutionSummary {
     padding: 5px;
-    background-color: rgba(0, 0, 0, 0.774);
+    /* background-color: rgba(0, 0, 0, 0.774); */
 }
 
 .ErrorPics {
@@ -49,10 +50,10 @@
 }
 
 @media screen and (max-width: 600px) {
-    .ReportDetails{
-        height: 70vh;
+    .ReportDetails {
+        height: 80vh;
         width: 100%;
-        top:30vh;
+        top: 20vh;
         overflow: auto;
     }
 }

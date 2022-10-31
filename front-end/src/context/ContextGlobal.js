@@ -1,6 +1,6 @@
 
 import React, { createContext, useState } from 'react';
-import { CheckIfSignedIn, LogOutUserAsync } from '../api/post'
+import { CheckIfSignedIn,CheckIfSignedIn_NoHttpCookie, LogOutUserAsync } from '../api/post'
 
 export const globalContext = createContext();
 
@@ -10,11 +10,19 @@ export default function ContextGlobal(props) {
 
     const CheckSignedAsync = async () => {
         try {
-            if (await CheckIfSignedIn()) {
+            //with httpOnly cookies
+            // if (await CheckIfSignedIn()) {
+            //     setSignedIn(true);
+            //     return true;
+            // } 
+            //local storage.........
+            if (await CheckIfSignedIn_NoHttpCookie()) {
                 setSignedIn(true);
                 return true;
             }
+
             else {
+                setSignedIn(false);
                 return false
             }
         } catch (error) {

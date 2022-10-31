@@ -24,15 +24,31 @@
 .Button3 {
     width: 120px;
     height: 40px;
-    background-color: rgba(204, 190, 190, 0.116);
+    background-color: rgba(130, 130, 134, 0.774);
     color: white;
     outline: none;
     border: none;
     margin-left: 1px;
     font: bolder;
     cursor: pointer;
-    border: 1px solid white;
-    letter-spacing: .5em;
+    /* border: 2px solid white; */
+    letter-spacing: .3em;
+}
+.Button4{
+
+    width: 120px;
+    height: 40px;
+    background-color:rgba(220, 20, 60, 0.731);
+    color:white;
+    outline: none;
+    border: none;
+    margin-left: 1px;
+    font: bolder;
+    cursor: pointer;
+    letter-spacing: .3em;
+
+
+
 }
 
 /*Input placeholder displacement */
@@ -45,7 +61,8 @@
     width: 100%;
     outline: none;
     border: none;
-    border-bottom: 1px solid #777;
+    /* border-bottom: 1px solid #777; */
+    border-bottom: 1px solid white;
     box-shadow: none !important;
 }
 

@@ -5,11 +5,18 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    position: relative;
-    z-index: 2;
     position: absolute;
     top: 20vh;
+   
+    /* background-image: url('../images/kettenraeder-taperlock-spannbuchsen-iwis.webp');
+    background-repeat: no-repeat; 
+    background-position: right center;
+    background-size: 100% 100%; */
+
 }
+
+
+
 
 a {
     color: white;
@@ -36,27 +43,23 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.887);
-    z-index: 6;
-    color: white;
-
-
+    background-color: rgba(0, 0, 0, 0.794);
+    z-index: 16;
 }
 
 .WriteUp {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
 }
 
 .WriteUpInner {
     font-size: 1.5rem;
     padding: 5px;
+    color: white;
 
 }
-
-
 
 .HomeQuotes {
     min-width: 40%;
@@ -75,7 +78,6 @@ a {
     position: absolute;
     top: 0px;
     right: 0px;
-
 }
 
 
@@ -220,34 +222,22 @@ a {
 
 
 
-
-
-@media screen and (max-width: 600px) {
-    .Home {
-        top: 30vh;
-        height: 70vh;
+/* at mininum you must have 700px width and 700px */
+@media screen and (min-width: 700px) and (min-height: 700px) {
+    .Navber{
+        height: 20vh;
+    }
+    .Home{
+        top: 20vh;
+        height: 80vh;
         overflow: auto;
+       
     }
-
-    .AboutProject {
-        height: 70vh;
-        padding-bottom: 50vh;
-        /* box-sizing: border-box; */
-      
-    }
-
-    .WriteUpInner {
-        font-size: 1.2rem;
-        padding: 5px;
-        /* overflow: auto; */
-    }
-
     .HomeQuotes {
         position: absolute;
         top: 90px;
-        font-size: .7em;
+        font-size: 1em;
     }
-
     .HomeHero {
         width: 100%;
         height: 30vh;
@@ -255,7 +245,51 @@ a {
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: 250px;
+        top: 350px;
+
+    }
+
+
+
+}
+
+@media screen and (max-width: 600px) {
+    .Navber{
+        height: 20vh;
+    }
+    .Home {
+        top: 20vh;
+        height: 80vh;
+        overflow: auto;
+        box-sizing: border-box;
+    }
+
+    .AboutProject {
+         height: 100vh; 
+        padding-bottom: 50vh; 
+    }
+
+    .WriteUpInner {
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+
+    .HomeQuotes {
+        position: absolute;
+        top: 90px;
+        /* top: 100em; */
+        font-size: .7em;
+    }
+
+    .HomeHero {
+        margin-top: 5px;
+        width: 100%;
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 40%;
 
     }
 
@@ -320,10 +354,3 @@ a {
 
 
 
-/* @media screen and (max-height: 670px) {
-
-    .AboutProject {
-        height: 150vh;
-
-    }
-} */

@@ -1,17 +1,22 @@
-import axios from 'axios' 
+import axios from 'axios'
 // const url = "http://localhost:5678/";
 const url = "https://sevenupngintranetwork.herokuapp.com/";
 export const getBreakDownRegionAsync = async () => {
     try {
-        const { data } = await axios.get(`${url}getBreakDown/getReport`)
+        //httpOnly
+        // const { data } = await axios.get(`${url}getBreakDown/getReport`)
+
+        const ticket= localStorage.getItem("ticket");
+        const { data } = await axios.get(`${url}getBreakDown/getReport?ticket=${ticket}`);
         //  console.log(data)
         if (data) {
             return data;
-        }
+        } 
         else { return []; }
 
     } catch (error) {
-        return null;
+        console.log(error.message);
+        return error;
     }
 }
 export const getBreakDownSolutionByIDAsync = async (id) => {
@@ -38,6 +43,6 @@ export const getBreakDownBySelectedRegionAsync = async (region) => {
     } catch (error) {
         return null;
     }
-} 
+}
 
 

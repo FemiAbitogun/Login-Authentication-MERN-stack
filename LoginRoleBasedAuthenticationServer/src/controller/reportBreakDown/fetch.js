@@ -4,17 +4,25 @@ const AuthorizedUsers = require('../../model/user');
 
 const getReportByRegionAsync = async (req, res) => {
     try {
-        const verified = jwt.verify(req.cookies.ticket, process.env.JWT_SECRET);
+        //using httpOnly
+        // const verified = jwt.verify(req.cookies.ticket, process.env.JWT_SECRET);
+        
+        const verified = jwt.verify(req.query.ticket, process.env.JWT_SECRET);
+
         const data = await AuthorizedUsers.findOne({ _id: verified.user });
         const result = await BreakDownReportDB.find({ region: data.region });
-        // console.log(data.region);
+
         res.status(200).json(result);
+        // res.status(200).json(verified);
     }
     catch (err) {
         // console.log(err.message)
         res.status(500).json();
     }
 }
+
+
+
 const getReportDetailByIDAsync = async (req, res) => {
     try {
         const id = req.params.id;

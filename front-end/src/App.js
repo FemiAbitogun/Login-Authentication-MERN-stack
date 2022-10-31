@@ -6,16 +6,16 @@ import './css/Dashboard.css'
 import './css/Navber.css'
 import './css/NewPost.css'
 import './css/ReportDetails.css'
-import axios from "axios";
+// import axios from "axios";
 import Router from './Route';
 
 
-axios.defaults.withCredentials=true;
+// axios.defaults.withCredentials=true;
 
 function App() {
   return (
     <div className="App">
-        <Router />
+      <Router />
     </div>
   );
 }

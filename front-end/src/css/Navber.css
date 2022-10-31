@@ -1,45 +1,52 @@
 .Navber {
-    margin: auto;
     width: 100%;
     height: 20vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    background-color: rgba(19, 17, 17, 0.195);
-    position:absolute;
+    justify-content: space-around;
+    position: absolute;
     top: 0vh;
+    background-color: rgba(132, 135, 132, 0.275);
 }
+
 
 
 
 .NavberInner {
-    height: 100%;
+    /* height: 100%; */
+    height: 40%;
+background-color: rgba(0, 0, 0, 0.281);
+    margin: auto;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    /* background-color: yellow; */
-}
-.NavberHomeBtn {
-    letter-spacing:2px;
-    border-bottom: 3px solid rgb(244, 243, 243);
-    /* align-self:flex-start; */
+    position: relative;
+    box-sizing: border-box;
+
+
 }
 
-.NavberInnerNavs {
-    width: 60%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* background-color: yellowgreen; */
+.NavberHomeBtn b {
+    font-size: 3em;
+
 }
 
-.LoginMessage {
+.NavberInner .NavberHomeBtn {
+
+    background-color: transparent;
     color: white;
+    width: 90px;
+    padding: 3px;
+    cursor: pointer;
+
 }
+
+.NavberInner .LoginProfilePic {
+    justify-self: center;
+}
+
+
+
 
 .LoginMessage .BigFont {
     font-size: 1.5em;
@@ -49,60 +56,112 @@
 
 .LoginProfilePic img {
 
-    width: 80px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
 
 }
+
 
 .LogOut {
+    align-self: flex-start;
     background-color: red;
-    /* background-color: rgba(255, 0, 0, 0.033); */
+    color: white;
     margin-left: auto;
-    border:     1px solid rgb(244, 243, 243);
-    letter-spacing: .2em;
-   
+    width: 100px;
 }
-.LogOut:hover{
+
+
+
+.LogOut:hover {
     background-color: transparent;
 }
 
+.LoginBtnNav {
+    position: absolute;
+    right: 1em;
+}
+
+
+@media screen and (min-width: 800px) {
+    .NavberInner {
+        padding: 20px;
+        box-sizing: border-box;
+
+    }
+
+    .LoginProfilePic {
+        position: absolute;
+        left: 20em;
+    }
+
+    .LoginMessage {
+        color: white;
+        position: absolute;
+        left: 30em;
+    }
+}
 
 @media screen and (max-width: 800px) {
-    .Navber {
-        top: 0;
-        height: 30vh;
-    }
     .NavberInner {
-        height: 100%;
-        width: 100%;
-    }
-   
-    
-    .LogOut {
-        background-color: red;
-        margin-left: auto;
-        width: 90px;
-    }
-    .LoginProfilePic{
-        margin-top: 2px;
-        align-self: flex-start;
-    }
-    .NavberHomeBtn{
-        margin-top: 2px;
-        align-self: flex-start;
+        padding: 10px;
+        box-sizing: border-box;
+        color: white;
         font-size: .7em;
-        width: 100px;
+        height: 40%;
+        background-color: rgba(0, 0, 0, 0.281);
+
     }
 
-    .NavberInnerNavs {
-        align-self:stretch;
-        font-size: .7em;
-        height: 70px;
-        width: 100%;
+    .NavberInner .NavberHomeBtn b {
+        font-size: 4em;
+        /* padding: 2px; */
+        
+
+    }
+
+    .NavberInner .NavberHomeBtn {
+        background-color: rgba(128, 128, 128, 0.219);
+        border: .5px solid rgba(255, 255, 255, 0.394);
+        color: white;
+        width: 100px;
+        height: 40px;
+
+
+        align-self: flex-start;
+        position: absolute;
+        left: 60%;
+
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
+        
     }
+
+    .LoginProfilePic {
+        /* margin-left:2px; */
+        position: absolute;
+        left: 0.5px;
+        bottom: 0;
+    }
+
+    .LoginMessage {
+        position: absolute;
+        left: 130px;
+        bottom: 0;
+    }
+
+    .LogOut {
+
+        background-color: red;
+        color: white;
+        width: 100px;
+        position: absolute;
+        right: .5px;
+        bottom: 3px;
+    }
+
+
+
+
 
 }

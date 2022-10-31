@@ -9,6 +9,12 @@ const registerNewUser = async (req, res) => {
         let imagePath = '';
         let imagePublicId = '';
         const harshedPassword = await Bcrypt.hash(password, 10);
+
+        if (User.findOne({ email })) {
+            return res.status(404).json({
+                errorMessage: "Email Already Exist!"
+            })
+        }
         if (req.file) {
             // console.log(req.file.userImage.path)
             const result = await cloudinary.uploader.upload(req.file.path, {
