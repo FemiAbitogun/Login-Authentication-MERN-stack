@@ -10,7 +10,7 @@ export const registerNewUserAsync = async (body) => {
         });
         return true;
     } catch (error) {
-        return false;
+        return (error.response.data.errorMessage);
     }
 }
 export const PostLoginFormAsync = async (body) => {

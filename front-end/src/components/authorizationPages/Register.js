@@ -32,7 +32,7 @@ export default function Register() {
                 e.preventDefault();
                 getPostTag[0].disabled = true;
                 getPostTag[0].textContent = "Sending..";
-                getPostTag[0].style.backgroundColor = "yellow";
+                getPostTag[0].style.backgroundColor = "green";
                 const formData = new FormData();
                 formData.append("userImage", userImage);
                 formData.append("password", password);
@@ -41,10 +41,23 @@ export default function Register() {
                 formData.append("email", email);
                 formData.append("region", region);
                 formData.append("department", department);
-                if (await registerNewUserAsync(formData)) {
+
+                let returnedData = await registerNewUserAsync(formData);
+                if (returnedData===true) {
                     getPostTag[0].textContent = "Done!!"
                     history.push('/login');
-                };
+                }
+                else {
+                    setRegisterError(returnedData);
+                    setTimeout(() => {
+                        setRegisterError("");
+                        getPostTag[0].disabled = false;
+                        getPostTag[0].textContent = "Submit";
+                        getPostTag[0].style.backgroundColor = "red";
+                    }, 2000);
+                    return;
+                }
+                ;
 
 
             }
@@ -87,7 +100,7 @@ export default function Register() {
                 {registerError && <div className='RegisterErrorMessage'>{registerError} !!</div>}
                 <div className='RegistrationForm'>
                     <div className='RegistrationFormInner'>
-                        <div>
+                        <div className='ImageReg'>
                             <label>Photo</label>
                             <input type="file" accept="image/png, image/jpeg" required onChange={(e) => { OnFileChange(e); }} />
                         </div>

@@ -5,12 +5,13 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    
+
     z-index: 2;
     color: white;
     position: absolute;
     top: 20vh;
     overflow: auto;
+    box-sizing: border-box;
 }
 
 
@@ -170,14 +171,19 @@
     justify-content: center;
 
 }
+
 @media screen and (max-width: 600px) {
 
     .Register {
-        top: 20vh;
-        height: 80vh;
-        box-sizing: border-box;
+        overflow: auto !important;
     }
 
+    .RegistrationFormInner {
+        overflow: auto;
+    }
+    .ImageReg{
+        margin-top: 5px;
+    }
 
 
 
