@@ -26,8 +26,13 @@ function Dashboard() {
     }
 
     const solutionBtn = (id) => {
+        // history.push(`/breakDownSolutionByIDAsync/${id}`);
+    }
+
+    const runClickedDiv=(id)=>{
         history.push(`/breakDownSolutionByIDAsync/${id}`);
     }
+
     const _setRegion = async (region) => {
         const data = await getBreakDownBySelectedRegionAsync(region);
         setBreakDownReports(data);
@@ -118,16 +123,17 @@ function Dashboard() {
                 <div className='FaultHeaders'>
                     <h3>Error</h3>
                     <h3>Description</h3>
-                    <h3>Details</h3>
                 </div>
 
                 {
                     breakDownReports && breakDownReports.map((data, index) => (
 
-                        <div key={data._id} className='FaultMessage'>
+                        <div key={data._id} className='FaultMessage'
+                        onClick={()=>{runClickedDiv(data._id)}}
+                        >
                             <div className='ErrorCode'><mark>{data.errorCode}</mark> </div>
                             <div className='Description_'>{data.description}  </div>
-                            <div onClick={() => { solutionBtn(data._id) }} className='SolutionDetail'>&#10009;</div>
+                            {/* <div onClick={() => { solutionBtn(data._id) }} className='SolutionDetail'>&#10009;</div> */}
 
                         </div>
 

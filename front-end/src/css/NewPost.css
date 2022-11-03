@@ -12,27 +12,53 @@
     overflow: auto;
 }
 
-.PostContainerInner{
+.PostContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.PostContainer {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+
+
+.PostContainerInner {
     height: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-   
+   box-sizing: border-box;
+   /* background-color: rgba(165, 42, 42, 0.386); */
+   padding: 20px;
+   position: relative;
+   top:5vh;
     
 }
 
 .PostErrorCode {
-    margin-top: 2px;
-    margin-bottom: 2px;
-   
+    /* margin-top: 2px;*/
+    margin-bottom: 2px; 
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.ErrorCodeLabel {
+    color: white;
+    /* justify-self: flex-start; */
 }
 
 .PostErrorCode input {
+    width: 200px ;
     height: 40px;
-    padding: 1px;
-    color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 1em;
-    background-color: rgba(0, 0, 0, 0.671);
-
+    background-color: rgba(8, 8, 8, 0.707);
+    box-sizing: border-box;
+    outline: none;
 }
 
 .ErrorCode,
@@ -40,7 +66,6 @@
 .SummaryDiv,
 .PostReport {
     margin-top: 8px;
-
     display: flex;
     justify-content: center;
 }
@@ -71,18 +96,26 @@
 }
 
 .SolutionAttachedImages {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    padding: 1em;
     color: white;
-    background-color: rgba(0, 0, 0, 0.469);
+}
+
+.SolutionAttachedImages input {
+    padding: .5em;
+    color: white;
+    background-color: rgba(45, 45, 48, 0.88);
 }
 
 .ReportBtn {
-    font-size:.7em;
-    background-color: blue;
-    color:white;
+    letter-spacing: 5px;
+    font-size: 0.8em;
+    width: 100px;
+    height: 40px;
+    background-color: crimson;
+    color: white;
     outline: none;
     border: none;
+    margin-bottom: 3em;
 }
 
 
@@ -91,12 +124,20 @@
 @media screen and (max-width: 800px) {
     .PostContainer {
         top: 20vh;
-        height: 70vh;
+        height: 80vh;
         width: 100%;
     }
 
     .PostContainerInner {
         height: 100%;
+        width: 100%;
+        margin: auto;
+        padding: 20px;
+        box-sizing: border-box;
         overflow: auto;
+        position: relative;
+        top: 5vh;
     }
+
+   
 }

@@ -27,7 +27,6 @@ export default function Home() {
                 {/* &#10003 pass mark */}
                 {/* &#10004 pass mark bold */}
                 {/* &#10003 pass mark */}
-
                 <div className='WriteUp'>
 
                     
@@ -50,18 +49,13 @@ export default function Home() {
 
 
                 </div>
-
-
             </div>
-
             <div className='Info'>
                 <button onClick={() => { _info() }}><h2>&#10000;</h2></button>
             </div>
-
             <div className='SbcLogo'>
                 <img src={require('../images/SBC_Identity_New.webp')} />
             </div>
-
             <div className='HomeHero'>
                 <div className='ImageWrapRotor'>
 

@@ -7,11 +7,6 @@
     flex-wrap: wrap;
     position: absolute;
     top: 20vh;
-   
-    /* background-image: url('../images/kettenraeder-taperlock-spannbuchsen-iwis.webp');
-    background-repeat: no-repeat; 
-    background-position: right center;
-    background-size: 100% 100%; */
 
 }
 
@@ -107,9 +102,9 @@ a {
 }
 
 
-.SbcLogo img {
-    width: 120px;
-    height: 120px;
+.Home .SbcLogo img {
+    width: 120px !important;
+    height: 120px !important;
 }
 
 

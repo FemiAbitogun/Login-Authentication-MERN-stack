@@ -60,15 +60,15 @@
 
 .FaultHeaders {
     color: white;
-    background-color: rgba(255, 255, 255, 0.096);
+    background-color: rgba(50, 7, 7, 0.116);
     width: 100%;
     height: 40px;
     /* height: 50vh; */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: .5px solid red;
-    border-bottom: .5px solid red;
+    border-top: .2px solid white;
+    border-bottom: .2px solid white;
     padding: 5px;
     box-sizing: border-box;
     font-weight: bolder;
@@ -77,31 +77,38 @@
 }
 
 .FaultMessage {
-    height: 60px;
-    /* height: 50vh; */
+    height: 70px;
     color: white;
     background-color: rgba(0, 0, 255, 0.624);
     width: 100%;
+    /* margin: auto; */
+    padding: 7px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid white;
+    border-bottom: 2px solid white;
     box-sizing: border-box;
     position: relative;
 }
 
 .ErrorCode {
-    /* width: 20%; */
+    min-width: 20%;
     font-weight: bolder;
-    display: grid;
+    display: flex;
     justify-content: flex-start;
     align-items: center;
     height: 100%;
-    padding: 10px;
+   
+}
+.ErrorCode mark{
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .Description_ {
-    /* width: 80%; */
+    min-width: 80%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -109,19 +116,11 @@
     flex-wrap: wrap;
     font-weight: bolder;
     color: white;
-    /* background-color: purple;s */
+   
     padding: 1px;
 }
 
-.SolutionDetail {
-    width: 10%;
-    /* color: crimson; */
-    background-color: rgb(64, 64, 62);
-    font-size: 2em;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-}
+
 
 
 
@@ -192,10 +191,9 @@
     }
 
     .FaultMessage {
-        /* min-height: 40vh; */
         position: relative;
         top: 260px;
-        overflow: auto;
+        /* top: 0px; */
     }
 
     .SearchBarRegion,

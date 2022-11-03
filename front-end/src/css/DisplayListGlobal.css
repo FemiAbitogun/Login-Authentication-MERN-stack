@@ -1,0 +1,17 @@
+.SlideShowUl{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.SlideShowUl button{
+    background-color: crimson;
+    border: none;
+    color: white;
+    width: 100px;
+    height: 40px;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}

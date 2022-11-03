@@ -2,7 +2,7 @@
 import React, { createContext, useState } from 'react';
 import { CheckIfSignedIn,CheckIfSignedIn_NoHttpCookie, LogOutUserAsync } from '../api/post'
 
-export const globalContext = createContext();
+export const globalContext = createContext("");
 
 export default function ContextGlobal(props) {
     const [signedIn, setSignedIn] = useState(false);

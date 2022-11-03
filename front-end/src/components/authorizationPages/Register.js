@@ -100,7 +100,7 @@ export default function Register() {
                 {registerError && <div className='RegisterErrorMessage'>{registerError} !!</div>}
                 <div className='RegistrationForm'>
                     <div className='RegistrationFormInner'>
-                        <div className='ImageReg'>
+                        <div id='ImageReg'>
                             <label>Photo</label>
                             <input type="file" accept="image/png, image/jpeg" required onChange={(e) => { OnFileChange(e); }} />
                         </div>
@@ -119,7 +119,7 @@ export default function Register() {
 
                         <div className='user-input-wrp'>
                             <br></br>
-                            <input type="text" className='inputText' required onChange={(e) => setEmail(e.target.value)} />
+                            <input type="text" className='inputText' required onChange={(e) => setEmail(e.target.value.toLowerCase().trim())} />
                             <span className="floating-label">Email</span>
                         </div>
 

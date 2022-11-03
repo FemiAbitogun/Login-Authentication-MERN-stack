@@ -63,13 +63,13 @@ export default function Login() {
 
                     <div className='user-input-wrp LoginFormDiv'>
                         <br></br>
-                        <input onChange={(e) => { setEmail(e.target.value.trim()) }} type="text" className="inputText" required />
+                        <input id='InputEmailId' onChange={(e) => { setEmail(e.target.value.toLowerCase().trim()) }} type="text" className="inputText" required />
                         <span className="floating-label">Email</span>
                     </div>
-
+                
                     <div className='user-input-wrp LoginFormDiv'>
                         <br></br>
-                        <input onChange={(e) => { setPassword(e.target.value) }} type="password" className="inputText" required />
+                        <input id='InputPasswordId' onChange={(e) => { setPassword(e.target.value) }} type="password" className="inputText" required />
                         <span className="floating-label">Password</span>
                     </div>
 

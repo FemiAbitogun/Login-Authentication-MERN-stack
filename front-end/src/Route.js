@@ -1,21 +1,26 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './components/authorizationPages/Login';
 import Register from './components/authorizationPages/Register';
 import Home from './components/Home';
-import ContextGlobal, { globalContext } from './context/ContextGlobal';
+
 import Navbar from './components/authorizationPages/Navbar';
 import Dashboard from './components/Dashboard';
 import NewPost from './components/forms/NewPost';
 import ReportDetails from './components/breakDownReport/ReportDetails';
+import DisplayListGlobal from './components/DisplayListGlobal';
+import ContextGlobal from './context/ContextGlobal';
 
 function Router() {
-    return (  
+
+  
+  
+    return (
         <div className='AppContainer'>
             <BrowserRouter>
                 <ContextGlobal>
-                    
+                 <DisplayListGlobal/>
                     <Navbar />
                     <Switch>
                         <Route exact path='/' component={Home} />
@@ -25,9 +30,13 @@ function Router() {
                         <Route path='/login' component={Login} />
 
                         <Route path="/breakDownSolutionByIDAsync/:id">
-                            <ReportDetails/>
+                            <ReportDetails />
                         </Route>
                     </Switch>
+
+
+
+
                 </ContextGlobal>
             </BrowserRouter>
         </div>

@@ -6,40 +6,58 @@
     justify-content: space-around;
     position: absolute;
     top: 0vh;
-    background-color: rgba(132, 135, 132, 0.275);
+    /* background-color: whitesmoke; */
+
 }
 
 
 
 
 .NavberInner {
-    /* height: 100%; */
-    height: 40%;
-background-color: rgba(0, 0, 0, 0.281);
+
+    height: 100%;
     margin: auto;
     width: 100%;
     display: flex;
     align-items: center;
-    position: relative;
     box-sizing: border-box;
-
-
+    z-index: 9;
 }
 
-.NavberHomeBtn b {
-    font-size: 3em;
-
+.NavberInner::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.053);
+    z-index: -9;
 }
+
 
 .NavberInner .NavberHomeBtn {
 
-    background-color: transparent;
     color: white;
     width: 90px;
-    padding: 3px;
     cursor: pointer;
-
+    background-color: rgba(0, 0, 0, 0.437);
+    border: .2px solid rgba(253, 253, 253, 0.513);
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    
 }
+.NavberInner .NavberHomeBtn b {
+    font-size: 1em;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2px;
+}
+
 
 .NavberInner .LoginProfilePic {
     justify-self: center;
@@ -64,10 +82,13 @@ background-color: rgba(0, 0, 0, 0.281);
 
 .LogOut {
     align-self: flex-start;
-    background-color: red;
+    background-color: crimson;
     color: white;
-    margin-left: auto;
+    border-bottom: 2px solid white;
     width: 100px;
+    position: absolute;
+    right: 1px;
+    bottom: 0;
 }
 
 
@@ -102,43 +123,84 @@ background-color: rgba(0, 0, 0, 0.281);
 }
 
 @media screen and (max-width: 800px) {
+
+    .Navber {
+        position: relative;
+        z-index: 0;
+    }
+
     .NavberInner {
         padding: 10px;
         box-sizing: border-box;
         color: white;
         font-size: .7em;
-        height: 40%;
-        background-color: rgba(0, 0, 0, 0.281);
-
+        height: 100%;
     }
 
-    .NavberInner .NavberHomeBtn b {
-        font-size: 4em;
-        /* padding: 2px; */
-        
+    .Navber .Hamburger {
+        display: block !important;
+    }
 
+    .Hamburger {
+        font-size: 60px;
+        position: absolute;
+        right: 1px;
+        top: 1px;
+    }
+
+    .NavberHomeBtn {
+        display: none !important;
+    }
+    .LogOut{
+        display: none !important;
+       
+    }
+
+    .Global {
+        position: absolute;
+        top: 0;
+        content: "";
+        right: 0;
+        width: 40%;
+        height: 100vh;
+        color: white;
+        /* background-color: rgba(236, 223, 223, 0.57) !important; */
+        background-color:rgba(236, 223, 223, 0.224) !important;
+        z-index: 3;
+    }
+
+
+
+
+
+    .NavberInner .NavberHomeBtn b {
+        font-size: 3em;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
     }
 
     .NavberInner .NavberHomeBtn {
-        background-color: rgba(128, 128, 128, 0.219);
-        border: .5px solid rgba(255, 255, 255, 0.394);
+        padding: 0px;
         color: white;
-        width: 100px;
+        background-color: rgba(0, 0, 0, 0.659);
+        border: 1px solid crimson;
+        border-radius: 10px;
+        width: 90px;
         height: 40px;
-
-
         align-self: flex-start;
         position: absolute;
-        left: 60%;
-
+        top: 5px;
+        right: 35%;
         display: flex;
         align-items: center;
         justify-content: center;
-        
     }
 
+   
+
     .LoginProfilePic {
-        /* margin-left:2px; */
         position: absolute;
         left: 0.5px;
         bottom: 0;
@@ -146,19 +208,13 @@ background-color: rgba(0, 0, 0, 0.281);
 
     .LoginMessage {
         position: absolute;
-        left: 130px;
-        bottom: 0;
+        left: 110px;
+        bottom: 2em;
+        display: flex;
+        flex-wrap: wrap;
+
     }
 
-    .LogOut {
-
-        background-color: red;
-        color: white;
-        width: 100px;
-        position: absolute;
-        right: .5px;
-        bottom: 3px;
-    }
 
 
 

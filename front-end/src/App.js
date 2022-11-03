@@ -6,7 +6,7 @@ import './css/Dashboard.css'
 import './css/Navber.css'
 import './css/NewPost.css'
 import './css/ReportDetails.css'
-// import axios from "axios";
+import './css/DisplayListGlobal.css'
 import Router from './Route';
 
 

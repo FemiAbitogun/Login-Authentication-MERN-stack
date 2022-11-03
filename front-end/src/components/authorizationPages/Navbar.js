@@ -1,9 +1,21 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { globalContext } from '../../context/ContextGlobal';
 import { getLoggedInUserAsync } from '../../api/fetch'
 
 function Navbar() {
+    let score = 0;
+    function hamburger(e) {
+        score++;
+        
+        let result = document.getElementById("Global");
+        result.setAttribute('style', 'display:block !important');
+        // result.style.display="inline"
+        // result.classList.add('Global');
+        // result.style.height="1000vh"
+        return;
+    }
+
     const history = useHistory();
     const { CheckSignedAsync, signedIn, setSignedIn, LogOut, userData, setUserData } = useContext(globalContext);
 
@@ -38,25 +50,47 @@ function Navbar() {
     const DashBoard = () => history.push('/dashboard');
 
 
+
+
+
     function display() {
+
+
+
+
+
+
         return (
             <div className='Navber'>
                 <div className="NavberInner">
-                    {signedIn && <div className='NavberHomeBtn' onClick={DashBoard}><b>&#8592;</b></div>}
+                    {signedIn && <b style={{ "display": "none" }} className="Hamburger" onClick={(e) => {
+                        // e.stopPropagation();
+                        hamburger(e)
+                    }} >&#8801;</b>
+                    }
+
+                    <div  style={{ "display": "none" }} >
+                        <ul>  
+                            {signedIn && <button className='' onClick={DashBoard}><b>&#8592; DashBoard</b></button>}
+                            {signedIn && <button className=' ' onClick={LogOutBtn}><b>Sign out</b></button>}
+                        </ul>
+                    </div>
+
+
+
+                    {signedIn && <div className='NavberHomeBtn' onClick={DashBoard}><b>&#8592;DashBoard</b></div>}
 
                     {signedIn && <div className='LoginProfilePic'>
                         <img src={userData.imagePath} alt="" />
                     </div>}
-
-
-                    {!signedIn && <button className='Button3' style={{ "color": "white" }} onClick={RegisterBtn}><b>Register</b></button>}
-
-
                     {signedIn && <div className='LoginMessage'>
                         <h2><b className='BigFont'>W</b>elcome {userData.firstName}!</h2>
                     </div>
                     }
 
+                    {!signedIn && <button className='Button3' style={{ "color": "white" }} onClick={RegisterBtn}><b>Register</b></button>}
+
+                   
                     {!signedIn && <button className='Button4 LoginBtnNav '
                         onClick={LoginBtn}><b>Login</b></button>}
                     {signedIn && <button className='Button3 LogOut' onClick={LogOutBtn}><b>Sign out</b></button>}
