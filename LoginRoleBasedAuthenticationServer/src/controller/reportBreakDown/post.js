@@ -3,8 +3,8 @@ const jwt = require('jsonwebtoken');
 const PostBreakDown = require('../../model/breakDownReport/report');
 const AuthorizedUsers = require('../../model/user');
 const createNewReportAsync = async (req, res) => {
-    try {
-        const verified = jwt.verify(req.cookies.ticket, process.env.JWT_SECRET);
+    try {  
+        const verified = jwt.verify(req.query.ticket, process.env.JWT_SECRET);
         const userId = verified.user;
         const data = await AuthorizedUsers.findOne({ _id: userId });
         let region = data.region;
@@ -32,6 +32,7 @@ const createNewReportAsync = async (req, res) => {
 
         const savedReport = new PostBreakDown({
             region,
+            line,
             machineType, machineSection,
             errorCode, description, solutionSummary,
             solutionImages1_secure_url,

@@ -13,9 +13,7 @@ import DisplayListGlobal from './components/DisplayListGlobal';
 import ContextGlobal from './context/ContextGlobal';
 
 function Router() {
-
-  
-  
+ 
     return (
         <div className='AppContainer'>
             <BrowserRouter>

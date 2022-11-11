@@ -27,22 +27,28 @@ function NewPost() {
   const [solutionSummary, setSolutionSummary] = useState("");
   const [solutionImages1, setSolutionImages1] = useState("");
   const [solutionImages2, setSolutionImages2] = useState("");
+  const [line, setLine] = useState("PET");
+
+
   const OnFileChange1 = (e) => {
     setSolutionImages1(e.target.files[0]);
   }
   const OnFileChange2 = (e) => {
     setSolutionImages2(e.target.files[0]);
   }
+
+  const _setLine = (value) => { setLine(value); }
   const _setMachineType = (value) => { setMachineType(value); }
   const _setMachineSection = (value) => { setMachineSection(value); }
   const Post = async (e) => {
-    if (errorCode !== "" && description !== "" && solutionSummary !== "") {
+    if (errorCode !== "" && description !== "" && solutionSummary !== "" && line!=="") {
       e.preventDefault();
       const getPostTag = document.getElementsByClassName("ReportBtn");
       getPostTag[0].disabled = true;
       getPostTag[0].textContent = "Sending.."
       getPostTag[0].style.backgroundColor = "red"
       const formData2 = new FormData();
+      formData2.append("line", line);
       formData2.append("machineType", machineType);
       formData2.append("machineSection", machineSection);
       formData2.append("errorCode", errorCode);
@@ -50,6 +56,9 @@ function NewPost() {
       formData2.append("solutionSummary", solutionSummary);
       formData2.append("solutionImages1", solutionImages1);
       formData2.append("solutionImages2", solutionImages2);
+
+
+
       let result = await postNewReportAsync(formData2);
       if (result) {
         history.push('/dashboard')
@@ -64,18 +73,32 @@ function NewPost() {
       return
     }
 
+  }
 
-
-
+  const Cancel = async (e) => {
+    history.push('/dashboard')
   }
 
   return (
-
-
     <>{signedIn && <div className='PostContainer'>
-
       <div className='PostContainerInner'>
         {newPostError && <h3 style={{ "color": "white" }} className='LoginErrorMessage'>{newPostError} !!</h3>}
+        {/* Line PET/RGB */}
+        <div className='SearchBarRegion machineTypeDiv' >
+          <label htmlFor='machineSection' ><b>Line Type</b></label>
+          <select
+            onChange={(event) => { _setLine(event.target.value) }}
+            name='Line' id='Line' className='SelectTagDashboard' >
+            <option value="PET">PET</option>
+            <option value="RGB">RGB</option>
+            <option value="AQUAFINA">AQUAFINA</option>
+            <option value="CAN">CAN</option>
+            <option value="2Sure">2Sure</option>
+          </select>
+        </div>
+
+
+
         <div className='PostErrorCode'>
           <label className='ErrorCodeLabel' htmlFor='errorCode' ><b>Error | Code</b></label>
           <input type='text' onChange={(e) => setErrorCode(e.target.value)} placeholder='Error | Code' />
@@ -122,6 +145,7 @@ function NewPost() {
             <option value="Labeller">Labeller</option>
             <option value="Shrinkwrapper">Shrinkwrapper</option>
             <option value="Case Parker">Case Packer</option>
+            <option value="EBI">EBI</option>
             <option value="Other">Other</option>
           </select>
         </div>
@@ -147,13 +171,12 @@ function NewPost() {
         </div>
 
         <div className='PostReport'>
-          <button className=' ReportBtn' onClick={(e) => Post(e)}><b>Send</b></button>
+          <button className=' ReportBtn Button3' onClick={(e) => Post(e)}><b>Send</b></button>
+          <button className='Button3' onClick={(e) => Cancel(e)}><b>Cancel</b></button>
         </div>
 
       </div>
-
     </div>
-
     }</>
   )
 }

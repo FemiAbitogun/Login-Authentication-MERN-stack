@@ -13,7 +13,7 @@ function Dashboard() {
         if (await CheckSignedAsync() === false) {
             return history.push('/');
         }
-     
+
 
         let _data = await getBreakDownRegionAsync();
         let userDepartment = "";
@@ -29,7 +29,7 @@ function Dashboard() {
         // history.push(`/breakDownSolutionByIDAsync/${id}`);
     }
 
-    const runClickedDiv=(id)=>{
+    const runClickedDiv = (id) => {
         history.push(`/breakDownSolutionByIDAsync/${id}`);
     }
 
@@ -48,7 +48,7 @@ function Dashboard() {
     }
     const onDepartmentValueChange = async (searchValue1) => {
         let userDepartment = "";
-        if (searchValue1 === "Production") {
+        if (searchValue1 === "Production" || searchValue1 === "Engineering") {
             userDepartment = "Engineering";
         }
         const data = await getBreakDownRegionAsync();
@@ -122,6 +122,7 @@ function Dashboard() {
                 </div>
                 <div className='FaultHeaders'>
                     <h3>Error</h3>
+                    <h3>Section</h3>
                     <h3>Description</h3>
                 </div>
 
@@ -129,9 +130,12 @@ function Dashboard() {
                     breakDownReports && breakDownReports.map((data, index) => (
 
                         <div key={data._id} className='FaultMessage'
-                        onClick={()=>{runClickedDiv(data._id)}}
+                            onClick={() => { runClickedDiv(data._id) }}
                         >
                             <div className='ErrorCode'><mark>{data.errorCode}</mark> </div>
+
+                            <div className='ErrorSection'>{data.machineSection}</div>
+
                             <div className='Description_'>{data.description}  </div>
                             {/* <div onClick={() => { solutionBtn(data._id) }} className='SolutionDetail'>&#10009;</div> */}
 

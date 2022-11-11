@@ -20,8 +20,10 @@ export default function Login() {
             event.preventDefault();
             const getLoginTag = document.getElementsByClassName("LoginBtn");
             getLoginTag[0].disabled = true;
-            getLoginTag[0].textContent = "Sending..";
-            getLoginTag[0].style.backgroundColor = "green";
+            getLoginTag[0].style.backgroundColor = "rgba(5, 255, 255, 0.285)";
+            getLoginTag[0].style.color = "white";
+            getLoginTag[0].textContent = "Authenticating...";
+            getLoginTag[0].style.width = "auto";
 
             const loginResult = await PostLoginFormAsync(body);
 
@@ -35,17 +37,20 @@ export default function Login() {
                 }
             }
             else {
-                
+
                 setError(loginResult);
                 setTimeout(() => {
                     setError("");
                 }, 2000);
+                getLoginTag[0].style.width = "80px";
                 getLoginTag[0].disabled = false;
+                // getLoginTag[0].classList.add("Button2 !important");
                 getLoginTag[0].textContent = "Submit";
-                getLoginTag[0].style.backgroundColor = "red";
-                
+                getLoginTag[0].style.color = "white";
+                getLoginTag[0].style.backgroundColor = "rgba(255, 0, 0, 0.597)";
+
                 return null;
-              
+
             }
         }
         catch (error) {
@@ -59,27 +64,29 @@ export default function Login() {
         <div className='Login'>
             <div className='LoginForm'>
                 <div className='LoginInner'>
-                    {error && <div className='LoginErrorMessage'>{error} !!</div>}
+                    <div>
+                        {error && <div className='LoginErrorMessage'>{error} !!</div>}
 
-                    <div className='user-input-wrp LoginFormDiv'>
-                        <br></br>
-                        <input id='InputEmailId' onChange={(e) => { setEmail(e.target.value.toLowerCase().trim()) }} type="text" className="inputText" required />
-                        <span className="floating-label">Email</span>
-                    </div>
-                
-                    <div className='user-input-wrp LoginFormDiv'>
-                        <br></br>
-                        <input id='InputPasswordId' onChange={(e) => { setPassword(e.target.value) }} type="password" className="inputText" required />
-                        <span className="floating-label">Password</span>
+                        <div className='user-input-wrp '>
+                            <br></br>
+                            <input id='InputEmailId' onChange={(e) => { setEmail(e.target.value.toLowerCase().trim()) }} type="text" className="inputText" required />
+                            <span className="floating-label">Email</span>
+                        </div>
+
+                        <div className='user-input-wrp '>
+                            <br></br>
+                            <input id='InputPasswordId' onChange={(e) => { setPassword(e.target.value) }} type="password" className="inputText" required />
+                            <span className="floating-label">Password</span>
+                        </div>
+
+                        <div className='LoginFormDiv'>
+                            <button className='Button2 LoginBtn' onClick={(event) => { LoginBtn(event) }} ><b>Submit</b></button>
+
+                            <button className='Button2 CancelRegBtn' onClick={(event) => { CancelBtn(event) }} ><b>Cancel</b></button>
+                        </div>
                     </div>
 
-                    <div className='LoginFormDiv'>
-                        <button className='Button2 LoginBtn' onClick={(event) => { LoginBtn(event) }} ><b>Submit</b></button>
-                    </div>
 
-                    <div className='LoginFormDiv'>
-                        <button className='Button2 CancelRegBtn' onClick={(event) => { CancelBtn(event) }} ><b>Cancel</b></button>
-                    </div>
                 </div>
 
             </div>

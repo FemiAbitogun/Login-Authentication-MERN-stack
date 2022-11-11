@@ -25,6 +25,7 @@ function DisplayListGlobal() {
                     <ul className='SlideShowUl'>
                         {signedIn && <button onClick={toDashboard} className='' ><b>&#8592; DashBoard</b></button>}
                         {signedIn && <button onClick={toSignOut} className=' ' ><b>Sign out</b></button>}
+                        {signedIn && <button  className=' ' ><b>Manage Post</b></button>}
                     </ul>
                 </div>
             </div>

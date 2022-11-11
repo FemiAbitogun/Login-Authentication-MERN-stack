@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
+ 
     z-index: 2;
     color: white;
     position: absolute;
@@ -45,7 +45,7 @@
     overflow: auto;
     box-sizing: border-box;
     position: relative;
-    top: 40px;
+    top: 20px;
 }
 
 .RegistrationFormInner #ImageReg input {
@@ -70,6 +70,7 @@
     z-index: 20;
     font-size: 1em;
 }
+
 .RegistrationButtons {
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.429);
@@ -109,22 +110,40 @@
 }
 
 
-/* .LoginFormDiv div {
-    min-width: 10em;
-    padding: 15px;
-    background-color: transparent;
-} */
+
 
 
 .Login .LoginForm {
+    height: 300px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+    background-color:rgba(60, 53, 53, 0.528);
+    width: 300px;
 }
 
+.LoginInner {
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
+
+.Login .LoginForm .LoginFormDiv {
+    position: relative;
+    top: 20px;
+    width: 222px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.528);
+  padding: 10px;
+    box-sizing: border-box;
+}
 
 #InputPasswordId,
 #InputEmailId {
@@ -133,15 +152,10 @@
     padding: 15px;
     font-size: 1em;
     /* background-color: transparent; */
-    background-color: rgba(0, 0, 0, 0.434);
+    background-color: rgba(0, 0, 0, 0.263);
 }
 
 
-.LoginFormDiv button {
-    margin-top: 1em;
-    margin-left: 3.5em;
-
-}
 
 .LoginBtn {
     background-color: rgba(255, 0, 0, 0.597);
@@ -182,12 +196,27 @@
 
 }
 
+@media screen and (max-height: 600px) {
+    .Register .RegistrationFormInner {
+        overflow: auto;
+        box-sizing: border-box;
+        position: relative;
+        top: 30vh;
+        /* background-color: red; */
+    }
+
+}
 @media screen and (max-width: 600px) {
 
     .Register {
         overflow: auto !important;
     }
-
+    .Register .RegistrationFormInner {
+        overflow: auto;
+        box-sizing: border-box;
+        /* position: relative;
+        top: 10vh; */
+    }
 
 
     .LoginErrorMessage {

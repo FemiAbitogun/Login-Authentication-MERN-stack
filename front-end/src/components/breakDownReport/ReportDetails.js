@@ -32,6 +32,10 @@ function ReportDetails() {
             <div className='ReportDetails'>
                 <div className='ReportTitle'>
                     <div className='RegionOfIncidence'>
+                        <h3>Line:{solutionData.Line}</h3>
+                    </div>
+
+                    <div className='RegionOfIncidence'>
                         <h3>Region:{solutionData.region}</h3>
                     </div>
                     <div className='MachineDescription'>
