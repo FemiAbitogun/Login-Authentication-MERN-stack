@@ -32,7 +32,7 @@ function ReportDetails() {
             <div className='ReportDetails'>
                 <div className='ReportTitle'>
                     <div className='RegionOfIncidence'>
-                        <h3>Line:{solutionData.Line}</h3>
+                        <h3>Line:{solutionData.line}</h3>
                     </div>
 
                     <div className='RegionOfIncidence'>

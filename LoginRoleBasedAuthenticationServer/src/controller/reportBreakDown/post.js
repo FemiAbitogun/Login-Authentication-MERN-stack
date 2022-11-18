@@ -12,9 +12,25 @@ const createNewReportAsync = async (req, res) => {
         let poster_department=data.department;
         let solutionImages1_secure_url = ""; let solutionImages1_Id = "";
         let solutionImages2_secure_url = ""; let solutionImages2_Id = "";
-        const { machineType, machineSection, errorCode, description, solutionSummary //solutionImages1//solutionImages2  
+        const { machineType, machineSection, errorCode, description, solutionSummary,line //solutionImages1//solutionImages2  
         } = req.body;
 
+       
+     
+        const savedReport = new PostBreakDown({
+            region,
+            line,
+            machineType, machineSection,
+            errorCode, description, solutionSummary,
+            solutionImages1_secure_url,
+            solutionImages1_Id,
+            solutionImages2_secure_url,
+            solutionImages2_Id,
+            poster_id,poster_department
+        });
+
+
+        let _result = await savedReport.save();
         if (req.files.solutionImages1) {
             let result = await cloudinary.uploader.upload(req.files.solutionImages1[0].path, {
                 folder: "7upDb/BreakdownImg"
@@ -29,19 +45,6 @@ const createNewReportAsync = async (req, res) => {
             solutionImages2_secure_url = result.secure_url;
             solutionImages2_Id = result.public_id;
         }
-
-        const savedReport = new PostBreakDown({
-            region,
-            line,
-            machineType, machineSection,
-            errorCode, description, solutionSummary,
-            solutionImages1_secure_url,
-            solutionImages1_Id,
-            solutionImages2_secure_url,
-            solutionImages2_Id,
-            poster_id,poster_department
-        });
-        let _result = await savedReport.save();
 
 
         // res.status(201).json({ "message": "saved successfully...." });

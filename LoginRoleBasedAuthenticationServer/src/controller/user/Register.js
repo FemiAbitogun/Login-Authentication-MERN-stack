@@ -1,7 +1,7 @@
 const User = require('../../model/user');
 const Bcrypt = require('bcryptjs');
 const cloudinary = require('../../util/cloudinary');
-
+ 
 const registerNewUser = async (req, res) => {
     try { 
         // console.log(req.file.path)
@@ -12,19 +12,12 @@ const registerNewUser = async (req, res) => {
 
         if (await User.findOne({ email:email })) {
             return res.status(404).json({
-                errorMessage: "Email Already Exist!"
+                errorMessage: "Email Already Exist Or you are already registered...Proceed to Login page !!"
             })
         }
 
 
-        if (req.file) {
-            // console.log(req.file.userImage.path)
-            const result = await cloudinary.uploader.upload(req.file.path, {
-                folder: "7upDb/UserImages"
-            });
-            imagePublicId = result.public_id;
-            imagePath = result.secure_url;
-        }
+       
         const newUser = new User({
             firstName,
             lastName,
@@ -36,6 +29,15 @@ const registerNewUser = async (req, res) => {
             password: harshedPassword
         })
         await newUser.save();
+        if (req.file) {
+            // console.log(req.file.userImage.path)
+            const result = await cloudinary.uploader.upload(req.file.path,{
+                folder: "7upDb/UserImages/",
+                public_id:`${ firstName}_${lastName}`
+            });
+            imagePublicId = result.public_id;
+            imagePath = result.secure_url;
+        }
         return res.status(201).json({ "message": "successufully saved...." })
 
     } catch (error) {
