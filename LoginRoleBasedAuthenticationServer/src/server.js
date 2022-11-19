@@ -5,7 +5,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 app.use(cors({
-  
+
     origin: ["http://localhost:3000", "https://7upreports-databasemanagement-system.netlify.app"],
     credentials: false,
     optionSuccessStatus: 200,
@@ -25,13 +25,15 @@ app.use(cookieParser());
 app.use('/uploads', express.static("uploads"));
 
 
-
+app.get('/', (req, res) => {
+    res.send("ok.....")
+});
 
 const PORT = process.env.PORT || 5678;
 app.listen(PORT, () => {
     console.log(`server lsitening at port ${PORT}...`)
 });
- 
+
 
 //DATABASE
 const mongoose = require('mongoose');
@@ -60,7 +62,7 @@ app.use('/newReport', require('./api/reportBreakDown/post'));
 app.use('/getBreakDown', require('./api/reportBreakDown/fetch'));
 
 
- 
+
 
 
 

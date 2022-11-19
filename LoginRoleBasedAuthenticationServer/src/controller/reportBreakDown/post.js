@@ -3,52 +3,57 @@ const jwt = require('jsonwebtoken');
 const PostBreakDown = require('../../model/breakDownReport/report');
 const AuthorizedUsers = require('../../model/user');
 const createNewReportAsync = async (req, res) => {
-    try {  
+    try {
         const verified = jwt.verify(req.query.ticket, process.env.JWT_SECRET);
         const userId = verified.user;
         const data = await AuthorizedUsers.findOne({ _id: userId });
         let region = data.region;
         let poster_id = userId;
-        let poster_department=data.department;
+        let poster_department = data.department;
         let solutionImages1_secure_url = ""; let solutionImages1_Id = "";
         let solutionImages2_secure_url = ""; let solutionImages2_Id = "";
-        const { machineType, machineSection, errorCode, description, solutionSummary,line //solutionImages1//solutionImages2  
+        const { machineType, machineSection, errorCode, description, solutionSummary, line //solutionImages1//solutionImages2  
         } = req.body;
 
-       
-     
+        let cloudinaryResult1 = "";
+        let cloudinaryResult2 = "";
+        if (req.files.solutionImages1) {
+            cloudinaryResult1 = await cloudinary.uploader.upload(req.files.solutionImages1[0].path, {
+                folder: "7upDb/BreakdownImg"
+            });
+            solutionImages1_secure_url = cloudinaryResult1.secure_url;
+            solutionImages1_Id = cloudinaryResult1.public_id;
+        }
+
+        if (req.files.solutionImages2) {
+            cloudinaryResult2 = await cloudinary.uploader.upload(req.files.solutionImages2[0].path, {
+                folder: "7upDb/BreakdownImg"
+            });
+            solutionImages2_secure_url = cloudinaryResult2.secure_url;
+            solutionImages2_Id = cloudinaryResult2.public_id;
+        }
+
         const savedReport = new PostBreakDown({
-            region,
-            line,
-            machineType, machineSection,
-            errorCode, description, solutionSummary,
+            
             solutionImages1_secure_url,
             solutionImages1_Id,
             solutionImages2_secure_url,
             solutionImages2_Id,
-            poster_id,poster_department
+            
+            region,
+            line,
+            machineType, machineSection,
+            errorCode, description, solutionSummary, 
+            poster_id, poster_department
         });
 
 
-        let _result = await savedReport.save();
-        if (req.files.solutionImages1) {
-            let result = await cloudinary.uploader.upload(req.files.solutionImages1[0].path, {
-                folder: "7upDb/BreakdownImg"
-            });
-            solutionImages1_secure_url = result.secure_url;
-            solutionImages1_Id = result.public_id;
-        }
-        if (req.files.solutionImages2) {
-            let result = await cloudinary.uploader.upload(req.files.solutionImages2[0].path, {
-                folder: "7upDb/BreakdownImg"
-            });
-            solutionImages2_secure_url = result.secure_url;
-            solutionImages2_Id = result.public_id;
-        }
+        await savedReport.save();
+
 
 
         // res.status(201).json({ "message": "saved successfully...." });
-        res.status(201).json(_result);
+        res.status(201).json("ok");
     } catch (error) {
         console.log(error.message);
         res.status(500).send();
