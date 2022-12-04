@@ -25,9 +25,9 @@ function Dashboard() {
         userData.department && setBreakDownReports(filteredValue);
     }
 
-    const solutionBtn = (id) => {
-        // history.push(`/breakDownSolutionByIDAsync/${id}`);
-    }
+    // const solutionBtn = (id) => {
+    //     // history.push(`/breakDownSolutionByIDAsync/${id}`);
+    // }
 
     const runClickedDiv = (id) => {
         history.push(`/breakDownSolutionByIDAsync/${id}`);
@@ -59,6 +59,18 @@ function Dashboard() {
             setBreakDownReports(filteredValue);
         }
     }
+
+    const onLineTypeChange = async (searchValue1) => {
+
+        const data = await getBreakDownRegionAsync();
+        if (data) {
+            let filteredValue = data.filter((value) => {
+                return (value.line == searchValue1);
+            })
+            setBreakDownReports(filteredValue);
+        }
+    }
+
 
     const NewPost = () => { history.push('/newPost') }
     useEffect(() => { AwaitableInitialRun(); }, [userData.department]);
@@ -119,6 +131,21 @@ function Dashboard() {
                     <div className='BtnDiv'>
                         <button onClick={() => NewPost()} className='Button3 PostBtn'><span className='Pen'>&#9998;</span>Compose</button>
                     </div>
+                    {/* LINE TYPE */}
+                    <div className='SearchBarRegion' >
+                        <label htmlFor='department' ><b>Select Line</b></label>
+                        <select onChange={(event) => { onLineTypeChange(event.target.value) }} name='LineType' id='LineType' className='SelectTagDashboard' >
+                            <option value="">Select Line</option>
+                            <option value="PET">PET</option>
+                            <option value="RGB">RGB</option>
+                            <option value="AQUAFINA">AQUAFINA</option>
+                            <option value="CAN">CAN</option>
+                            <option value="2Sure">2Sure</option>
+                        </select>
+                    </div>
+
+
+
                 </div>
                 <div className='FaultHeaders'>
                     <h3>Error</h3>
