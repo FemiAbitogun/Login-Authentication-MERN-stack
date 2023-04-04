@@ -79,7 +79,6 @@ function Dashboard() {
         return (
             <div className='Dashboard'>
                 <div className='SearchBar' >
-
                     <div className='SearchBarFault'>
                         <label htmlFor='Search' ><b>Fault | Code</b></label>
                         <input onChange={(e) => onSearchValueChange(e.target.value.toLowerCase())} type="text" id='Search' placeholder='Search' autoComplete='off'></input>
@@ -112,7 +111,6 @@ function Dashboard() {
                         </select>
                     </div>
 
-
                     <div className='SearchBarRegion' >
                         <label htmlFor='department' ><b>Select Department</b></label>
                         <select onChange={(event) => { onDepartmentValueChange(event.target.value) }} name='department' id='department' className='SelectTagDashboard' >
@@ -127,9 +125,8 @@ function Dashboard() {
                         </select>
                     </div>
 
-
                     <div className='BtnDiv'>
-                        <button onClick={() => NewPost()} className='Button3 PostBtn'><span className='Pen'>&#9998;</span>Compose</button>
+                        <button onClick={() => NewPost()} className='Button3 PostBtn'><span className='Pen'>&#9998;</span>New</button>
                     </div>
                     {/* LINE TYPE */}
                     <div className='SearchBarRegion' >
@@ -143,34 +140,34 @@ function Dashboard() {
                             <option value="2Sure">2Sure</option>
                         </select>
                     </div>
-
-
-
-                </div>
-                <div className='FaultHeaders'>
-                    <h3>Error</h3>
-                    <h3>Section</h3>
-                    <h3>Description</h3>
+                    <div className='FaultHeaders'>
+                        <h3>Error</h3>
+                        <h3>Section</h3>
+                        <h3>Description</h3>
+                    </div>
                 </div>
 
-                {
-                    breakDownReports && breakDownReports.map((data, index) => (
 
-                        <div key={data._id} className='FaultMessage'
-                            onClick={() => { runClickedDiv(data._id) }}
-                        >
-                            <div className='ErrorCode'><mark>{data.errorCode}</mark> </div>
+                <div className='FaultMessageOverflowCtn'>
+                        {
+                            breakDownReports && breakDownReports.map((data, index) => (
 
-                            <div className='ErrorSection'>{data.machineSection}</div>
+                                <div key={data._id} className='FaultMessage'
+                                    onClick={() => { runClickedDiv(data._id) }}
+                                >
+                                    <div className='ErrorCode'><mark>{data.errorCode}</mark> </div>
 
-                            <div className='Description_'>{data.description}  </div>
-                            {/* <div onClick={() => { solutionBtn(data._id) }} className='SolutionDetail'>&#10009;</div> */}
+                                    <div className='ErrorSection'>{data.machineSection}</div>
 
-                        </div>
+                                    <div className='Description_'>{data.description}  </div>
+                                    {/* <div onClick={() => { solutionBtn(data._id) }} className='SolutionDetail'>&#10009;</div> */}
+
+                                </div>
 
 
-                    ))
-                }
+                            ))
+                        }
+                    </div>
 
 
             </div>)
