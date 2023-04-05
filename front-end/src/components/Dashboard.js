@@ -125,9 +125,7 @@ function Dashboard() {
                         </select>
                     </div>
 
-                    <div className='BtnDiv'>
-                        <button onClick={() => NewPost()} className='Button3 PostBtn'><span className='Pen'>&#9998;</span>New</button>
-                    </div>
+
                     {/* LINE TYPE */}
                     <div className='SearchBarRegion' >
                         <label htmlFor='department' ><b>Select Line</b></label>
@@ -140,34 +138,38 @@ function Dashboard() {
                             <option value="2Sure">2Sure</option>
                         </select>
                     </div>
-                    <div className='FaultHeaders'>
-                        <h3>Error</h3>
-                        <h3>Section</h3>
-                        <h3>Description</h3>
+                    <div className='BtnDiv'>
+                        <button onClick={() => NewPost()} className='Button3 PostBtn'><span className='Pen'>&#9998;</span>New</button>
                     </div>
                 </div>
 
 
+                <div className='FaultHeaders'>
+                    <h3>Error</h3>
+                    <h3>Section</h3>
+                    <h3>Description</h3>
+                </div>
+
                 <div className='FaultMessageOverflowCtn'>
-                        {
-                            breakDownReports && breakDownReports.map((data, index) => (
+                    {
+                        breakDownReports && breakDownReports.map((data, index) => (
 
-                                <div key={data._id} className='FaultMessage'
-                                    onClick={() => { runClickedDiv(data._id) }}
-                                >
-                                    <div className='ErrorCode'><mark>{data.errorCode}</mark> </div>
+                            <div key={data._id} className='FaultMessage'
+                                onClick={() => { runClickedDiv(data._id) }}
+                            >
+                                <div className='ErrorCode'><mark>{data.errorCode}</mark> </div>
 
-                                    <div className='ErrorSection'>{data.machineSection}</div>
+                                <div className='ErrorSection'>{data.machineSection}</div>
 
-                                    <div className='Description_'>{data.description}  </div>
-                                    {/* <div onClick={() => { solutionBtn(data._id) }} className='SolutionDetail'>&#10009;</div> */}
+                                <div className='Description_'>{data.description}  </div>
+                                {/* <div onClick={() => { solutionBtn(data._id) }} className='SolutionDetail'>&#10009;</div> */}
 
-                                </div>
+                            </div>
 
 
-                            ))
-                        }
-                    </div>
+                        ))
+                    }
+                </div>
 
 
             </div>)

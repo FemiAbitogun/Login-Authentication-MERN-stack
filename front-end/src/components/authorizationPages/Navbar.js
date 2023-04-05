@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { globalContext } from '../../context/ContextGlobal';
 import { getLoggedInUserAsync } from '../../api/fetch'
 
@@ -7,7 +7,7 @@ function Navbar() {
     let score = 0;
     function hamburger(e) {
         score++;
-        
+
         let result = document.getElementById("Global");
         result.setAttribute('style', 'display:block !important');
         // result.style.display="inline"
@@ -69,31 +69,34 @@ function Navbar() {
                     }} >&#8801;</b>
                     }
 
-                    <div  style={{ "display": "none" }} >
-                        <ul>  
-                            {signedIn && <button className='' onClick={DashBoard}><b>&#8592; DashBoard</b></button>}
-                            {signedIn && <button className=' ' onClick={LogOutBtn}><b>Sign out</b></button>}
-                        </ul>
-                    </div>
+
+ 
 
 
-
-                    {signedIn && <div className='NavberHomeBtn' onClick={DashBoard}><b>&#8592;DashBoard</b></div>}
+                    {signedIn && <div className='NavberHomeBtn' onClick={DashBoard}>DashBoard</div>}
 
                     {signedIn && <div className='LoginProfilePic'>
                         <img src={userData.imagePath} alt="" />
                     </div>}
-                    {signedIn && <div className='LoginMessage'>
-                        <h2><b className='BigFont'>W</b>elcome {userData.firstName}!</h2>
-                    </div>
+
+
+                    {
+                        signedIn && <div className='LoginMessage'>
+                            <h2><b className='BigFont'>W</b>elcome {userData.firstName}!</h2>
+                        </div>
+
                     }
 
                     {!signedIn && <button className='Button3' style={{ "color": "white" }} onClick={RegisterBtn}><b>Register</b></button>}
 
-                   
+
                     {!signedIn && <button className='Button4 LoginBtnNav '
                         onClick={LoginBtn}><b>Login</b></button>}
-                    {signedIn && <button className='Button3 LogOut' onClick={LogOutBtn}><b>Sign out</b></button>}
+
+                    {signedIn && <button className='ManagePostBtn ' ><b>Manage Post</b></button>}
+
+
+                    {signedIn && <button className=' LogOut' onClick={LogOutBtn}><b>Sign out</b></button>}
                 </div>
 
 

@@ -17,7 +17,7 @@
 
 .FaultHeaders {
     color: white;
-    background-color: rgba(50, 7, 7, 0.116);
+    background-color: rgba(17, 4, 4, 0.774);
     width: 100%;
     height: 30px;
     display: flex;
@@ -125,20 +125,22 @@
 
 
 .PostBtn {
-    letter-spacing: normal;
-    width: 130px;
-    background-color: rgba(0, 0, 0, 0.445);
+    letter-spacing: .5px;
+    width: 5.5em;
+    height: auto;
+    background-color: rgb(255, 217, 0);
     font-size: 1em;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    position: relative;
+    left: 1em;
+   
 }
 
 .Pen {
     font-size: 1.5em;
-    margin-right: 5px;
 }
 
 
@@ -163,7 +165,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* margin-bottom: 3px; */
         padding: 10px;
         box-sizing: border-box;
 
