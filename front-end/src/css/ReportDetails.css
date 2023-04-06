@@ -1,9 +1,10 @@
 .ReportDetails {
     color: white;
-    position: absolute;
+    position: relative;
     top: 20vh;
     height: 80vh;
     overflow: auto;
+    max-width: 100%;
 }
 
 .ReportTitle {
@@ -13,7 +14,29 @@
     background-color: transparent;
 }
 
+.MachineErrorDescription .ModificationBtns {
+    
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    box-sizing: border-box;
+    
+}
 
+.EditBtn,
+.DeleteBtn {
+    width: 6em;
+    padding: 5px;
+    margin: 10px;
+    font:bolder;
+    border: 3px solid white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.EditBtn{
+    background-color: yellow;
+}
 
 .MachineErrorDescription {
     /* width: 100%; */
@@ -53,7 +76,6 @@
     .ReportDetails {
         height: 80vh;
         width: 100%;
-        top: 20vh;
-        overflow: auto;
+       
     }
 }

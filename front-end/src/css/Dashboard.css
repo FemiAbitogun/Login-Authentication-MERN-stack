@@ -128,7 +128,7 @@
     letter-spacing: .5px;
     width: 5.5em;
     height: auto;
-    background-color: rgb(255, 217, 0);
+    background-color: rgba(10, 19, 192, 0.932);
     font-size: 1em;
     border-radius: 20px;
     display: flex;
@@ -229,6 +229,7 @@
         align-items: center;
         flex-wrap: wrap;
         height: 50px;
+        overflow: auto;
     }
 
 

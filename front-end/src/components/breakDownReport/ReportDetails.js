@@ -22,6 +22,12 @@ function ReportDetails() {
         setSolutionData(data[0]);
         // console.log(data)
     }
+    const editButton = async () => {
+
+        // console.log(solutionData);
+
+    }
+
     useEffect(() => {
         AwaitableInitialRun();
         getBreakDownSolutionByID();
@@ -46,6 +52,16 @@ function ReportDetails() {
                     </div>
                 </div>
                 <div className='MachineErrorDescription'>
+
+                    <div className='ModificationBtns'>
+                        <button className='EditBtn'
+                            onClick={editButton}
+
+                        >Edit</button>
+                        <button className='DeleteBtn'>Delete</button>
+
+                    </div>
+
                     <h3><b style={{ color: "red" }}>Error Code: </b>{solutionData.errorCode}</h3>
                     <h3><b style={{ color: "red" }}>Description: </b>{solutionData.description}</h3>
                     <h3><b style={{ color: "red" }}>Solution Summary: </b>{solutionData.solutionSummary}</h3>

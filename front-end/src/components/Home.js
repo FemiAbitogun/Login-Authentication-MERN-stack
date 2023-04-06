@@ -103,10 +103,10 @@ export default function Home() {
 
             <div className='HomeQuotes'>
                 <blockquote>
-                    <h1><b style={{ "color": "red", "fontSize": "1.5em" }}>W</b>elcome!!!</h1>
+                    <h1><b style={{ "color": "crimson", "fontSize": "2.5em" }}>W</b>elcome!</h1>
                     <p></p>
-                    <h2>Seamless & Efficient {<b style={{ color: "red" }}>"go"</b>} in your  <p>troubleshooting process </p>
-                    </h2>
+                    <h1 style={{color:"gold"}}>A Better Troubleshooting  {<b style={{ color: "yellow" }}> Experience</b>} 
+                    </h1>
                 </blockquote>
             </div>
 

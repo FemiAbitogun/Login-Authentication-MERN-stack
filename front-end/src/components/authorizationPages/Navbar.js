@@ -82,7 +82,7 @@ function Navbar() {
 
                     {
                         signedIn && <div className='LoginMessage'>
-                            <h2><b className='BigFont'>W</b>elcome {userData.firstName}!</h2>
+                            <h2><b className='BigFont'>H</b>i {userData.firstName}!</h2>
                         </div>
 
                     }
