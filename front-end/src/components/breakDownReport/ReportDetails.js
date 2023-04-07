@@ -17,13 +17,12 @@ function ReportDetails() {
     const [solutionData, setSolutionData] = useState();
     const { id } = useParams();
     const getBreakDownSolutionByID = async () => {
-        // console.log(id);
         let data = await getBreakDownSolutionByIDAsync(id);
         setSolutionData(data[0]);
         // console.log(data)
     }
     const editButton = async () => {
-
+        history.push('/EditBreakDownReportIDAsync/' + id);
         // console.log(solutionData);
 
     }

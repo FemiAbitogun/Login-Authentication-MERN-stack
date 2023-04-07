@@ -11,6 +11,7 @@ import NewPost from './components/forms/NewPost';
 import ReportDetails from './components/breakDownReport/ReportDetails';
 import DisplayListGlobal from './components/DisplayListGlobal';
 import ContextGlobal from './context/ContextGlobal';
+import EditBreakDownReport from './components/EditBreakDownReport/EditBreakDownReport';
 
 function Router() {
  
@@ -29,6 +30,9 @@ function Router() {
 
                         <Route path="/breakDownSolutionByIDAsync/:id">
                             <ReportDetails />
+                        </Route>
+                        <Route path="/EditBreakDownReportIDAsync/:id">
+                            <EditBreakDownReport />
                         </Route>
                     </Switch>
 

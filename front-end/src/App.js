@@ -7,6 +7,7 @@ import './css/Navber.css'
 import './css/NewPost.css'
 import './css/ReportDetails.css'
 import './css/DisplayListGlobal.css'
+import './css/EditBreakDownReport.css'
 import Router from './Route';
 
 
