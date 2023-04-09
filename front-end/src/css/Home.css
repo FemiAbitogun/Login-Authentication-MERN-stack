@@ -373,20 +373,50 @@ a {
     }
 }
 
-/* @media screen and (max-height: 400px) {
+
+@media screen and (min-width: 800px) and (max-height:500px) { 
     .Navber {
         height: 30vh ;
     }
 
     .Home {
         position: relative;
-        top: 30vh;
+        top: 30vh !important;
     }
 
     .HomeQuotes {
+        /* background-color: rgba(255, 0, 0, 0.643); */
+        position: absolute;
+        top: 0px;
+        left: 20px;
+        font-size: .6em;
+       
+    }
+
+    .ImageDiv {
+        width: 5.5rem;
+        height: 5rem;
+
+    }
+
+
+}
+@media screen and (max-height: 400px) { 
+    .Navber {
+        height: 30vh ;   
+    }
+
+    .Home {
+        position: relative;
+        top: 0vh;
+    }
+
+    .HomeQuotes {
+        
         position: absolute;
         top: 0px;
         font-size: .7em;
+        /* display: none; */
     }
 
     .HomeHero {
@@ -408,4 +438,4 @@ a {
 
     }
 
-} */
+}
