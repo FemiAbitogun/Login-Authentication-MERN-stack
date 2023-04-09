@@ -29,7 +29,6 @@ export default function Home() {
                 {/* &#10003 pass mark */}
                 <div className='WriteUp'>
 
-                    
                         <div className='WriteUpInner'>
                             <p>This application is designed to ease your troubleshooting proccess
                                 and of immense importance for departments such as <mark><b>Engineering</b></mark> ,<mark><b>Production</b> </mark> , <mark><b>Quality</b></mark> and  <mark><b>Store Management</b></mark> .
@@ -45,8 +44,6 @@ export default function Home() {
                             <Link to={{ pathname: "https://femi-abitogun.netlify.app/" }}
                                 target="_blank" >Visit my Website</Link>
                         </div>
-                    
-
 
                 </div>
             </div>

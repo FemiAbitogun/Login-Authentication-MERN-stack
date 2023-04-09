@@ -36,7 +36,7 @@ body {
     height: 100%;
     content: "";
     /* background-color: rgba(31, 20, 20, 0.539); */
-    background-image: linear-gradient(to right, rgba(16, 17, 16, 0.473), rgba(122, 6, 56, 0.321));
+    background-image: linear-gradient(to right, rgba(27, 32, 27, 0.552), rgba(41, 37, 38, 0.702));
     z-index: -3;
 } 
 

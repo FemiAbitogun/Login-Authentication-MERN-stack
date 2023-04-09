@@ -87,10 +87,10 @@ function Navbar() {
 
                     }
 
-                    {!signedIn && <button className='Button3' style={{ "color": "white" }} onClick={RegisterBtn}><b>Register</b></button>}
+                    {!signedIn && <button className='RegisterBtn' style={{ "color": "white" }} onClick={RegisterBtn}><b>Register</b></button>}
+                    
 
-
-                    {!signedIn && <button className='Button4 LoginBtnNav '
+                    {!signedIn && <button className='LogInBtn LoginBtnNav '
                         onClick={LoginBtn}><b>Login</b></button>}
 
                     {signedIn && <button className='ManagePostBtn ' ><b>Manage Post</b></button>}

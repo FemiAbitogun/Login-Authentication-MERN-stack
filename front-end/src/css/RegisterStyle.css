@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
- 
+
     z-index: 2;
     color: white;
     position: absolute;
@@ -106,6 +106,7 @@
     z-index: 2;
     position: absolute;
     top: 20vh;
+    overflow: auto;
 
 }
 
@@ -114,34 +115,34 @@
 
 
 .Login .LoginForm {
-    height: 300px;
+    overflow: auto;
+    height: auto;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    background-color:rgba(60, 53, 53, 0.528);
-    width: 300px;
+    background-color: rgba(60, 53, 53, 0.528);
+    width: 250px;
+    padding: 50px;
+    box-sizing: border-box;
 }
 
 .LoginInner {
     height: 100%;
-    
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .Login .LoginForm .LoginFormDiv {
-    position: relative;
-    top: 20px;
     width: 222px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.528);
-  padding: 10px;
+    padding: 10px;
     box-sizing: border-box;
 }
 
@@ -206,11 +207,13 @@
     }
 
 }
+
 @media screen and (max-width: 600px) {
 
     .Register {
         overflow: auto !important;
     }
+
     .Register .RegistrationFormInner {
         overflow: auto;
         box-sizing: border-box;
