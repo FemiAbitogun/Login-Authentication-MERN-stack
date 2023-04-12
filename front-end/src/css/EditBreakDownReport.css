@@ -1,0 +1,70 @@
+.EditBreakdownComponent {
+    position: relative;
+    top: 20vh;
+    height: 80vh;
+    overflow: auto;
+
+
+}
+
+.SelectEditOptions {
+    background-color: rgba(20, 48, 3, 0.865);
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+
+    box-sizing: border-box;
+    color: white;
+}
+
+.EditLineType select {
+    color: white;
+    height: 40px;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.417);
+}
+.EditErrorCode input{
+    color: white;
+    height: 30px;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.417);
+    outline: none;
+}
+
+
+
+
+
+
+.EditReportDescription , .EditReportSummary{
+    display: flex;
+    justify-content:flex-start;
+    padding: 1px;
+}
+.EditReportDescription, .EditReportSummary label{
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin-right: 1px;
+}
+.EditReportSummary textarea{
+    width: 600px;
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+    .EditBreakdownComponent {
+        top:auto;
+        height: 80vh;
+        overflow: auto;
+        padding: 10px;
+      
+    
+    }
+    
+
+
+}
