@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom'
 import { deleteSolutionByIDAsync, getBreakDownSolutionByIDAsync } from '../../api/fetchBreakDownReport';
 
-import { globalContext } from '../../context/ContextGlobal';
+import { globalContext} from '../../context/ContextGlobal';
 
 
 
@@ -12,11 +12,10 @@ import { globalContext } from '../../context/ContextGlobal';
 
 function ReportDetails() {
     const history = useHistory();
-    const { CheckSignedAsync } = useContext(globalContext);
+    const { CheckSignedAsync ,userData} = useContext(globalContext);
 
 
-
-
+// console.log(userData)
 
 
 
@@ -24,18 +23,17 @@ function ReportDetails() {
         if (await CheckSignedAsync() === false) {
             return history.push('/');
         }
-    }
+    } 
     const [solutionData, setSolutionData] = useState();
     const { id } = useParams();
     const getBreakDownSolutionByID = async () => {
         let data = await getBreakDownSolutionByIDAsync(id);
         setSolutionData(data[0]);
-        // console.log(data)
     }
 
 
     const deleteButton = async () => {
-      
+
         if (
             await deleteSolutionByIDAsync(id)) {
             history.push('/dashboard');
@@ -74,7 +72,7 @@ function ReportDetails() {
                 </div>
                 <div className='MachineErrorDescription'>
 
-                    <div className='ModificationBtns'>
+                    {solutionData.poster_id===userData._id && ( <div className='ModificationBtns'>
                         <button className='EditBtn'
                             onClick={editButton}
 
@@ -84,7 +82,8 @@ function ReportDetails() {
                             onClick={deleteButton}
                         >Delete</button>
 
-                    </div>
+                    </div>)}
+                   
 
                     <h3><b style={{ color: "red" }}>Error Code: </b>{solutionData.errorCode}</h3>
                     <h3><b style={{ color: "red" }}>Description: </b>{solutionData.description}</h3>

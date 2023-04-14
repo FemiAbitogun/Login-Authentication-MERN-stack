@@ -1,6 +1,6 @@
 
 import React, { createContext, useState } from 'react';
-import { CheckIfSignedIn,CheckIfSignedIn_NoHttpCookie, LogOutUserAsync } from '../api/post'
+import { CheckIfSignedIn_NoHttpCookie, LogOutUserAsync } from '../api/post'
 
 export const globalContext = createContext("");
 
