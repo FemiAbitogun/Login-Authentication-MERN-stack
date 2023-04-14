@@ -5,12 +5,14 @@ const cors = require('cors');
 require('dotenv').config();
 
 app.use(cors({
-
     origin: ["http://localhost:3000", "https://7upreports-databasemanagement-system.netlify.app"],
     credentials: false,
     optionSuccessStatus: 200,
     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"]
 }));
+
+
+
 // app.use(cors({
 //     // origin:"http://localhost:3000",
 //     origin:["http://localhost:3000","https://7upreports-databasemanagement-system.netlify.app"],
@@ -31,7 +33,7 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 5678;
 app.listen(PORT, () => {
-    console.log(`server lsitening at port ${PORT}...`)
+    console.log(`server listening at port ${PORT}...`)
 });
 
 
@@ -39,9 +41,9 @@ app.listen(PORT, () => {
 const mongoose = require('mongoose');
 mongoose.connect(process.env.DATABASE_CONFIG_PRODUCTION, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-
-}, (err) => { err && console.log(err.message) });
+    useUnifiedTopology: true
+  
+});
 mongoose.connection.on('error', () => {
     console.error('error connecting to database')
 });
@@ -60,6 +62,8 @@ app.use('/getLoggedInUser', require('./api/user/fetch'));
 
 app.use('/newReport', require('./api/reportBreakDown/post'));
 app.use('/getBreakDown', require('./api/reportBreakDown/fetch'));
+
+app.use('/editreport', require('./api/reportBreakDown/editreport'));
 
 
 

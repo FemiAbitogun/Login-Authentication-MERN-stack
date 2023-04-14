@@ -66,6 +66,7 @@ function EditBreakDownReport() {
             getPostTag[0].textContent = "Editing.."
             getPostTag[0].style.backgroundColor = "red"
             const formData2 = new FormData();
+            formData2.append("postID",id);
             formData2.append("line", line);
             formData2.append("machineType", machineType);
             formData2.append("machineSection", machineSection);

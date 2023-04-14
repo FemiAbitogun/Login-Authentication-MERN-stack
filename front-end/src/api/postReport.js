@@ -17,7 +17,7 @@ export const postNewReportAsync = async (body) => {
 export const EditReportAsync = async (body) => {
     const ticketValue = localStorage.getItem("ticket");
     try {
-        await axios.post(`${url}editreport/editPostID?ticket=${ticketValue}`, body, {
+        await axios.post(`${url}editreport/edit?ticket=${ticketValue}`, body, {
             headers: { 'content-type': 'multipart/form-data' }
         });
         return true;

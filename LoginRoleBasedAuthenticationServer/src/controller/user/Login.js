@@ -4,8 +4,7 @@ const AuthorizedUsers = require('../../model/user');
 const loginUserAccountAsync = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const user = await AuthorizedUsers.findOne({ email: email })
-        // console.log(req.body)
+        const user = await AuthorizedUsers.findOne({ email: email });
         if (!user)
             return res.status(401).json({
                 errorMessage: "invalid Email"
@@ -30,22 +29,22 @@ const loginUserAccountAsync = async (req, res) => {
         console.log(err.message)
         res.status(500).send(err);
     }
-} 
+}
 
 const checkSignedInAsync = async (req, res) => {
-   /* try {
-        const ticket = req.cookies.ticket;
-        const verified = jwt.verify(ticket, process.env.JWT_SECRET);
-        // console.log(verified.user)
-        // const userId = verified.user;
-        // const data = await AuthorizedUsers.findOne({ _id: userId });
-        verified && res.status(200).send(true);
-        !verified && res.status(200).send(false);
-    }
-    catch (err) {
-        res.status(200).send(false);
-    }
-*/
+    /* try {
+         const ticket = req.cookies.ticket;
+         const verified = jwt.verify(ticket, process.env.JWT_SECRET);
+         // console.log(verified.user)
+         // const userId = verified.user;
+         // const data = await AuthorizedUsers.findOne({ _id: userId });
+         verified && res.status(200).send(true);
+         !verified && res.status(200).send(false);
+     }
+     catch (err) {
+         res.status(200).send(false);
+     }
+ */
 
 }
 
@@ -81,4 +80,4 @@ const LogOutUserAsync = async (req, res) => {
     // }
 }
 
-module.exports = { loginUserAccountAsync,checkSignedInAsyncNoHttpOnlyAsync, checkSignedInAsync, LogOutUserAsync };
+module.exports = { loginUserAccountAsync, checkSignedInAsyncNoHttpOnlyAsync, checkSignedInAsync, LogOutUserAsync };
