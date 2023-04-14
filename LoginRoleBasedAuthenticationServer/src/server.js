@@ -4,7 +4,13 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config();
 
+
+app.use(express.json());
+app.use(cookieParser());
+app.use('/uploads', express.static("uploads"));
+
 app.use(cors({
+    
     origin: ["http://localhost:3000", "https://7upreports-databasemanagement-system.netlify.app"],
     credentials: false,
     optionSuccessStatus: 200,
@@ -22,9 +28,6 @@ app.use(cors({
 // }));
 
 
-app.use(express.json());
-app.use(cookieParser());
-app.use('/uploads', express.static("uploads"));
 
 
 app.get('/', (req, res) => {
@@ -42,7 +45,7 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.DATABASE_CONFIG_PRODUCTION, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-  
+
 });
 mongoose.connection.on('error', () => {
     console.error('error connecting to database')
@@ -62,11 +65,8 @@ app.use('/getLoggedInUser', require('./api/user/fetch'));
 
 app.use('/newReport', require('./api/reportBreakDown/post'));
 app.use('/getBreakDown', require('./api/reportBreakDown/fetch'));
-
 app.use('/editreport', require('./api/reportBreakDown/editreport'));
-
-
-
+app.use('/delete', require('./api/reportBreakDown/deleteReport'));
 
 
 

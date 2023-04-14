@@ -2,13 +2,24 @@
 import { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom'
-import { getBreakDownSolutionByIDAsync } from '../../api/fetchBreakDownReport'
+import { deleteSolutionByIDAsync, getBreakDownSolutionByIDAsync } from '../../api/fetchBreakDownReport';
+
 import { globalContext } from '../../context/ContextGlobal';
+
+
+
 
 
 function ReportDetails() {
     const history = useHistory();
     const { CheckSignedAsync } = useContext(globalContext);
+
+
+
+
+
+
+
     const AwaitableInitialRun = async () => {
         if (await CheckSignedAsync() === false) {
             return history.push('/');
@@ -21,11 +32,22 @@ function ReportDetails() {
         setSolutionData(data[0]);
         // console.log(data)
     }
+
+
+    const deleteButton = async () => {
+      
+        if (
+            await deleteSolutionByIDAsync(id)) {
+            history.push('/dashboard');
+        }
+    }
+
     const editButton = async () => {
         history.push('/EditBreakDownReportIDAsync/' + id);
         // console.log(solutionData);
-
     }
+
+
 
     useEffect(() => {
         AwaitableInitialRun();
@@ -57,7 +79,10 @@ function ReportDetails() {
                             onClick={editButton}
 
                         >Edit</button>
-                        <button className='DeleteBtn'>Delete</button>
+                        <button className='DeleteBtn'
+
+                            onClick={deleteButton}
+                        >Delete</button>
 
                     </div>
 
