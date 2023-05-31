@@ -14,6 +14,8 @@ const deleteReportAsync = async (req, res) => {
         let dataObject = await breakDownData.findOne({ _id: id });
         await cloudinary.uploader.destroy(dataObject.solutionImages1_Id);
         await cloudinary.uploader.destroy(dataObject.solutionImages2_Id);
+        await cloudinary.uploader.destroy(dataObject.solutionImages3_Id);
+
         await dataObject.deleteOne();
         res.status(201).json(true);
     } catch (error) {

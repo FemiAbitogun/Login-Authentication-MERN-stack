@@ -27,7 +27,9 @@ function NewPost() {
   const [solutionSummary, setSolutionSummary] = useState("");
   const [solutionImages1, setSolutionImages1] = useState("");
   const [solutionImages2, setSolutionImages2] = useState("");
+  const [solutionImages3, setSolutionImages3] = useState("");
   const [line, setLine] = useState("PET");
+  const [lineNumber, setLineNumber] = useState("");
 
 
   const OnFileChange1 = (e) => {
@@ -36,12 +38,14 @@ function NewPost() {
   const OnFileChange2 = (e) => {
     setSolutionImages2(e.target.files[0]);
   }
-
+  const OnFileChange3 = (e) => {
+    setSolutionImages3(e.target.files[0]);
+  }
   const _setLine = (value) => { setLine(value); }
   const _setMachineType = (value) => { setMachineType(value); }
   const _setMachineSection = (value) => { setMachineSection(value); }
   const Post = async (e) => {
-    if (errorCode !== "" && description !== "" && solutionSummary !== "" && line!=="") {
+    if (errorCode !== "" && description !== "" && solutionSummary !== "" && line !== "") {
       e.preventDefault();
       const getPostTag = document.getElementsByClassName("ReportBtn");
       getPostTag[0].disabled = true;
@@ -49,6 +53,7 @@ function NewPost() {
       getPostTag[0].style.backgroundColor = "red"
       const formData2 = new FormData();
       formData2.append("line", line);
+      formData2.append("lineNumber", lineNumber);
       formData2.append("machineType", machineType);
       formData2.append("machineSection", machineSection);
       formData2.append("errorCode", errorCode);
@@ -56,8 +61,7 @@ function NewPost() {
       formData2.append("solutionSummary", solutionSummary);
       formData2.append("solutionImages1", solutionImages1);
       formData2.append("solutionImages2", solutionImages2);
-
-
+      formData2.append("solutionImages3", solutionImages3);
 
       let result = await postNewReportAsync(formData2);
       if (result) {
@@ -97,6 +101,13 @@ function NewPost() {
           </select>
         </div>
 
+ 
+        <div className='PostErrorCode'>
+          <label className='ErrorCodeLabel' htmlFor='errorCode' ><b>Line Number</b></label>
+          <input type='number'min={1} onChange={(e) => setLineNumber(e.target.value)} />
+        </div>
+
+
 
 
         <div className='PostErrorCode'>
@@ -114,8 +125,8 @@ function NewPost() {
               value="Sidel"
             >Sidel</option>
 
-            <option value="SACHMI"
-            >SACHMI</option>
+            <option value="SACMI"
+            >SACMI</option>
 
             <option value="Krones">Krones</option>
 
@@ -167,6 +178,11 @@ function NewPost() {
 
         <div className='SolutionAttachedImages'>
           <input type="file" accept="image/png, image/jpeg" onChange={(e) => { OnFileChange2(e); }} />
+
+        </div>
+
+        <div className='SolutionAttachedImages'>
+          <input type="file" accept="image/png, image/jpeg" onChange={(e) => { OnFileChange3(e); }} />
 
         </div>
 

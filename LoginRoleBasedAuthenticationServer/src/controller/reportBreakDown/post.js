@@ -12,11 +12,13 @@ const createNewReportAsync = async (req, res) => {
         let poster_department = data.department;
         let solutionImages1_secure_url = ""; let solutionImages1_Id = "";
         let solutionImages2_secure_url = ""; let solutionImages2_Id = "";
-        const { machineType, machineSection, errorCode, description, solutionSummary, line //solutionImages1//solutionImages2  
+        let solutionImages3_secure_url = ""; let solutionImages3_Id = "";
+        const { machineType, machineSection, errorCode, description, solutionSummary, line,lineNumber //solutionImages1//solutionImages2  
         } = req.body;
 
         let cloudinaryResult1 = "";
         let cloudinaryResult2 = "";
+        let cloudinaryResult3 = "";
         if (req.files.solutionImages1) {
             cloudinaryResult1 = await cloudinary.uploader.upload(req.files.solutionImages1[0].path, {
                 folder: "7upDb/BreakdownImg"
@@ -33,26 +35,32 @@ const createNewReportAsync = async (req, res) => {
             solutionImages2_Id = cloudinaryResult2.public_id;
         }
 
+        if (req.files.solutionImages3) {
+            cloudinaryResult3 = await cloudinary.uploader.upload(req.files.solutionImages3[0].path, {
+                folder: "7upDb/BreakdownImg"
+            });
+            solutionImages3_secure_url = cloudinaryResult3.secure_url;
+            solutionImages3_Id = cloudinaryResult3.public_id;
+        }
+
         const savedReport = new PostBreakDown({
-            
+
             solutionImages1_secure_url,
             solutionImages1_Id,
             solutionImages2_secure_url,
             solutionImages2_Id,
-            
+            solutionImages3_secure_url,
+            solutionImages3_Id,
             region,
             line,
+            lineNumber,
             machineType, machineSection,
-            errorCode, description, solutionSummary, 
+            errorCode, description, solutionSummary,
             poster_id, poster_department
+
+            
         });
-
-
         await savedReport.save();
-
-
-
-        // res.status(201).json({ "message": "saved successfully...." });
         res.status(201).json("ok");
     } catch (error) {
         console.log(error.message);

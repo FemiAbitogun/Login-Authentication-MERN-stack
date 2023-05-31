@@ -9,7 +9,9 @@ const partSchema = new mongoose.Schema({
         type: String,
         unique: false
     },
-    
+    lineNumber: {
+        type: String
+    },
     machineType: {
         type: String,
         unique: false
@@ -27,25 +29,40 @@ const partSchema = new mongoose.Schema({
     solutionSummary: {
         type: String
     },
+
+
+
     solutionImages1_Id: {
         type: String
     },
     solutionImages1_secure_url: {
         type: String
     },
+
+
     solutionImages2_Id: {
         type: String
     },
     solutionImages2_secure_url: {
         type: String
     },
+
+    solutionImages3_Id: {
+        type: String
+    },
+    solutionImages3_secure_url: {
+        type: String
+    },
+
+
+
     poster_id: {
         type: String
     },
     poster_department: {
         type: String
-    },
-
+    }
+   
 }, { timestamps: true });
 
 

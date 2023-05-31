@@ -16,8 +16,9 @@ function EditBreakDownReport() {
     const [solutionSummary, setSolutionSummary] = useState("");
     const [solutionImages1, setSolutionImages1] = useState(null);
     const [solutionImages2, setSolutionImages2] = useState(null);
+    const [solutionImages3, setSolutionImages3] = useState(null);
     const [line, setLine] = useState("");
-
+    const [lineNumber, setLineNumber] = useState("");
 
     const AwaitableInitialRun = async () => {
         if (await CheckSignedAsync() === false) {
@@ -35,8 +36,7 @@ function EditBreakDownReport() {
         setMachineType(data[0].machineType);
         setSolutionSummary(data[0].solutionSummary);
         setLine(data[0].line);
-
-
+        setLineNumber(data[0].lineNumber);
         // console.log(data[0]);
     }
     useEffect(() => {
@@ -53,7 +53,12 @@ function EditBreakDownReport() {
         setSolutionImages2(e.target.files[0]);
     }
 
+    const OnFileChange3 = (e) => {
+        setSolutionImages3(e.target.files[0]);
+    }
+
     const _setLine = (value) => { setLine(value); }
+    const _setLineNumber = (value) => { setLineNumber(value); }
     const _setMachineType = (value) => { setMachineType(value); }
     const _setMachineSection = (value) => { setMachineSection(value); }
 
@@ -66,8 +71,9 @@ function EditBreakDownReport() {
             getPostTag[0].textContent = "Editing.."
             getPostTag[0].style.backgroundColor = "red"
             const formData2 = new FormData();
-            formData2.append("postID",id);
+            formData2.append("postID", id);
             formData2.append("line", line);
+            formData2.append("lineNumber", lineNumber);
             formData2.append("machineType", machineType);
             formData2.append("machineSection", machineSection);
             formData2.append("errorCode", errorCode);
@@ -76,6 +82,8 @@ function EditBreakDownReport() {
 
             solutionImages1 && formData2.append("solutionImages1", solutionImages1);
             solutionImages2 && formData2.append("solutionImages2", solutionImages2);
+            solutionImages3 && formData2.append("solutionImages3", solutionImages3);
+
 
             let result = await EditReportAsync(formData2);
             if (result) {
@@ -120,6 +128,15 @@ function EditBreakDownReport() {
                     </div>
 
                     <div className='EditErrorCode'>
+                        <label className='' htmlFor='errorCode' ><b>Line No</b></label>
+                        <input min={1} type='number'
+                            onChange={e => _setLineNumber(e.target.value)}
+                        />
+                    </div>
+
+
+
+                    <div className='EditErrorCode'>
                         <label className='' htmlFor='errorCode' ><b>Error | Code</b></label>
                         <input type='text' value={errorCode}
                             onChange={e => setErrorCode(e.target.value)}
@@ -140,7 +157,7 @@ function EditBreakDownReport() {
                                 value="Sidel"
                             >Sidel</option>
 
-                            <option value="SACHMI"
+                            <option value="SACMI"
                             >SACHMI</option>
 
                             <option value="Krones">Krones</option>
@@ -206,6 +223,12 @@ function EditBreakDownReport() {
                     <input type="file" accept="image/png, image/jpeg" onChange={(e) => { OnFileChange2(e); }} />
 
                 </div>
+
+                <div className='SolutionAttachedImages'>
+                    <input type="file" accept="image/png, image/jpeg" onChange={(e) => { OnFileChange3(e); }} />
+
+                </div>
+
 
                 <div className='PostReport'>
                     <button className=' ReportBtn Button3' onClick={(e) => EditPost(e)}><b>Edit</b></button>

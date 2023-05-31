@@ -59,6 +59,9 @@ function ReportDetails() {
                     <div className='RegionOfIncidence'>
                         <h3>Line:{solutionData.line}</h3>
                     </div>
+                    <div className='RegionOfIncidence'>
+                        <h3>Line No.:{solutionData.lineNumber}</h3>
+                    </div>
 
                     <div className='RegionOfIncidence'>
                         <h3>Region:{solutionData.region}</h3>
@@ -94,6 +97,8 @@ function ReportDetails() {
                     <img src={solutionData.solutionImages1_secure_url
                     } alt="" />
                     <img src={solutionData.solutionImages2_secure_url
+                    } alt="" />
+                      <img src={solutionData.solutionImages3_secure_url
                     } alt="" />
                 </div>
                 <div className='SolutionCreated'>

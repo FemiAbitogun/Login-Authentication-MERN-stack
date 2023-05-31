@@ -12,7 +12,7 @@ export const registerNewUserAsync = async (body) => {
         return true;
     } catch (error) {
         return (error.response.data.errorMessage);
-    
+
     }
 }
 export const PostLoginFormAsync = async (body) => {
@@ -59,10 +59,10 @@ export const CheckIfSignedIn_NoHttpCookie = async () => {
         }
         const { data } = await axios.post(`${url}checkSignedIn/check/checkLST/?ticket=${ticketValue}`);
         if (data) { return true; }
-        else { 
+        else {
             localStorage.clear();
             return false;
-         }
+        }
     } catch (error) {
         return false;
     }
