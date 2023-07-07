@@ -14,9 +14,10 @@ export default function Register() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
-    const [region, setRegion] = useState("Lagos");
+    const [region, setRegion] = useState("HeadOffice");
+    const[phoneNumber,setPhoneNumber]=useState("");
     const [password, setPassword] = useState("");
-    const [department, setDepartment] = useState("Engineering");
+    const [department, setDepartment] = useState("Manufacturing");
     const [comfirmPassword, setComfirmPassword] = useState("");
     const [registerError, setRegisterError] = useState(undefined);
     const OnFileChange = (e) => {
@@ -26,7 +27,7 @@ export default function Register() {
 
         const getPostTag = document.getElementsByClassName("RegNewUserBtn");
 
-        if (firstName !== "" && lastName !== "" && userImage !== "" && email !== "" && comfirmPassword !== "" && password !== "") {
+        if (firstName !== "" && lastName !== "" && userImage !== "" && email !== "" && comfirmPassword !== "" && password !== "" && phoneNumber !=="") {
             if (password === comfirmPassword) {
                 // console.log("clicked..."+ getPostTag[0])
                 e.preventDefault();
@@ -41,9 +42,9 @@ export default function Register() {
                 formData.append("email", email);
                 formData.append("region", region);
                 formData.append("department", department);
-
+                formData.append("phoneNumber",phoneNumber);
                 let returnedData = await registerNewUserAsync(formData);
-                if (returnedData===true) {
+                if (returnedData === true) {
                     getPostTag[0].textContent = "Done!!"
                     history.push('/login');
                 }
@@ -128,10 +129,12 @@ export default function Register() {
                             <br />
                             <label htmlFor="department">Select Department:</label>
                             <select onChange={(event) => { _setDepartment(event.target.value) }} className='SelectTag'>
+                                <option value="Manufacturing" >Manufacturing</option>
                                 <option value="Engineering" >Engineering</option>
-                                <option value="Production" >Production(STLs)</option>
+                                <option value="Production" >Production</option>
                                 <option value="Utility" >Utility</option>
                                 <option value="Quality" >Quality</option>
+                                <option value="Safety" >Safety</option>
                                 <option value="Store" >Store</option>
                             </select>
                         </div>
@@ -141,7 +144,8 @@ export default function Register() {
                             <br />
                             <label htmlFor="region">Select Region:</label>
                             <select onChange={(event) => { _setRegion(event.target.value) }} className='SelectTag' >
-                                <option value="Lagos">Lagos</option>
+                                <option value="HeadOffice">Head Office</option>
+                                <option value="Ikeja">Ikeja</option>
                                 <option value="Kano" >Kano</option>
                                 <option value="Abuja" >Abuja</option>
                                 <option value="Kaduna" >Kaduna</option>
@@ -152,6 +156,14 @@ export default function Register() {
                                 <option value="Benin" >Benin</option>
                             </select>
                         </div>
+                        {/* phone number */}
+                        <div className='user-input-wrp'>
+                            <br></br>
+                            <input type="number" className="inputText" required onChange={(e) => setPhoneNumber(e.target.value)} />
+                            <span className="floating-label">Phone  Number</span>
+                        </div>
+
+
 
                         <div className='user-input-wrp'>
                             <br></br>

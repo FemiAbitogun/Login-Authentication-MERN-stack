@@ -51,13 +51,6 @@ const editReportAsync = async (req, res) => {
             dataObject.solutionImages3_secure_url = cloudinaryResult3.secure_url;
             dataObject.solutionImages3_Id = cloudinaryResult3.public_id;
         }
-
-
-
-
-
-
-
         await dataObject.save();
         res.status(201).json("ok");
     } catch (error) {

@@ -17,7 +17,7 @@ function Dashboard() {
 
         let _data = await getBreakDownRegionAsync();
         let userDepartment = "";
-        if (userData.department === "Engineering" || userData.department === "Production") {
+        if (userData.department === "Engineering" || userData.department === "Production" ||userData.department === "Manufacturing" ) {
             userDepartment = "Engineering";
         }
 
@@ -90,7 +90,7 @@ function Dashboard() {
 
                             <option value={userData.region}>{userData.region}</option>
 
-                            <option value="Lagos">Lagos </option>
+                            <option value="Ikeja">Ikeja </option>
 
                             <option value="Kano">kano</option>
 

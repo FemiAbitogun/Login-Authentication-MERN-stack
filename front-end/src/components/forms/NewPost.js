@@ -30,8 +30,8 @@ function NewPost() {
   const [solutionImages3, setSolutionImages3] = useState("");
   const [line, setLine] = useState("PET");
   const [lineNumber, setLineNumber] = useState("");
-
-
+  const [rootCause, setRootCause] = useState("");
+  
   const OnFileChange1 = (e) => {
     setSolutionImages1(e.target.files[0]);
   }
@@ -45,7 +45,7 @@ function NewPost() {
   const _setMachineType = (value) => { setMachineType(value); }
   const _setMachineSection = (value) => { setMachineSection(value); }
   const Post = async (e) => {
-    if (errorCode !== "" && description !== "" && solutionSummary !== "" && line !== "") {
+    if (description !== "" && solutionSummary !== "") {
       e.preventDefault();
       const getPostTag = document.getElementsByClassName("ReportBtn");
       getPostTag[0].disabled = true;
@@ -62,7 +62,8 @@ function NewPost() {
       formData2.append("solutionImages1", solutionImages1);
       formData2.append("solutionImages2", solutionImages2);
       formData2.append("solutionImages3", solutionImages3);
-
+      formData2.append("rootCause", rootCause);
+      
       let result = await postNewReportAsync(formData2);
       if (result) {
         history.push('/dashboard')
@@ -161,7 +162,9 @@ function NewPost() {
           </select>
         </div>
 
-
+        <div className='DescriptionDiv'>
+          <textarea onChange={(e) => setRootCause(e.target.value)} className='ErrorDescription' placeholder='Root Cause'></textarea>
+        </div>
         <div className='DescriptionDiv'>
           <textarea onChange={(e) => setDescription(e.target.value)} className='ErrorDescription' placeholder='Error Description'></textarea>
         </div>

@@ -6,10 +6,12 @@ export const getBreakDownRegionAsync = async () => {
     try {
         //httpOnly
         // const { data } = await axios.get(`${url}getBreakDown/getReport`)
-
         const ticket = localStorage.getItem("ticket");
         const { data } = await axios.get(`${url}getBreakDown/getReport?ticket=${ticket}`);
-        //  console.log(data)
+          console.log(ticket)
+
+
+
         if (data) {
             return data;
         }
