@@ -16,7 +16,7 @@ const getReportByRegionAsync = async (req, res) => {
             let location = "Ikeja";
             try {
                 const resultHeadOffice = await BreakDownReportDB.find({ region: location });
-                res.status(200).json(resultHeadOffice);
+                return res.status(200).json(resultHeadOffice);
             } catch (error) {
 
                 res.status(500).json();
