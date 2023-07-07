@@ -13,8 +13,8 @@ const createNewReportAsync = async (req, res) => {
         let solutionImages1_secure_url = ""; let solutionImages1_Id = "";
         let solutionImages2_secure_url = ""; let solutionImages2_Id = "";
         let solutionImages3_secure_url = ""; let solutionImages3_Id = "";
-        const { machineType, machineSection, errorCode, description, solutionSummary, line, lineNumber //solutionImages1//solutionImages2  
-        } = req.body;
+        const { machineType, machineSection, errorCode, description, solutionSummary, line, lineNumber, //solutionImages1//solutionImages2  
+        rootCause} = req.body;
 
         let cloudinaryResult1 = "";
         let cloudinaryResult2 = "";
@@ -53,10 +53,9 @@ const createNewReportAsync = async (req, res) => {
             region,
             line, 
             lineNumber,
-            machineType, machineSection,rootCause,
+            machineType, machineSection,
             errorCode, description, solutionSummary,
             poster_id, poster_department,
-
             rootCause
 
         });
