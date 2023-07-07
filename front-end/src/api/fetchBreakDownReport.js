@@ -8,9 +8,7 @@ export const getBreakDownRegionAsync = async () => {
         // const { data } = await axios.get(`${url}getBreakDown/getReport`)
         const ticket = localStorage.getItem("ticket");
         const { data } = await axios.get(`${url}getBreakDown/getReport?ticket=${ticket}`);
-          console.log(ticket)
-
-
+        //   console.log(ticket)
 
         if (data) {
             return data;

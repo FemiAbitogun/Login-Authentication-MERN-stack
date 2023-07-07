@@ -13,7 +13,7 @@ const createNewReportAsync = async (req, res) => {
         let solutionImages1_secure_url = ""; let solutionImages1_Id = "";
         let solutionImages2_secure_url = ""; let solutionImages2_Id = "";
         let solutionImages3_secure_url = ""; let solutionImages3_Id = "";
-        const { machineType, machineSection, errorCode, description, solutionSummary, line,lineNumber //solutionImages1//solutionImages2  
+        const { machineType, machineSection, errorCode, description, solutionSummary, line, lineNumber //solutionImages1//solutionImages2  
         } = req.body;
 
         let cloudinaryResult1 = "";
@@ -44,7 +44,6 @@ const createNewReportAsync = async (req, res) => {
         }
 
         const savedReport = new PostBreakDown({
-
             solutionImages1_secure_url,
             solutionImages1_Id,
             solutionImages2_secure_url,
@@ -52,13 +51,14 @@ const createNewReportAsync = async (req, res) => {
             solutionImages3_secure_url,
             solutionImages3_Id,
             region,
-            line,
+            line, 
             lineNumber,
-            machineType, machineSection,
+            machineType, machineSection,rootCause,
             errorCode, description, solutionSummary,
-            poster_id, poster_department
+            poster_id, poster_department,
 
-            
+            rootCause
+
         });
         await savedReport.save();
         res.status(201).json("ok");

@@ -28,6 +28,7 @@ const registerNewUser = async (req, res) => {
         }
 
         const newUser = new User({
+           
             firstName,
             lastName,
             email,
@@ -35,7 +36,8 @@ const registerNewUser = async (req, res) => {
             region,
             imagePath,
             imagePublicId,
-            password: harshedPassword
+            password: harshedPassword,
+            phoneNumber
         })
         await newUser.save();
         return res.status(201).json({ "message": "successufully registered...." })

@@ -22,10 +22,12 @@ const userSchema = new mongoose.Schema({
     imagePublicId: {
         type: String
     },
-    password: {
+    password: { 
         type: String
-    }
-
+    },
+    phoneNumber: {
+        type: String
+    },
 })
 
 

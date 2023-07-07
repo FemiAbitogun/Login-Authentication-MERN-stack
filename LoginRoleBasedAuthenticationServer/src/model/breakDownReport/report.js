@@ -54,14 +54,16 @@ const partSchema = new mongoose.Schema({
         type: String
     },
 
-
-
     poster_id: {
         type: String
-    },
+    }, 
     poster_department: {
         type: String
+    },
+    rootCause: {
+        type: String
     }
+    
    
 }, { timestamps: true });
 
