@@ -17,11 +17,12 @@ function Dashboard() {
 
         let _data = await getBreakDownRegionAsync();
         let userDepartment = "";
-        if (userData.department === "Engineering" || userData.department === "Production" ||userData.department === "Manufacturing" ) {
+        if (userData.department === "Engineering" || userData.department === "Production" || userData.department === "Manufacturing") {
             userDepartment = "Engineering";
         }
 
-        let filteredValue = _data.filter((value) => value.poster_department === userDepartment);
+
+        let filteredValue = _data.filter((value) => value.poster_department === userDepartment || value.poster_department === "Manufacturing");
         userData.department && setBreakDownReports(filteredValue);
     }
 
@@ -75,6 +76,10 @@ function Dashboard() {
     const NewPost = () => { history.push('/newPost') }
     useEffect(() => { AwaitableInitialRun(); }, [userData.department]);
 
+
+
+
+
     function display() {
         return (
             <div className='Dashboard'>
@@ -89,7 +94,7 @@ function Dashboard() {
                         <select onChange={(event) => { _setRegion(event.target.value) }} name='region' id='region' className='SelectTagDashboard' >
 
                             <option value={userData.region}>{userData.region}</option>
-
+                            <option value="HeadOffice">Head Office </option>
                             <option value="Ikeja">Ikeja </option>
 
                             <option value="Kano">kano</option>
@@ -116,11 +121,12 @@ function Dashboard() {
                         <select onChange={(event) => { onDepartmentValueChange(event.target.value) }} name='department' id='department' className='SelectTagDashboard' >
 
                             <option value={userData.department}>{userData.department}</option>
-
+                            <option value="Manufacturing">Manufacturing </option>
                             <option value="Engineering">Engineering </option>
                             <option value="Quality">Quality </option>
                             <option value="Utility">Utility</option>
                             <option value="Production">Production</option>
+                            <option value="Production">Safety</option>
                             <option value="Store">Store</option>
                         </select>
                     </div>
@@ -157,7 +163,10 @@ function Dashboard() {
                             <div key={data._id} className='FaultMessage'
                                 onClick={() => { runClickedDiv(data._id) }}
                             >
-                                <div className='ErrorCode'><mark>{data.errorCode}</mark> </div>
+                                <div className='ErrorCode'
+
+
+                                ><mark>{data.errorCode}</mark> </div>
 
                                 <div className='ErrorSection'>{data.machineSection}</div>
 
@@ -177,7 +186,12 @@ function Dashboard() {
 
     return (
         <>
-            {signedIn && display()}
+            {
+                signedIn && display()
+                // const getLoginTag = document.getElementsByClassName("FaultMessage");
+                // getLoginTag[0].style.backgroundColor = "rgba(5, 245, 25, 0.7)"
+            }
+
 
         </>
     )

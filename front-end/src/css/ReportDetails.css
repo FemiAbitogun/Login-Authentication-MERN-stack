@@ -74,6 +74,7 @@
 
 @media screen and (max-width: 600px) {
     .ReportDetails {
+        top: 0vh;
         height: 80vh;
         width: 100%;
        

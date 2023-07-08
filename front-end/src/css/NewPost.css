@@ -28,17 +28,17 @@
 
 .PostContainerInner {
     height: 100%;
-   box-sizing: border-box;
-   /* background-color: rgba(165, 42, 42, 0.386); */
-   padding: 20px;
-   position: relative;
-   top:5vh;
-    
+    box-sizing: border-box;
+    /* background-color: rgba(165, 42, 42, 0.386); */
+    padding: 20px;
+    position: relative;
+    top: 5vh;
+
 }
 
 .PostErrorCode {
     /* margin-top: 2px;*/
-    margin-bottom: 2px; 
+    margin-bottom: 2px;
 
     display: flex;
     justify-content: space-between;
@@ -52,7 +52,7 @@
 }
 
 .PostErrorCode input {
-    width: 200px ;
+    width: 200px;
     height: 40px;
     color: rgb(255, 255, 255);
     font-size: 1em;
@@ -74,6 +74,7 @@
     color: white;
     margin-bottom: 2px;
 }
+
 
 .ErrorDescription {
     width: 300px;
@@ -139,5 +140,5 @@
         top: 5vh;
     }
 
-   
+
 }
