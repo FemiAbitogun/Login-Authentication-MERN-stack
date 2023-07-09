@@ -2,12 +2,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom'
-import { deleteSolutionByIDAsync, getBreakDownSolutionByIDAsync } from '../../api/fetchBreakDownReport';
+import {getBreakDownSolutionByIDAsync } from '../../api/fetchBreakDownReport';
 
 import { globalContext} from '../../context/ContextGlobal';
-
-
-
 
 
 function ReportDetails() {
@@ -26,26 +23,20 @@ function ReportDetails() {
     } 
     const [solutionData, setSolutionData] = useState();
     const { id } = useParams();
+
     const getBreakDownSolutionByID = async () => {
         let data = await getBreakDownSolutionByIDAsync(id);
         setSolutionData(data[0]);
     }
-
-
-    const deleteButton = async () => {
-
-        if (
-            await deleteSolutionByIDAsync(id)) {
-            history.push('/dashboard');
-        }
+    const confirmDelete=async()=>{
+       history.push("/confirmDelete/"+id);
+    
     }
 
     const editButton = async () => {
         history.push('/EditBreakDownReportIDAsync/' + id);
         // console.log(solutionData);
     }
-
-
 
     useEffect(() => {
         AwaitableInitialRun();
@@ -75,20 +66,20 @@ function ReportDetails() {
                 </div>
                 <div className='MachineErrorDescription'>
 
-                    {solutionData.poster_id===userData._id && ( <div className='ModificationBtns'>
+                    {(solutionData.poster_id===userData._id || userData.region==="HeadOffice") && ( <div className='ModificationBtns'>
                         <button className='EditBtn'
                             onClick={editButton}
-
                         >Edit</button>
                         <button className='DeleteBtn'
-
-                            onClick={deleteButton}
+                            onClick={confirmDelete}
                         >Delete</button>
-
                     </div>)}
                    
 
                     <h3><b style={{ color: "red" }}>Error Code: </b>{solutionData.errorCode}</h3>
+                    
+                    <h3><b style={{ color: "red" }}>Root Cause: </b>{solutionData.rootCause}</h3>
+
                     <h3><b style={{ color: "red" }}>Description: </b>{solutionData.description}</h3>
                     <h3><b style={{ color: "red" }}>Solution Summary: </b>{solutionData.solutionSummary}</h3>
                 </div>

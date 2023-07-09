@@ -5,7 +5,7 @@ const cloudinary = require('../../util/cloudinary');
 const registerNewUser = async (req, res) => {
     try {
         // console.log(req.file.path)
-        const { firstName, lastName, email, region, password, department } = req.body;
+        const { firstName, lastName, email, region, password, department,phoneNumber } = req.body;
         let imagePath = '';
         let imagePublicId = '';
         const harshedPassword = await Bcrypt.hash(password, 10);

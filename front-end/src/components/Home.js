@@ -31,17 +31,23 @@ export default function Home() {
 
                         <div className='WriteUpInner'>
                             <p>This application is designed to ease your troubleshooting proccess
-                                and of immense importance for departments such as <mark><b>Engineering</b></mark> ,<mark><b>Production</b> </mark> , <mark><b>Quality</b></mark> and  <mark><b>Store Management</b></mark> .
+                                and of immense importance for departments such as
+                                <mark><b> Manufacturing,</b></mark>
+                                 <mark><b> Engineering</b></mark> ,<mark><b>Production</b> </mark> , <mark><b>Quality</b></mark>,<mark><b>Store Management</b></mark> and <mark><b>Safety</b></mark> .
                             </p>
-                            <p>You can search for issues that might have occured in your region and also modify your search Criteria by Quering other region of <b> <mark> 7up plant Nationwide</mark></b></p>
+                            <p>You can search for issues that might have occured in your region and also modify your search Criteria by Quering other region of <b> <mark> 7up Plant Nationwide</mark></b></p>
                             <p>Should you encounter any breakdown or technical challenges ,which is eventually overcome, you can report this events with attached pictures,if any.This will ensure any employee in other region will have access to this resource and make job easier!</p>
+
+
+                            <p>Operation manuals, Circuit diagram,SOPs,Machine PLC programs e.t.c. can also be uploaded for each individual region,this way, ease to resources for all plants nationwide is gurranted</p>
+
                             <p><mark><b>Project Supervisor</b></mark> : Ali Nassereddine . Factory Manager, 7up Bottling Company  Ltd., Kano plant.
                             </p>
                             <p> <mark><b>Software Developer</b></mark> : Femi Tope Abitogun . Automation Engineer, 7up Bottling Company Ltd., Kano plant.
                             </p>
-                            <p><mark><b>Contributors </b> </mark>    : Engineering Team. 7up Bottling Company Ltd., Kano plant.
+                            <p><mark><b>Contributor</b> </mark>    : Engr. Adesina Adeniran,National Automation Manager. 7up Bottling Company Ltd.
                             </p>
-                            <Link to={{ pathname: "https://femi-abitogun.netlify.app/" }}
+                            <Link className="websiteLink" to={{ pathname: "https://femi-abitogun.netlify.app/" }}
                                 target="_blank" >Visit my Website</Link>
                         </div>
 

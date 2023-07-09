@@ -12,6 +12,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
     background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.627);
 }
 
 .MachineErrorDescription .ModificationBtns {

@@ -8,6 +8,7 @@ import './css/NewPost.css'
 import './css/ReportDetails.css'
 import './css/DisplayListGlobal.css'
 import './css/EditBreakDownReport.css'
+import './css/ConfirmDeletion.css'
 import Router from './Route';
 
 

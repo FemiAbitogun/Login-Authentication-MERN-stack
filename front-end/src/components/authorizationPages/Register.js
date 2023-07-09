@@ -55,7 +55,7 @@ export default function Register() {
                         getPostTag[0].disabled = false;
                         getPostTag[0].textContent = "Submit";
                         getPostTag[0].style.backgroundColor = "red";
-                    }, 2000);
+                    }, 3000);
                     return;
                 }
                 ;

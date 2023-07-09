@@ -12,7 +12,7 @@ import ReportDetails from './components/breakDownReport/ReportDetails';
 import DisplayListGlobal from './components/DisplayListGlobal';
 import ContextGlobal from './context/ContextGlobal';
 import EditBreakDownReport from './components/EditBreakDownReport/EditBreakDownReport';
-
+import ConfirmDeletion from './components/ConfirmDeletion';
 function Router() {
  
     return (
@@ -27,7 +27,7 @@ function Router() {
                         <Route path='/dashboard' component={Dashboard} />
                         <Route path='/register' component={Register} />
                         <Route path='/login' component={Login} />
-
+                        <Route path='/confirmDelete/:id' component={ConfirmDeletion} />
                         <Route path="/breakDownSolutionByIDAsync/:id">
                             <ReportDetails />
                         </Route>

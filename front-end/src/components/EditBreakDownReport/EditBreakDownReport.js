@@ -12,6 +12,7 @@ function EditBreakDownReport() {
     const [machineType, setMachineType] = useState("Sidel");
     const [machineSection, setMachineSection] = useState("Blow Mould");
     const [errorCode, setErrorCode] = useState("");
+    const [rootCause, setRootCause] = useState("");
     const [description, setDescription] = useState("");
     const [solutionSummary, setSolutionSummary] = useState("");
     const [solutionImages1, setSolutionImages1] = useState(null);
@@ -32,6 +33,7 @@ function EditBreakDownReport() {
 
         setDescription(data[0].description);
         setErrorCode(data[0].errorCode);
+        setRootCause(data[0].rootCause);
         setMachineSection(data[0].machineSection);
         setMachineType(data[0].machineType);
         setSolutionSummary(data[0].solutionSummary);
@@ -56,15 +58,15 @@ function EditBreakDownReport() {
     const OnFileChange3 = (e) => {
         setSolutionImages3(e.target.files[0]);
     }
-
+    
     const _setLine = (value) => { setLine(value); }
     const _setLineNumber = (value) => { setLineNumber(value); }
     const _setMachineType = (value) => { setMachineType(value); }
     const _setMachineSection = (value) => { setMachineSection(value); }
-
+    const _setRootCause = (value) => { setRootCause(value); }
 
     const EditPost = async (e) => {
-        if (errorCode !== "" && description !== "" && solutionSummary !== "" && line !== "") {
+        if ( description !== "" && solutionSummary !== "") {
             e.preventDefault();
             const getPostTag = document.getElementsByClassName("ReportBtn");
             getPostTag[0].disabled = true;
@@ -134,7 +136,12 @@ function EditBreakDownReport() {
                         />
                     </div>
 
-
+                    <div className='EditErrorCode'>
+                        <label className='' htmlFor='errorCode' ><b>Root Cause</b></label>
+                        <input type='text' value={rootCause}
+                            onChange={e => _setRootCause(e.target.value)}
+                        />
+                    </div>
 
                     <div className='EditErrorCode'>
                         <label className='' htmlFor='errorCode' ><b>Error | Code</b></label>
