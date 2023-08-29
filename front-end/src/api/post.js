@@ -5,11 +5,12 @@ import axios from 'axios'
 const url = "https://sevenupngintranetwork-4s1v.onrender.com/";
 export const registerNewUserAsync = async (body) => {
     try {
-        // console.log('sent to server')
-        await axios.post(`${url}registerNewUser`, body, {
+       const ServerResponse= await axios.post(`${url}registerNewUser`, body, {
             headers: { 'content-type': 'multipart/form-data' }
         });
+       if(ServerResponse===true){
         return true;
+       }
     } catch (error) {
         return (error.response.data.errorMessage);
 
@@ -58,6 +59,8 @@ export const CheckIfSignedIn_NoHttpCookie = async () => {
             return false;
         }
         const { data } = await axios.post(`${url}checkSignedIn/check/checkLST/?ticket=${ticketValue}`);
+
+
         if (data) { return true; }
         else {
             localStorage.clear();
@@ -65,6 +68,15 @@ export const CheckIfSignedIn_NoHttpCookie = async () => {
         }
     } catch (error) {
         return false;
+    }
+}
+
+export const pingServer = async () => {
+    try {
+        await axios.post(`${url}checkSignedIn/check/checkLST/?ticket=""`);
+        return;
+    } catch (error) {
+        return null;
     }
 }
 

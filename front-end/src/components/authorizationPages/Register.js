@@ -1,21 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { globalContext } from '../../context/ContextGlobal';
-import { registerNewUserAsync } from '../../api/post'
+import React, { useEffect, useState } from 'react';
+import { pingServer, registerNewUserAsync } from '../../api/post';
+
+
+
 export default function Register() {
-    const history = useHistory();
-    const { CheckSignedAsync, signedIn } = useContext(globalContext);
-    // const AwaitableInitialRun = async () => {
-    //     console.log(await CheckSignedAsync());
-    // }
-    // useEffect(() => { AwaitableInitialRun(); }, []);
+    const AwaitableInitialRun = async () => {
+        return await pingServer();
+    }
+    useEffect(() => { AwaitableInitialRun(); }, []);
     // datas from form................
     const [userImage, setUserImage] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [region, setRegion] = useState("HeadOffice");
-    const[phoneNumber,setPhoneNumber]=useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
     const [password, setPassword] = useState("");
     const [department, setDepartment] = useState("Manufacturing");
     const [comfirmPassword, setComfirmPassword] = useState("");
@@ -27,9 +26,9 @@ export default function Register() {
 
         const getPostTag = document.getElementsByClassName("RegNewUserBtn");
 
-        if (firstName !== "" && lastName !== "" && userImage !== "" && email !== "" && comfirmPassword !== "" && password !== "" && phoneNumber !=="") {
+        if (firstName !== "" && lastName !== "" && userImage !== "" && email !== "" && comfirmPassword !== "" && password !== "" && phoneNumber !== "") {
             if (password === comfirmPassword) {
-                // console.log("clicked..."+ getPostTag[0])
+              
                 e.preventDefault();
                 getPostTag[0].disabled = true;
                 getPostTag[0].textContent = "Sending..";
@@ -42,23 +41,19 @@ export default function Register() {
                 formData.append("email", email);
                 formData.append("region", region);
                 formData.append("department", department);
-                formData.append("phoneNumber",phoneNumber);
+                formData.append("phoneNumber", phoneNumber);
                 let returnedData = await registerNewUserAsync(formData);
-                if (returnedData === true) {
-                    getPostTag[0].textContent = "Done!!"
+                if (returnedData===true) {
                     history.push('/login');
                 }
                 else {
-                    setRegisterError(returnedData);
-                    setTimeout(() => {
-                        setRegisterError("");
-                        getPostTag[0].disabled = false;
-                        getPostTag[0].textContent = "Submit";
-                        getPostTag[0].style.backgroundColor = "red";
-                    }, 3000);
+                    getPostTag[0].disabled = false;
+                    getPostTag[0].textContent = "Retry";
+                    getPostTag[0].style.backgroundColor = "red";
+
                     return;
                 }
-                ;
+
 
 
             }
@@ -66,8 +61,8 @@ export default function Register() {
                 setRegisterError("Password and Confirm password does not match");
                 setTimeout(() => {
                     setRegisterError("");
-                }, 2000);
-                // console.log(registerError)
+                }, 1000);
+
                 return;
             }
 

@@ -53,11 +53,18 @@ const checkSignedInAsyncNoHttpOnlyAsync = async (req, res) => {
         let ticket = req.query.ticket;
         const verified = jwt.verify(ticket, process.env.JWT_SECRET);
         // console.log(verified.user)
-        // const userId = verified.user;
-        // const data = await AuthorizedUsers.findOne({ _id: userId });
-        verified && res.status(200).send(true);
+     
+        const userId = verified.user;
+        const data = await AuthorizedUsers.findOne({ _id: userId });
+
+        if(data){
+            verified && res.status(200).send(true);
+        }
+       else{
         !verified && res.status(200).send(false);
     }
+       }
+       
     catch (err) {
         res.status(200).send(false);
     }

@@ -81,6 +81,7 @@ function EditBreakDownReport() {
             formData2.append("errorCode", errorCode);
             formData2.append("description", description);
             formData2.append("solutionSummary", solutionSummary);
+            formData2.append("rootCause", rootCause);
 
             solutionImages1 && formData2.append("solutionImages1", solutionImages1);
             solutionImages2 && formData2.append("solutionImages2", solutionImages2);

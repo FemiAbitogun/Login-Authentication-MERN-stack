@@ -2,7 +2,7 @@ const cloudinary = require('../../util/cloudinary');
 const breakDownData = require('../../model/breakDownReport/report');
 const editReportAsync = async (req, res) => {
     try {
-        const { postID, machineType, machineSection, errorCode, description, solutionSummary, line, lineNumber
+        const { postID, machineType, machineSection, errorCode, description, solutionSummary, line, lineNumber,rootCause
         } = req.body;
 
 
@@ -13,7 +13,9 @@ const editReportAsync = async (req, res) => {
         dataObject.description = description;
         dataObject.solutionSummary = solutionSummary;
         dataObject.line = line;
-        dataObject.lineNumber = lineNumber
+        dataObject.lineNumber = lineNumber;
+        dataObject.rootCause = rootCause;
+        
 
 
 

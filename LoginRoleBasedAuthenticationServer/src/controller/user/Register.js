@@ -5,7 +5,7 @@ const cloudinary = require('../../util/cloudinary');
 const registerNewUser = async (req, res) => {
     try {
         // console.log(req.file.path)
-        const { firstName, lastName, email, region, password, department,phoneNumber } = req.body;
+        const { firstName, lastName, email, region, password, department, phoneNumber } = req.body;
         let imagePath = '';
         let imagePublicId = '';
         const harshedPassword = await Bcrypt.hash(password, 10);
@@ -28,7 +28,7 @@ const registerNewUser = async (req, res) => {
         }
 
         const newUser = new User({
-           
+
             firstName,
             lastName,
             email,
@@ -40,7 +40,7 @@ const registerNewUser = async (req, res) => {
             phoneNumber
         })
         await newUser.save();
-        return res.status(201).json({ "message": "successufully registered...." })
+        return res.status(201).send(true);
 
     } catch (error) {
 

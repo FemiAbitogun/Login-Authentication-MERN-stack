@@ -20,10 +20,10 @@ const deleteReportAsync = async (req, res) => {
         dataObject.solutionImages3_Id && await cloudinary.uploader.destroy(dataObject.solutionImages3_Id);
 
         await dataObject.deleteOne();
-        res.status(201).json(true);
+        return res.status(201).json(true);
     } catch (error) {
         // console.log(error.message);
-        res.status(500).send();
+        return res.status(500).send();
     }
 
 }

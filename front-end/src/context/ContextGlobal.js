@@ -22,10 +22,12 @@ export default function ContextGlobal(props) {
             }
 
             else {
+               
                 setSignedIn(false);
                 return false
             }
         } catch (error) {
+           
             setSignedIn(false);
             // setError(error.response.data.errorMessage);
             return;
