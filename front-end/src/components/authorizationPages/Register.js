@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from "react-router-dom"
 import { pingServer, registerNewUserAsync } from '../../api/post';
 
 
 
 export default function Register() {
+
+    const history =useHistory();
     const AwaitableInitialRun = async () => {
         return await pingServer();
     }
@@ -43,7 +46,7 @@ export default function Register() {
                 formData.append("department", department);
                 formData.append("phoneNumber", phoneNumber);
                 let returnedData = await registerNewUserAsync(formData);
-                if (returnedData===true) {
+                if (returnedData) {
                     history.push('/login');
                 }
                 else {

@@ -8,7 +8,7 @@ export const registerNewUserAsync = async (body) => {
        const ServerResponse= await axios.post(`${url}registerNewUser`, body, {
             headers: { 'content-type': 'multipart/form-data' }
         });
-       if(ServerResponse===true){
+       if(ServerResponse){
         return true;
        }
     } catch (error) {
