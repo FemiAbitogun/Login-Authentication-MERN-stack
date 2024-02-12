@@ -71,7 +71,12 @@ app.use('/delete', require('./api/reportBreakDown/deleteReport'));
 
 
 
-
+app.use('/profile',require('./api/user/updateUserProfile'));
+app.use('/profile',require('./api/user/updateUserProfile'));
+app.use('/profile',require('./api/user/updateUserProfile'));
+app.use('/profile',require('./api/user/updateUserProfile'));
+app.use('/profile',require('./api/user/updateUserProfile'));
+ 
 
 
 

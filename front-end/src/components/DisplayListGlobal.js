@@ -17,7 +17,7 @@ function DisplayListGlobal() {
         await LogOut();
         history.push('/');
     }
-
+    const ManageAccountBtn=async ()=> history.push('/ResetUserNamePassword')
     return (
         <div>
             <div onClick={turnOffNav} id='Global' className='Global' style={{ "display": "none" }}>
@@ -25,7 +25,7 @@ function DisplayListGlobal() {
                     <ul className='SlideShowUl'>
                         {signedIn && <button onClick={toDashboard} className='' ><b>&#8592; DashBoard</b></button>}
                         {signedIn && <button onClick={toSignOut} className=' ' ><b>Sign out</b></button>}
-                        {signedIn && <button  className=' ' ><b>Manage Post</b></button>}
+                        {signedIn && <button onClick={ManageAccountBtn} className=' ' ><b>Manage Profile</b></button>}
                     </ul>
                 </div>
             </div>

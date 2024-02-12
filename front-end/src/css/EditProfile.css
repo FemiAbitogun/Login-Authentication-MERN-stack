@@ -1,0 +1,21 @@
+
+
+.ChangeDisplayPic{
+    margin-left: auto;
+}
+
+.EditProfile {
+    position: relative;
+    top: 20vh;
+   
+    padding: 20px;
+    display: grid;
+    /* align-items: center; */
+    /* justify-content:flex-start; */
+}
+
+.PasswordChange{
+    width: 40%;
+    background-color: rgba(238, 235, 217, 0.271);
+    padding: 5px;
+}

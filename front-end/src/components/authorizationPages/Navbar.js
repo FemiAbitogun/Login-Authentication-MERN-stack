@@ -45,6 +45,8 @@ function Navbar() {
 
         }
     };
+
+    const ManageAccountBtn=async ()=> history.push('/ResetUserNamePassword')
     const RegisterBtn = () => history.push('/register');
     const LoginBtn = () => history.push('/login');
     const DashBoard = () => history.push('/dashboard');
@@ -93,7 +95,10 @@ function Navbar() {
                     {!signedIn && <button className='LogInBtn LoginBtnNav '
                         onClick={LoginBtn}><b>Login</b></button>}
 
-                    {signedIn && <button className='ManagePostBtn ' ><b>Manage Post</b></button>}
+                    {signedIn && <button className='ManagePostBtn ' 
+                    
+                    onClick={ManageAccountBtn}
+                    ><b>Manage Profile</b></button>}
 
 
                     {signedIn && <button className=' LogOut' onClick={LogOutBtn}><b>Sign out</b></button>}

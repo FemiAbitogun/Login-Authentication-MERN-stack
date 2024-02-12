@@ -9,6 +9,7 @@ import './css/ReportDetails.css'
 import './css/DisplayListGlobal.css'
 import './css/EditBreakDownReport.css'
 import './css/ConfirmDeletion.css'
+import './css/EditProfile.css'
 import Router from './Route';
 
 

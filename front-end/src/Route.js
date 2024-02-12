@@ -13,13 +13,14 @@ import DisplayListGlobal from './components/DisplayListGlobal';
 import ContextGlobal from './context/ContextGlobal';
 import EditBreakDownReport from './components/EditBreakDownReport/EditBreakDownReport';
 import ConfirmDeletion from './components/ConfirmDeletion';
+import ResetUserNamePassword from './components/resetUserNamePassword/ResetUserNamePassword';
 function Router() {
- 
+
     return (
         <div className='AppContainer'>
             <BrowserRouter>
                 <ContextGlobal>
-                 <DisplayListGlobal/>
+                    <DisplayListGlobal />
                     <Navbar />
                     <Switch>
                         <Route exact path='/' component={Home} />
@@ -34,6 +35,10 @@ function Router() {
                         <Route path="/EditBreakDownReportIDAsync/:id">
                             <EditBreakDownReport />
                         </Route>
+                        <Route path="/ResetUserNamePassword">
+                            <ResetUserNamePassword />
+                        </Route>
+
                     </Switch>
 
 

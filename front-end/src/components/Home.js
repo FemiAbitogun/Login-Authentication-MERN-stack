@@ -32,8 +32,10 @@ export default function Home() {
     return (
         <div className='Home'>
             <div className='AboutProject' style={{ display: "none" }}>
-                {/* <span onClick={() => { _infoClose() }} className='CloseInfo'>&#10008;</span> */}
                 <span onClick={() => { _infoClose() }} className='CloseInfo'>&#10008;</span>
+                {/* <span onClick={() => { _infoClose() }} className='CloseInfo'>&#10008;</span> */}
+
+                {/* <span onClick={() => { _infoClose() }} className='CloseInfo'>Learn More....</span> */}
                 {/* &#10009 + bold; */}
                 {/* &#10005 x; */}
                 {/* &#10007 style x */}
@@ -71,7 +73,8 @@ export default function Home() {
                 </div>
             </div>
             <div className='Info'>
-                <button onClick={() => { _info() }}><h2>&#10000;</h2></button>
+                {/* <button onClick={() => { _info() }}><h2>&#10000;</h2></button> */}
+                <button onClick={() => { _info() }}>Learn More....</button>
             </div>
             <div className='SbcLogo'>
                 <img src={require('../images/SBC_Identity_New.webp')} />
