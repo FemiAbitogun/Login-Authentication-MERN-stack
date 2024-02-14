@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { globalContext } from '../context/ContextGlobal';
 import { getBreakDownRegionAsync, getBreakDownBySelectedRegionAsync } from '../api/fetchBreakDownReport';
 
-function Dashboard() {
+function Dashboard() { 
     const history = useHistory();
     const { CheckSignedAsync, signedIn, userData } = useContext(globalContext);
     const [breakDownReports, setBreakDownReports] = useState([]);

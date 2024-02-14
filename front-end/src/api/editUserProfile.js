@@ -1,7 +1,26 @@
 import axios from 'axios' 
-const url = "http://localhost:5678/";
+// const url = "http://localhost:5678/";
 // const url = "https://sevenupngintranetwork.herokuapp.com/";
-// const url = "https://sevenupngintranetwork-4s1v.onrender.com/";
+const url = "https://sevenupngintranetwork-4s1v.onrender.com/";
+
+ 
+
+export const updateUserImageAsync = async (body) => {
+    try {
+       const ServerResponse= await axios.post(`${url}profile/updateProfilePic`, body, {
+            headers: { 'content-type': 'multipart/form-data' }
+        });
+       if(ServerResponse){
+        return true;
+       } 
+    } catch (error) {
+        return (error.response.data.errorMessage);
+
+    }
+}
+
+
+
 export const updateFirstNameAsync = async (_id,firstName) => {
     try { 
         const { data } = await axios.post(`${url}profile/updateFirstName?id=${_id}&firstName=${firstName}`);
@@ -11,7 +30,7 @@ export const updateFirstNameAsync = async (_id,firstName) => {
         else { return []; }
 
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return error;
     } 
 }
@@ -25,7 +44,7 @@ export const updateLastNameAsync = async (_id,lastName) => {
         else { return []; }
 
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return error;
     }
 }
@@ -39,7 +58,7 @@ export const updateEmailAsync = async (_id,email) => {
         else { return []; }
 
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return error;
     }
 }
@@ -53,7 +72,7 @@ export const updatePhoneNumberAsync = async (_id,phoneNumber) => {
         else { return []; }
 
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return error;
     }
 }
@@ -67,7 +86,7 @@ export const updatePasswordAsync = async (_id,password) => {
         else { return []; }
 
     } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
         return error;
     }
 }

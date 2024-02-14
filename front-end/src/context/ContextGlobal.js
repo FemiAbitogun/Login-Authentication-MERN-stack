@@ -6,7 +6,7 @@ export const globalContext = createContext("");
 
 export default function ContextGlobal(props) {
     const [signedIn, setSignedIn] = useState(false);
-    const [userData, setUserData] = useState("");
+    const [userData, setUserData] = useState([]);
 
     const CheckSignedAsync = async () => {
         try {

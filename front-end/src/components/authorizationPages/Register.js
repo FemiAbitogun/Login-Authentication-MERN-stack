@@ -45,7 +45,7 @@ export default function Register() {
                 formData.append("region", region);
                 formData.append("department", department);
                 formData.append("phoneNumber", phoneNumber);
-                let returnedData = await registerNewUserAsync(formData);
+                let returnedData = registerNewUserAsync(formData);
                 if (returnedData) {
                     history.push('/login');
                 }

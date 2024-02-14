@@ -4,7 +4,7 @@ import { globalContext } from '../../context/ContextGlobal';
 import { PostLoginFormAsync } from '../../api/post'
 import { getLoggedInUserAsync } from '../../api/fetch'
 
-export default function Login() {
+export default function Login() { 
     const history = useHistory();
     const { CheckSignedAsync, setSignedIn, setUserData } = useContext(globalContext);
     const [error, setError] = useState('');
